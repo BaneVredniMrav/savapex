@@ -1,3 +1,11 @@
+<script setup>
+import Navbar from "@/components/Navbar.vue";
+import { RouterView } from "vue-router";
+import Footer from "@/components/Footer.vue";
+</script>
+
 <template>
-  <h1 class="text-2xl">Sava Pex</h1>
+  <Navbar />
+  <RouterView />
+  <Footer />
 </template>
