@@ -38,5 +38,8 @@ const handleClick = () => {
 <style scoped>
 .hero {
   background-image: url("@/assets/img/kran.jpg"); /* Replace with your own image URL */
+  background-size: cover; /* Ensures the image covers the entire section */
+  background-position: left; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 </style>

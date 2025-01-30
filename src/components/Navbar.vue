@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
 import { ref } from "vue";
-import logo from "@/assets/img/logo.png";
+import logo from "@/assets/img/crane-hook.png";
 
 const isActiveLink = (routePath) => {
   const route = useRoute();
@@ -75,7 +75,7 @@ const toggleMobileMenu = () => {
             <RouterLink
               to="/references"
               :class="[
-                isActiveLink('/references')
+                isActiveLink('/projects')
                   ? 'bg-slate-700'
                   : 'hover:bg-slate-600 hover:text-white',
                 'text-white',
@@ -83,7 +83,7 @@ const toggleMobileMenu = () => {
                 'py-2',
                 'rounded-md',
               ]"
-              >Reference</RouterLink
+              >Projekti</RouterLink
             >
             <RouterLink
               to="/contact-us"
@@ -105,6 +105,12 @@ const toggleMobileMenu = () => {
       <!-- Mobile Menu -->
       <div v-if="isMobileMenuOpen" class="md:hidden">
         <div class="flex flex-col items-center space-y-4 py-4">
+          <a
+            href="tel:+1234567890"
+            class="text-white px-8 py-2 hover:underline"
+          >
+            <i class="pi pi-phone font-semibold mr-2"></i> Pozovite nas
+          </a>
           <RouterLink
             to="/"
             :class="[
@@ -134,7 +140,7 @@ const toggleMobileMenu = () => {
           <RouterLink
             to="/references"
             :class="[
-              isActiveLink('/references')
+              isActiveLink('/projects')
                 ? 'bg-slate-700'
                 : 'hover:bg-slate-600 hover:text-white',
               'text-white',
@@ -142,14 +148,21 @@ const toggleMobileMenu = () => {
               'py-2',
               'rounded-md',
             ]"
-            >Reference</RouterLink
+            >Projekti</RouterLink
           >
-          <a
-            href="tel:+1234567890"
-            class="text-white px-8 py-2 hover:underline"
+          <RouterLink
+            to="/contact-us"
+            :class="[
+              isActiveLink('/contact-us')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >Kontakt</RouterLink
           >
-            <i class="pi pi-phone font-semibold"></i> Pozovite nas
-          </a>
         </div>
       </div>
     </div>

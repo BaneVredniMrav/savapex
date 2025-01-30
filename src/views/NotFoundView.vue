@@ -1,9 +1,11 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <section class="text-center flex flex-col justify-center items-center h-96">
+  <section
+    class="text-center flex flex-col justify-center items-center h-[50vh]"
+  >
     <i class="pi pi-exclamation-triangle text-yellow-500 text-7xl mb-5"></i>
     <h1 class="text-6xl font-bold mb-4">404 Not Found</h1>
     <p class="text-xl mb-5">This page does not exist</p>
