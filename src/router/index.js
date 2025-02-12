@@ -5,7 +5,7 @@ import ContactUsView from "@/views/ContactUsView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  mode: "hash",
   routes: [
     {
       path: "/",
