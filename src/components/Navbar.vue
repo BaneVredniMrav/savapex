@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
 import { ref } from "vue";
-import logo from "@/assets/img/crane-hook.png";
+import logo from "@/assets/img/footer-logo.png";
 
 const isActiveLink = (routePath) => {
   const route = useRoute();
@@ -23,10 +23,10 @@ const toggleMobileMenu = () => {
           class="flex flex-1 items-center justify-between md:items-stretch md:justify-start"
         >
           <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-10 w-auto ml-4" :src="logo" alt="Vue Jobs" />
-            <span class="hidden md:block text-white text-2xl font-bold ml-4"
+            <img class="h-16 w-auto ml-4" :src="logo" alt="Vue Jobs" />
+            <!-- <span class="hidden md:block text-white text-2xl font-bold ml-4"
               >Sava Pex</span
-            >
+            > -->
           </RouterLink>
         </div>
 
