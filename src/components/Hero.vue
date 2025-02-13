@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from "vue";
 
-const title = ref("Pouzdane usluge popravke kranova");
+const title = ref("Vaš partner za industrijske dizalice");
 const subtitle = ref(
-  "Održavamo vašu opremu za teški lifting u vrhunskom stanju, osiguravajući da vaše operacije teku glatko."
+  "Savapex je lider u proizvodnji, prodaji i ugradnji visokokvalitetnih industrijskih dizalica. Garantujemo sigurnost, pouzdanost i vrhunski kvalitet u svakom projektu."
 );
 const buttonText = ref("Zatražite ponudu");
 
