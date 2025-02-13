@@ -9,8 +9,15 @@ const isActiveLink = (routePath) => {
 };
 
 const isMobileMenuOpen = ref(false);
+
+// Otvaranje/zatvaranje mobilnog menija
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+// Zatvaranje mobilnog menija na klik opcije
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false;
 };
 </script>
 
@@ -24,9 +31,6 @@ const toggleMobileMenu = () => {
         >
           <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
             <img class="h-16 w-auto ml-4" :src="logo" alt="Vue Jobs" />
-            <!-- <span class="hidden md:block text-white text-2xl font-bold ml-4"
-              >Sava Pex</span
-            > -->
           </RouterLink>
         </div>
 
@@ -45,7 +49,7 @@ const toggleMobileMenu = () => {
 
         <!-- Desktop Menu -->
         <div class="hidden lg:flex lg:ml-auto">
-          <div class="flex space-x-2">
+          <div class="flex lg:space-x-2 xl:space-x-12">
             <RouterLink
               to="/"
               :class="[
@@ -138,83 +142,89 @@ const toggleMobileMenu = () => {
             <i class="pi pi-phone font-semibold mr-2"></i> Pozovite nas
           </a>
           <RouterLink
-              to="/"
-              :class="[
-                isActiveLink('/')
-                  ? 'bg-slate-700'
-                  : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
-              ]"
-              >Početna</RouterLink
-            >
-            <RouterLink
-              to="/about-us"
-              :class="[
-                isActiveLink('/about-us')
-                  ? 'bg-slate-700'
-                  : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
-              ]"
-              >O Nama</RouterLink
-            >
-            <RouterLink
-              to="/products"
-              :class="[
-                isActiveLink('/products')
-                  ? 'bg-slate-700'
-                  : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
-              ]"
-              >Proizvodi</RouterLink
-            >
-            <RouterLink
-              to="/services"
-              :class="[
-                isActiveLink('/services')
-                  ? 'bg-slate-700'
-                  : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
-              ]"
-              >Usluge</RouterLink
-            >
-            <RouterLink
-              to="/service-and-support"
-              :class="[
-                isActiveLink('/service-and-support')
-                  ? 'bg-slate-700'
-                  : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
-              ]"
-              >Servis i Podrška</RouterLink
-            >
-            <RouterLink
-              to="/contact-us"
-              :class="[
-                isActiveLink('/contact-us')
-                  ? 'bg-slate-700'
-                  : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
-              ]"
-              >Kontakt</RouterLink
-            >
+            to="/"
+            @click="closeMobileMenu"
+            :class="[
+              isActiveLink('/')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >Početna</RouterLink
+          >
+          <RouterLink
+            to="/about-us"
+            @click="closeMobileMenu"
+            :class="[
+              isActiveLink('/about-us')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >O Nama</RouterLink
+          >
+          <RouterLink
+            to="/products"
+            @click="closeMobileMenu"
+            :class="[
+              isActiveLink('/products')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >Proizvodi</RouterLink
+          >
+          <RouterLink
+            to="/services"
+            @click="closeMobileMenu"
+            :class="[
+              isActiveLink('/services')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >Usluge</RouterLink
+          >
+          <RouterLink
+            to="/service-and-support"
+            @click="closeMobileMenu"
+            :class="[
+              isActiveLink('/service-and-support')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >Servis i Podrška</RouterLink
+          >
+          <RouterLink
+            to="/contact-us"
+            @click="closeMobileMenu"
+            :class="[
+              isActiveLink('/contact-us')
+                ? 'bg-slate-700'
+                : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'px-8',
+              'py-2',
+              'rounded-md',
+            ]"
+            >Kontakt</RouterLink
+          >
         </div>
       </div>
     </div>

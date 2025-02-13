@@ -7,6 +7,18 @@ const isTextVisible = ref(false); // Praćenje vidljivosti <p> elementa
 const titleRef = ref(null); // Referenca na <h1> element
 const textRef = ref(null); // Referenca na <p> element
 
+// Primanje title i subtitle kao props
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  subtitle: {
+    type: String,
+    required: true,
+  },
+});
+
 // Intersection Observer callback funkcija
 const handleIntersection = (entries, observerTarget) => {
   const entry = entries[0];
@@ -57,7 +69,7 @@ onUnmounted(() => {
         :class="{ 'text-focus-in': isTitleVisible }"
         ref="titleRef"
       >
-        O firmi Savapex
+        {{ props.title }}
       </h1>
 
       <!-- Tekst sekcije -->
@@ -66,15 +78,11 @@ onUnmounted(() => {
         :class="{ 'text-focus-in': isTextVisible }"
         ref="textRef"
       >
-        Firma Savapex iz Kovačevca bavi se proizvodnjom, prodajom i ugradnjom industrijskih dizalica,
-        sa specijalizacijom u rešavanju složenih zahteva industrijskih postrojenja. Naša misija je da pružimo
-        visokokvalitetne proizvode koji omogućavaju efikasno i sigurno dizanje tereta u različitim industrijama.
-        Sa dugogodišnjim iskustvom i stručnim timom, Savapex je sinonim za pouzdanost i profesionalizam.
+        {{ props.subtitle }}
       </p>
     </div>
   </section>
 </template>
-
 
 <style scoped>
 /* Animacija za text-focus-in */
