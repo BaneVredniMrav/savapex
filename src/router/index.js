@@ -18,9 +18,18 @@ const router = createRouter({
       component: AboutUsView,
     },
     {
-      path: "/projects",
-      name: "projects",
+      path: "/products",
+      name: "products",
       component: HomeView,
+    },
+    {
+      path: "/services",
+      name: "services",
+      component: ContactUsView,
+    },    {
+      path: "/service-and-support",
+      name: "service-and-support",
+      component: ContactUsView,
     },
     {
       path: "/contact-us",

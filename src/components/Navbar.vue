@@ -31,7 +31,7 @@ const toggleMobileMenu = () => {
         </div>
 
         <!-- Mobile Hamburger Button -->
-        <div class="md:hidden flex items-center">
+        <div class="lg:hidden flex items-center">
           <button
             @click="toggleMobileMenu"
             class="text-white hover:bg-slate-600 p-2 rounded-md"
@@ -44,8 +44,8 @@ const toggleMobileMenu = () => {
         </div>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex md:ml-auto">
-          <div class="flex space-x-8">
+        <div class="hidden lg:flex lg:ml-auto">
+          <div class="flex space-x-2">
             <RouterLink
               to="/"
               :class="[
@@ -73,9 +73,9 @@ const toggleMobileMenu = () => {
               >O Nama</RouterLink
             >
             <RouterLink
-              to="/references"
+              to="/products"
               :class="[
-                isActiveLink('/projects')
+                isActiveLink('/products')
                   ? 'bg-slate-700'
                   : 'hover:bg-slate-600 hover:text-white',
                 'text-white',
@@ -83,7 +83,33 @@ const toggleMobileMenu = () => {
                 'py-2',
                 'rounded-md',
               ]"
-              >Projekti</RouterLink
+              >Proizvodi</RouterLink
+            >
+            <RouterLink
+              to="/services"
+              :class="[
+                isActiveLink('/services')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Usluge</RouterLink
+            >
+            <RouterLink
+              to="/service-and-support"
+              :class="[
+                isActiveLink('/service-and-support')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Servis i Podrška</RouterLink
             >
             <RouterLink
               to="/contact-us"
@@ -103,7 +129,7 @@ const toggleMobileMenu = () => {
       </div>
 
       <!-- Mobile Menu -->
-      <div v-if="isMobileMenuOpen" class="md:hidden">
+      <div v-if="isMobileMenuOpen" class="lg:hidden">
         <div class="flex flex-col items-center space-y-4 py-4">
           <a
             href="tel:+1234567890"
@@ -112,57 +138,83 @@ const toggleMobileMenu = () => {
             <i class="pi pi-phone font-semibold mr-2"></i> Pozovite nas
           </a>
           <RouterLink
-            to="/"
-            :class="[
-              isActiveLink('/')
-                ? 'bg-slate-700'
-                : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'px-8',
-              'py-2',
-              'rounded-md',
-            ]"
-            >Početna</RouterLink
-          >
-          <RouterLink
-            to="/about-us"
-            :class="[
-              isActiveLink('/about-us')
-                ? 'bg-slate-700'
-                : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'px-8',
-              'py-2',
-              'rounded-md',
-            ]"
-            >O Nama</RouterLink
-          >
-          <RouterLink
-            to="/references"
-            :class="[
-              isActiveLink('/projects')
-                ? 'bg-slate-700'
-                : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'px-8',
-              'py-2',
-              'rounded-md',
-            ]"
-            >Projekti</RouterLink
-          >
-          <RouterLink
-            to="/contact-us"
-            :class="[
-              isActiveLink('/contact-us')
-                ? 'bg-slate-700'
-                : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'px-8',
-              'py-2',
-              'rounded-md',
-            ]"
-            >Kontakt</RouterLink
-          >
+              to="/"
+              :class="[
+                isActiveLink('/')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Početna</RouterLink
+            >
+            <RouterLink
+              to="/about-us"
+              :class="[
+                isActiveLink('/about-us')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >O Nama</RouterLink
+            >
+            <RouterLink
+              to="/products"
+              :class="[
+                isActiveLink('/products')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Proizvodi</RouterLink
+            >
+            <RouterLink
+              to="/services"
+              :class="[
+                isActiveLink('/services')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Usluge</RouterLink
+            >
+            <RouterLink
+              to="/service-and-support"
+              :class="[
+                isActiveLink('/service-and-support')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Servis i Podrška</RouterLink
+            >
+            <RouterLink
+              to="/contact-us"
+              :class="[
+                isActiveLink('/contact-us')
+                  ? 'bg-slate-700'
+                  : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+              >Kontakt</RouterLink
+            >
         </div>
       </div>
     </div>
