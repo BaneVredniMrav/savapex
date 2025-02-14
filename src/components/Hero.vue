@@ -26,7 +26,7 @@ onMounted(() => {
 
 <template>
   <section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative">
-    <div class="max-w-4xl mx-auto px-4 py-12 text-center relative z-10">
+    <div class="max-w-4xl px-4 py-12 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
         title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"
@@ -52,13 +52,10 @@ onMounted(() => {
 <style scoped>
 .hero {
   background-image: url("@/assets/img/kran.jpg"); /* Replace with your own image URL */
-  background-size: cover; /* Ensures the image covers the entire section */
-  background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 91.5vh; /* Keeps the hero section height */
 }
 
 .hero .max-w-4xl {

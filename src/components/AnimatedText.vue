@@ -89,7 +89,7 @@ watch([titleRef, textRef], () => {
         <!-- Naslov sa animacijom -->
         <h1
             ref="titleRef"
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold mt-32 p-6"
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold  p-6"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTitleVisible }"
             aria-hidden="true"
