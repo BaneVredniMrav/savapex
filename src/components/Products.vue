@@ -1,154 +1,187 @@
-<script setup>
-import { ref, computed } from "vue";
-import kran1 from "@/assets/img/kran1.jpg";
-import kran2 from "@/assets/img/kran2.jpg";
-import kran3 from "@/assets/img/kran3.jpg";
-import kran4 from "@/assets/img/kran4.jpg";
-import kran5 from "@/assets/img/kran5.jpg";
-
-// Sample data for categories and products
-const categories = [
-  {
-    id: 1,
-    name: "Kablovske dizalice",
-    description: "Pouzdane i snažne dizalice za različite industrijske potrebe.",
-    image: kran1,
-  },
-  {
-    id: 2,
-    name: "Lančane dizalice",
-    description: "Idealne za podizanje lakših i srednje teških tereta.",
-    image: kran2,
-  },
-  {
-    id: 3,
-    name: "Mobilne dizalice",
-    description: "Fleksibilna i prenosiva rešenja za terenske radove.",
-    image: kran3,
-  },
-  {
-    id: 4,
-    name: "Dizalice za specijalizovane namene",
-    description: "Dizajnirane za specifične industrijske zahteve.",
-    image: kran4,
-  },
-  {
-    id: 5,
-    name: "Dizalice za industrijske hale i postrojenja",
-    description: "Savršeno rešenje za rad u zatvorenim industrijskim objektima.",
-    image: kran5,
-  },
-];
-
-// Filter options
-const filters = ref({
-  capacity: null,
-  type: null,
-});
-
-// Product data (example for demo purposes)
-const products = [
-  {
-    id: 1,
-    name: "Dizalica A",
-    category: 1,
-    capacity: "do 5t",
-    type: "Električna",
-    image: kran1,
-    description: "Pouzdana kablovska dizalica za manja opterećenja.",
-  },
-  {
-    id: 2,
-    name: "Dizalica B",
-    category: 2,
-    capacity: "5-10t",
-    type: "Hidraulična",
-    image: kran2,
-    description: "Srednje kapacitetna lančana dizalica.",
-  },
-  {
-    id: 3,
-    name: "Dizalica C",
-    category: 3,
-    capacity: "preko 10t",
-    type: "Električna",
-    image: kran3,
-    description: "Mobilna dizalica velikog kapaciteta.",
-  },
-];
-
-// Filtered products
-const filteredProducts = computed(() => {
-  return products.filter((product) => {
-    const matchesCapacity =
-      !filters.value.capacity || product.capacity === filters.value.capacity;
-    const matchesType =
-      !filters.value.type || product.type === filters.value.type;
-    return matchesCapacity && matchesType;
-  });
-});
-
-// Selected category
-const selectedCategory = ref(null);
-
-// Methods
-const selectCategory = (id) => {
-  selectedCategory.value = id;
-};
-
-const resetFilters = () => {
-  filters.value = { capacity: null, type: null };
-};
-</script>
-
 <template>
-  <div class="container mx-auto p-4">
-    <!-- Category Selector -->
-    <div v-if="!selectedCategory" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div
-        v-for="category in categories"
-        :key="category.id"
-        @click="selectCategory(category.id)"
-        class="cursor-pointer p-4 rounded-lg shadow-md bg-white hover:shadow-lg transition-all"
-      >
-        <img :src="category.image" :alt="category.name" class="rounded-lg mb-4">
-        <h2 class="text-xl font-semibold">{{ category.name }}</h2>
-        <p class="text-gray-600">{{ category.description }}</p>
+  <div class="flex flex-col gap-6 max-w-full mx-auto text-center mt-16 mb-16">
+    <!-- Glavne kartice -->
+    <div
+      v-for="(item, index) in items"
+      :key="index"
+      :class="[
+        'border rounded-xl p-6 bg-white shadow-lg mx-auto min-w-[80vw] hover:shadow-2xl transition-shadow cursor-pointer',
+        openIndex === index ? 'transform scale-105 swing-in-top-fwd' : '',
+        'max-w-full overflow-hidden'
+      ]"
+      @click="toggle(index)"
+    >
+      <div class="flex items-center justify-between">
+        <div class="text-left">
+          <h3 class="text-2xl font-semibold text-gray-800">{{ item.name }}</h3>
+          <p class="text-sm text-gray-600 mt-2">{{ item.subText }}</p>
+        </div>
+        
+        <!-- Strelica koja pokazuje otvaranje koristeći PrimeIcons -->
+        <i
+          :class="{
+            'pi pi-chevron-up': openIndex === index,
+            'pi pi-chevron-down': openIndex !== index,
+            'text-blue-500': true,
+            'transition-transform': true
+          }"
+        ></i>
       </div>
-    </div>
 
-    <!-- Products -->
-    <div v-else>
-      <button 
-      @click="selectedCategory = null" 
-      class="flex items-center gap-2 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-gray-700 py-2 px-4 rounded-lg shadow-md hover:from-gray-200 hover:to-gray-400 hover:text-gray-800 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M10 4a1 1 0 01.894.553l3 6a1 1 0 01-.026.927l-3 6A1 1 0 019 17H7a1 1 0 01-.894-1.447L8.618 10 6.106 5.553A1 1 0 017 4h2z" clip-rule="evenodd" />
-      </svg>
-      Povratak na kategorije
-    </button>
-
-      <div class="flex flex-wrap gap-4 mb-4">
-        <!-- Filters -->
-
-
-
-
-        <!-- Product List -->
-        <div class="w-full sm:w-2/3 lg:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div
-            v-for="product in filteredProducts"
-            :key="product.id"
-            class="p-4 rounded-lg shadow-md bg-white hover:shadow-lg transition-all"
-          >
-            <img :src="product.image" :alt="product.name" class="rounded-lg mb-4">
-            <h2 class="text-lg font-semibold">{{ product.name }}</h2>
-            <p class="text-gray-600 text-sm">{{ product.description }}</p>
-            <p class="text-gray-800 font-semibold mt-2">Kapacitet: {{ product.capacity }}</p>
-            <p class="text-gray-800 font-semibold">Vrsta: {{ product.type }}</p>
+      <!-- Sub-kartice sa pozadinskom slikom -->
+      <div v-show="openIndex === index" class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          v-for="(subItem, subIndex) in item.subItems"
+          :key="subIndex"
+          class="border rounded-lg p-6 bg-gray-50 hover:bg-gray-100 transition-colors transform hover:scale-105 hover:shadow-md flex flex-col h-full"
+          :style="{ backgroundImage: 'url(' + subItem.image + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+          @click="handleSubItemClick(subItem.link)" 
+        >
+          <div class="flex flex-col justify-between h-full bg-black bg-opacity-50 p-6">
+            <div>
+              <h4 class="text-xl font-medium text-white">{{ subItem.title }}</h4>
+              <p class="text-sm text-white mt-1">{{ subItem.description }}</p>
+              <a
+                :href="subItem.link"
+                target="_blank"
+                class="text-blue-500 hover:underline text-sm mt-2 inline-block"
+              >
+                Detaljnije
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+import kran1 from "@/assets/img/kran1.jpg";
+import kran2 from "@/assets/img/kran2.jpg";
+import kran3 from "@/assets/img/kran3.jpg";
+
+// Podaci za glavne i sub-kartice
+const items = [
+  {
+    name: "Kablovske dizalice",
+    subText: "Opis za karticu 1",
+    link: "https://example.com/1",
+    subItems: [
+      { 
+        title: "Sub 1.1", 
+        description: "Opis Sub 1.1", 
+        link: "https://example.com/sub1", 
+        image: kran1
+      },
+      { 
+        title: "Sub 1.2", 
+        description: "Opis Sub 1.2", 
+        link: "https://example.com/sub2", 
+        image: kran2
+      },
+    ],
+  },
+  {
+    name: "Lančane dizalice",
+    subText: "Opis za karticu 2",
+    link: "https://example.com/2",
+    subItems: [
+      { 
+        title: "Sub 2.1", 
+        description: "Opis Sub 2.1", 
+        link: "https://example.com/sub3", 
+        image: kran1
+      },
+      { 
+        title: "Sub 2.2", 
+        description: "Opis Sub 2.2", 
+        link: "https://example.com/sub4", 
+        image: kran3
+      },
+    ],
+  },
+  {
+    name: "Mobilne dizalice",
+    subText: "Opis za karticu 3",
+    link: "https://example.com/3",
+    subItems: [
+      { 
+        title: "Sub 3.1", 
+        description: "Opis Sub 3.1", 
+        link: "https://example.com/sub5", 
+        image: kran2
+      },
+    ],
+  },
+  {
+    name: "Dizalice za specijalizovane namene",
+    subText: "Opis za karticu 4",
+    link: "https://example.com/2",
+    subItems: [
+      { 
+        title: "Sub 4.1", 
+        description: "Opis Sub 4.1", 
+        link: "https://example.com/sub3", 
+        image: kran1
+      },
+      { 
+        title: "Sub 4.2", 
+        description: "Opis Sub 4.2", 
+        link: "https://example.com/sub4", 
+        image: kran3
+      },
+    ],
+  },
+  {
+    name: "Dizalice za industrijske hale i postrojenja",
+    subText: "Opis za karticu 5",
+    link: "https://example.com/2",
+    subItems: [
+      { 
+        title: "Sub 5.1", 
+        description: "Opis Sub 5.1", 
+        link: "https://example.com/sub3", 
+        image: kran1
+      },
+      { 
+        title: "Sub 5.2", 
+        description: "Opis Sub 5.2", 
+        link: "https://example.com/sub4", 
+        image: kran3
+      },
+    ],
+  },
+];
+
+// Praćenje otvorenih elemenata
+const openIndex = ref(null);
+
+// Funkcija za otvaranje/zatvaranje kartica
+const toggle = (index) => {
+  openIndex.value = openIndex.value === index ? null : index;
+};
+
+// Funkcija za upravljanje klikom na sub karticu
+const handleSubItemClick = (link) => {
+  window.open(link, "_blank"); // Otvara link u novom tabu
+};
+</script>
+
+<style scoped>
+@keyframes swing-in-top-fwd {
+  0% {
+    transform: rotateX(-60deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+.swing-in-top-fwd {
+  animation: swing-in-top-fwd 0.5s ease-out forwards;
+}
+</style>
