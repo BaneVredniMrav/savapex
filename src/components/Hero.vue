@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative">
+  <section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative sm:mt8 md:lg:items-center">
     <div class="max-w-4xl px-4 py-12 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
@@ -55,7 +55,6 @@ onMounted(() => {
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .hero .max-w-4xl {
