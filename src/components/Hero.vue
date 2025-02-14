@@ -64,10 +64,6 @@ onMounted(() => {
   padding: 0 16px; /* Adds some padding on smaller screens */
 }
 
-.hero button {
-  margin-top: 20px; /* Adds space between the text and the button */
-}
-
 /* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
   .hero button {
