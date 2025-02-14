@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative items-center">
+  <section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative sm:mt-16 md:ld:items-center">
     <div class="max-w-4xl px-4 py-12 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
