@@ -38,7 +38,7 @@ onMounted(() => {
         @click="handleClick"
         class="bg-slate-800 text-xl text-white px-24 py-4 rounded-3xl hover:bg-slate-600 transform transition-all duration-300 ease-in-out"
         :class="{ 'shake-bottom': isButtonClicked }"
-        aria-label="Contact us"
+        aria-label="Kontaktirajte nas"
       >
         Contact us
       </button>

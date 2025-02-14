@@ -100,7 +100,7 @@ watch([titleRef, textRef], () => {
         <!-- Podnaslov sa animacijom -->
         <p
             ref="textRef"
-            class="text-xl md:text-2xl lg:text-4xl sm:mt-4 md:lg:mt-8 mb-16 p-4"
+            class="text-xl md:text-2xl lg:text-4xl sm:mt-4 md:lg:mt-8 mb-8 p-4"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTextVisible }"
             aria-hidden="true"
