@@ -36,7 +36,7 @@ onMounted(() => {
       <!-- Button with click animation -->
       <button
         @click="handleClick"
-        class="bg-slate-800 text-xl text-white px-8 py-4 rounded-3xl hover:bg-slate-600 transform transition-all duration-300 ease-in-out"
+        class="bg-slate-800 text-xl text-white px-24 py-4 rounded-3xl hover:bg-slate-600 transform transition-all duration-300 ease-in-out"
         :class="{ 'shake-bottom': isButtonClicked }"
         aria-label="Contact us"
       >
@@ -55,9 +55,30 @@ onMounted(() => {
   background-size: cover; /* Ensures the image covers the entire section */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91.5vh; /* Keeps the hero section height */
 }
 
-/* Animation for text-focus-in */
+.hero .max-w-4xl {
+  width: 100%;
+  max-width: 800px; /* Limiting the width of content */
+  padding: 0 16px; /* Adds some padding on smaller screens */
+}
+
+.hero button {
+  margin-top: 20px; /* Adds space between the text and the button */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .hero button {
+    width: 100%; /* Make button full-width on mobile */
+    padding: 16px; /* Add padding for better touch target */
+  }
+}
+
 .text-focus-in {
   animation: text-focus-in 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
