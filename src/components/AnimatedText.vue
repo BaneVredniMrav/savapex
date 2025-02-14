@@ -85,7 +85,7 @@ watch([titleRef, textRef], () => {
 </script>
 
 <template>
-    <div class="max-w-4xl mx-auto px-4 py-12 text-center z-10">
+    <div class="max-w-6xl mx-auto text-center z-10">
         <!-- Naslov sa animacijom -->
         <h1
             ref="titleRef"

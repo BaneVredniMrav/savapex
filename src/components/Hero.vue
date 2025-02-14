@@ -29,8 +29,8 @@ onMounted(() => {
     <div class="max-w-4xl mx-auto px-4 py-12 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
-        title="Your partner for industrial cranes"
-        subtitle="Savapex is a leader in the production, sale, and installation of high-quality industrial cranes. We guarantee safety, reliability, and top quality in every project."
+        title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"
+        subtitle="Savapex donosi pouzdana i inovativna rešenja – od proizvodnje do ugradnje, sa fokusom na dugoročnu pouzdanost i sigurnost vaših operacija"
         text-color="white"
       /> 
       <!-- Button with click animation -->

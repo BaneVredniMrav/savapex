@@ -26,10 +26,13 @@
               <RouterLink to="/about-us" class="hover:underline">O nama</RouterLink>
             </li>
             <li>
+              <RouterLink to="/products" class="hover:underline">Proizvodi</RouterLink>
+            </li>
+            <li>
               <RouterLink to="/services" class="hover:underline">Usluge</RouterLink>
             </li>
             <li>
-              <RouterLink to="/products" class="hover:underline">Proizvodi</RouterLink>
+              <RouterLink to="/service-and-support" class="hover:underline">Servis i Podrška</RouterLink>
             </li>
             <li>
               <RouterLink to="/contact-us" class="hover:underline">Kontakt</RouterLink>
