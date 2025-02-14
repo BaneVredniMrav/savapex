@@ -31,7 +31,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 py-16 px-6 sm:px-12 lg:px-24 min-h-screen flex flex-col justify-center">
+  <section class="bg-slate-600 py-16 px-6 sm:px-12 lg:px-24 min-h-screen flex flex-col justify-center">
     <!-- Naslov i opis -->
     <div class="text-center text-white max-w-4xl mx-auto mb-12 sm:mb-16">
       <h2 class="text-4xl sm:text-5xl font-bold mb-6 leading-tight animate-on-scroll slide-in-left">
@@ -46,7 +46,7 @@ onMounted(() => {
 
     <!-- Sekcija sa gridom -->
     <div class="grid grid-cols-1 gap-8 sm:gap-12">
-      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50">
+      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
         <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Inovacija</h3>
         <p class="text-base sm:text-lg text-gray-600">
           Posvećeni smo stalnom inoviranju naših rešenja kako bismo našim klijentima
@@ -54,7 +54,7 @@ onMounted(() => {
         </p>
       </div>
 
-      <div class="animate-on-scroll slide-in-right bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50">
+      <div class="animate-on-scroll slide-in-right bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
         <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Kvalitet</h3>
         <p class="text-base sm:text-lg text-gray-600">
           Uveravamo se da svaki proizvod i usluga koji pružimo zadovoljavaju najviše
@@ -62,7 +62,7 @@ onMounted(() => {
         </p>
       </div>
 
-      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50">
+      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
         <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Inovacija</h3>
         <p class="text-base sm:text-lg text-gray-600">
           Posvećeni smo stalnom inoviranju naših rešenja kako bismo našim klijentima
