@@ -74,6 +74,31 @@ onMounted(() => {
 </template>
 
 <style scoped>
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Osigurava da padding i border ne utiču na širinu elementa */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Sprečava horizontalno pomeranje */
+  width: 100%; /* Osigurava da širina uvek bude 100% */
+}
+
+section, .animate-on-scroll {
+  max-width: 100%; /* Obezbeđuje da širina sekcija nikada ne bude veća od 100% */
+  overflow: hidden; /* Sprečava izlazak sadržaja sa strane */
+}
+
+body {
+  width: 100vw; /* Osigurava da body zauzima 100% širine ekrana */
+}
+
+.grid {
+  max-width: 100%;
+}
 /* Svi elementi su sakriveni pri početnom renderovanju */
 .animate-on-scroll {
   opacity: 0;
@@ -89,12 +114,12 @@ onMounted(() => {
 
 /* Animacija za slide-in-left za web view */
 .slide-in-left {
-  transform: translateX(-500px); /* Pomeranje ulevo */
+  transform: translateX(calc(-50vw)); /* Pomeranje ulevo na 50% širine ekrana */
 }
 
 /* Animacija za slide-in-right za web view */
 .slide-in-right {
-  transform: translateX(500px); /* Pomeranje udesno */
+  transform: translateX(calc(50vw)); /* Pomeranje udesno na 50% širine ekrana */
 }
 
 /* Kada su elementi vidljivi, resetuj poziciju */
@@ -103,24 +128,4 @@ onMounted(() => {
   transform: translateX(0) translateY(0);
 }
 
-@media (max-width: 1024px) {
-  .slide-in-left {
-    transform: translateX(-250px); /* Pomeranje ulevo */
-  }
-
-  .slide-in-right {
-    transform: translateX(250px); /* Pomeranje udesno */
-  }
-}
-
-/* Za mobile view, koristi manji pomak */
-@media (max-width: 768px) {
-  .slide-in-left {
-    transform: translateX(-100px); /* Pomeranje ulevo */
-  }
-
-  .slide-in-right {
-    transform: translateX(100px); /* Pomeranje udesno */
-  }
-}
 </style>
