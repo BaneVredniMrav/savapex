@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-<section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative justify-center pt-8 md:items-center">
+<section class="hero h-[91.5vh] bg-cover bg-center bg-fixed relative justify-center md:items-center">
   <div class="max-w-4xl px-4 py-12 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
@@ -51,7 +51,7 @@ onMounted(() => {
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/img/kran.jpg"); /* Replace with your own image URL */
+  background-image: url("@/assets/img/kran4.jpg"); /* Replace with your own image URL */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: flex;
   justify-content: center;

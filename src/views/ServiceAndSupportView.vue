@@ -5,8 +5,7 @@ import Products from '@/components/Products.vue';
 
 <template>
     <AnimatedText
-      title="Naša ponuda dizalica"
-      subtitle="Pronađite dizalicu koja odgovara vašim potrebama" 
+        title="Informacije o redovnim servisima, održavanju i popravci dizalica"
+        subtitle="Osiguranje da vaša oprema uvek bude u optimalnom stanju"
     />
-  <Products />
 </template>

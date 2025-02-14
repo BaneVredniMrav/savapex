@@ -1,10 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import kran1 from "@/assets/img/kran1.jpg";
-import kran2 from "@/assets/img/kran2.jpg";
-import kran3 from "@/assets/img/kran3.jpg";
-import kran4 from "@/assets/img/kran4.jpg";
-import kran5 from "@/assets/img/kran5.jpg";
+import logo from "@/assets/img/footer-logo.png";
 
 // Sample data for categories and products
 const categories = [
@@ -12,31 +8,31 @@ const categories = [
     id: 1,
     name: "Kablovske dizalice",
     description: "Pouzdane i snažne dizalice za različite industrijske potrebe.",
-    image: kran1,
+    image: "@/assets/images/kablovske-dizalice.jpg",
   },
   {
     id: 2,
     name: "Lančane dizalice",
     description: "Idealne za podizanje lakših i srednje teških tereta.",
-    image: kran2,
+    image: "@/assets/images/lancane-dizalice.jpg",
   },
   {
     id: 3,
     name: "Mobilne dizalice",
     description: "Fleksibilna i prenosiva rešenja za terenske radove.",
-    image: kran3,
+    image: "@/assets/images/mobilne-dizalice.jpg",
   },
   {
     id: 4,
     name: "Dizalice za specijalizovane namene",
     description: "Dizajnirane za specifične industrijske zahteve.",
-    image: kran4,
+    image: "@/assets/images/specijalizovane-dizalice.jpg",
   },
   {
     id: 5,
     name: "Dizalice za industrijske hale i postrojenja",
     description: "Savršeno rešenje za rad u zatvorenim industrijskim objektima.",
-    image: kran5,
+    image: "@/assets/images/industrijske-dizalice.jpg",
   },
 ];
 
@@ -54,7 +50,7 @@ const products = [
     category: 1,
     capacity: "do 5t",
     type: "Električna",
-    image: kran1,
+    image: "@/assets/images/dizalica-a.jpg",
     description: "Pouzdana kablovska dizalica za manja opterećenja.",
   },
   {
@@ -63,7 +59,7 @@ const products = [
     category: 2,
     capacity: "5-10t",
     type: "Hidraulična",
-    image: kran2,
+    image: "@/assets/images/dizalica-b.jpg",
     description: "Srednje kapacitetna lančana dizalica.",
   },
   {
@@ -72,7 +68,7 @@ const products = [
     category: 3,
     capacity: "preko 10t",
     type: "Električna",
-    image: kran3,
+    image: "@/assets/images/dizalica-c.jpg",
     description: "Mobilna dizalica velikog kapaciteta.",
   },
 ];
@@ -119,20 +115,35 @@ const resetFilters = () => {
 
     <!-- Products -->
     <div v-else>
-      <button 
-      @click="selectedCategory = null" 
-      class="flex items-center gap-2 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-gray-700 py-2 px-4 rounded-lg shadow-md hover:from-gray-200 hover:to-gray-400 hover:text-gray-800 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M10 4a1 1 0 01.894.553l3 6a1 1 0 01-.026.927l-3 6A1 1 0 019 17H7a1 1 0 01-.894-1.447L8.618 10 6.106 5.553A1 1 0 017 4h2z" clip-rule="evenodd" />
-      </svg>
-      Povratak na kategorije
-    </button>
+      <button @click="selectedCategory = null" class="mb-4 text-blue-500">
+        &larr; Povratak na kategorije
+      </button>
 
       <div class="flex flex-wrap gap-4 mb-4">
         <!-- Filters -->
-
-
-
+        <div class="w-full sm:w-1/3 lg:w-1/4 bg-white p-4 rounded-lg shadow-md">
+          <h3 class="font-semibold mb-2">Filteri</h3>
+          <label class="block mb-2">
+            Kapacitet:
+            <select v-model="filters.capacity" class="w-full mt-1 p-2 border rounded-lg">
+              <option value="" selected>Sve</option>
+              <option value="do 5t">do 5t</option>
+              <option value="5-10t">5-10t</option>
+              <option value="preko 10t">preko 10t</option>
+            </select>
+          </label>
+          <label class="block mb-2">
+            Vrsta:
+            <select v-model="filters.type" class="w-full mt-1 p-2 border rounded-lg">
+              <option value="" selected>Sve</option>
+              <option value="Električna">Električna</option>
+              <option value="Hidraulična">Hidraulična</option>
+            </select>
+          </label>
+          <button @click="resetFilters" class="mt-2 w-full bg-blue-500 text-white py-2 rounded-lg">
+            Resetuj filtere
+          </button>
+        </div>
 
         <!-- Product List -->
         <div class="w-full sm:w-2/3 lg:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
