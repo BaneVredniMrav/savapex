@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from "vue";
+import AnimatedText from "@/components/AnimatedText.vue";
 const latitude = 20.953905899855933;
 const longitude = -86.8361211038529;
 const mapLink = computed(
@@ -9,15 +10,11 @@ const mapLink = computed(
 </script>
 
 <template>
+  <AnimatedText 
+  title="Kontaktirajte nas"
+  subtitle="Tu smo da odgovorimo na sva vaša pitanja"
+  /> 
   <section class="bg-gray-100 py-12 px-6 md:px-12 lg:px-24">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-6">Kontaktirajte Nas</h2>
-      <p class="text-gray-600 text-lg mb-8">
-        Imate pitanje ili želite da sarađujete sa nama? Kontaktirajte nas putem
-        informacija ispod.
-      </p>
-    </div>
-
     <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
       <div class="mb-6">
         <h3 class="text-2xl font-semibold text-gray-700">Podaci o firmi</h3>

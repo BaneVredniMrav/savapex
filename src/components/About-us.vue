@@ -49,7 +49,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="bg-gray-100 py-16 h-[51.5vh]">
+  <section class="bg-slate-600 py-16 h-[91.5vh]">
     <div class="container mx-auto px-4 text-center">
       <!-- Naslov sekcije -->
       <h1
