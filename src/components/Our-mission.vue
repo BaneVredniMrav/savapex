@@ -46,7 +46,7 @@ onMounted(() => {
 
     <!-- Sekcija sa gridom -->
     <div class="grid grid-cols-1 gap-8 sm:gap-12">
-      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
+      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-slate-100/50">
         <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Inovacija</h3>
         <p class="text-base sm:text-lg text-gray-600">
           Posvećeni smo stalnom inoviranju naših rešenja kako bismo našim klijentima
@@ -54,7 +54,7 @@ onMounted(() => {
         </p>
       </div>
 
-      <div class="animate-on-scroll slide-in-right bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
+      <div class="animate-on-scroll slide-in-right bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-slate-100/50">
         <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Kvalitet</h3>
         <p class="text-base sm:text-lg text-gray-600">
           Uveravamo se da svaki proizvod i usluga koji pružimo zadovoljavaju najviše
@@ -62,7 +62,7 @@ onMounted(() => {
         </p>
       </div>
 
-      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50">
+      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-slate-100/50">
         <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Inovacija</h3>
         <p class="text-base sm:text-lg text-gray-600">
           Posvećeni smo stalnom inoviranju naših rešenja kako bismo našim klijentima

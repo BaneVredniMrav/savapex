@@ -3,9 +3,9 @@ import { ref, onMounted, onUnmounted, watch } from "vue";
 
 // Reaktivne promenljive
 const isTitleVisible = ref(false); // Praćenje vidljivosti <h1> elementa
-const isTextVisible = ref(false); // Praćenje vidljivosti <p> elementa
+const isTextVisible = ref(false); // Praćenje vidljivosti <h2> elementa
 const titleRef = ref(null); // Referenca na <h1> element
-const textRef = ref(null); // Referenca na <p> element
+const textRef = ref(null); // Referenca na <h2> element
 
 // Primanje title, subtitle i textColor kao props
 const props = defineProps({
@@ -48,7 +48,7 @@ const initObservers = () => {
         titleObserver.observe(titleRef.value);
     }
 
-    // Observer za <p>
+    // Observer za <h2>
     textObserver = new IntersectionObserver(
         (entries) => handleIntersection(entries, "text"),
         {
@@ -89,7 +89,7 @@ watch([titleRef, textRef], () => {
         <!-- Naslov sa animacijom -->
         <h1
             ref="titleRef"
-            class="text-4xl md:text-5xl lg:text-6xl font-bold p-6"
+            class="text-3xl md:text-4xl lg:text-5xl font-bold p-6"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTitleVisible }"
             aria-hidden="true"
@@ -98,22 +98,23 @@ watch([titleRef, textRef], () => {
         </h1>
 
         <!-- Podnaslov sa animacijom -->
-        <p
+        <h2
             ref="textRef"
-            class="text-xl md:text-2xl lg:text-4xl sm:mt-4 md:lg:mt-8 mb-8 p-4"
+            class="text-xl md:text-2xl lg:text-3xl sm:mt-4 md:lg:mt-8 mb-8 p-4"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTextVisible }"
             aria-hidden="true"
         >
             {{ props.subtitle }}
-        </p>
+        </h2>
     </div>
 </template>
 
 <style scoped>
 /* Animacija za text-focus-in */
 .text-focus-in {
-    animation: text-focus-in 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both}
+    animation: text-focus-in 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
 @keyframes text-focus-in {
     0% {

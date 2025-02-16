@@ -137,7 +137,7 @@ const handleSubItemClick = (link) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-8 max-w-full mx-auto text-center pt-16 pb-16">
+  <div class="flex flex-col gap-8 max-w-full mx-auto text-center pb-16">
     <!-- Glavne kartice -->
     <AnimatedText
       title="Naša ponuda dizalica"
