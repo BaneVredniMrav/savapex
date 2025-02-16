@@ -13,8 +13,8 @@ const items = [
     link: "https://example.com/1",
     subItems: [
       { 
-        title: "Sub 1.1", 
-        description: "Opis Sub 1.1", 
+        title: "Dizalica za kablovske dizalice", 
+        description: "Veoma kvalitetna dizalica za kablovske dizalice", 
         link: "https://example.com/sub1", 
         image: kran1
       },
@@ -144,56 +144,67 @@ const handleSubItemClick = (link) => {
       subtitle="Pronađite dizalicu koja odgovara vašim potrebama" 
     />
     <div
-      v-for="(item, index) in items"
-      :key="index"
-      :class="[
-        'border border-slate-700 rounded-xl p-6 bg-white shadow-lg mx-auto w-[90vw] hover:shadow-2xl transition-shadow hover:shadow-slate-800/50 cursor-pointer break-words',
-        openIndex === index ? 'transform scale-105 swing-in-top-fwd' : 'border-slate-600',
-        'max-w-full overflow-hidden'
-      ]"
-      @click="toggle(index)"
-    >
+  v-for="(item, index) in items"
+  :key="index"
+  :class="[
+  'relative rounded-2xl p-6 bg-white shadow-xl mx-auto w-[90vw] transition-all duration-300 ease-in cursor-pointer break-words ring-1 ring-offset-2 ring-offset-gray-50',
+  openIndex === index 
+    ? 'ring-slate-500/70 shadow-slate-800/20 scale-105' 
+    : 'ring-slate-400/50 hover:ring-slate-500/60 hover:shadow-slate-500/20 hover:scale-105',
+]"
+
+  @click="toggle(index)"
+>
       <div class="flex items-center justify-between">
         <div class="text-left">
-          <h3 class="text-2xl font-semibold text-gray-800">{{ item.name }}</h3>
-          <p class="text-sm text-gray-600 mt-2">{{ item.subText }}</p>
+          <h3 class="text-xl md:text-2xl font-semibold text-gray-800">{{ item.name }}</h3>
+          <p class="text-sm md:text-base text-gray-600 mt-2">{{ item.subText }}</p>
         </div>
         
         <!-- Strelica koja pokazuje otvaranje koristeći PrimeIcons -->
         <i
-          :class="{
-            'pi pi-chevron-up': openIndex === index,
-            'pi pi-chevron-down': openIndex !== index,
-            'text-slate-800': true,
-            'transition-transform': true
-          }"
-        ></i>
+  :class="{
+    'pi pi-chevron-up md:text-xl rotate-0': openIndex === index,
+    'pi pi-chevron-up md:text-xl rotate-180': openIndex !== index,
+    'text-slate-800 transition-transform duration-300 ease-in-out': true
+  }"
+></i>
       </div>
 
-      <!-- Sub-kartice sa pozadinskom slikom -->
       <div v-show="openIndex === index" class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
-          v-for="(subItem, subIndex) in item.subItems"
-          :key="subIndex"
-          class="border rounded-lg p-6 bg-gray-50 hover:bg-gray-100 transition-colors transform hover:scale-105 hover:shadow-md flex flex-col h-full"
-          :style="{ backgroundImage: 'url(' + subItem.image + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
-          @click="handleSubItemClick(subItem.link)" 
+      <div
+        v-for="(subItem, subIndex) in item.subItems"
+        :key="subIndex"
+        class="relative border rounded-lg bg-gray-50 hover:bg-gray-100 transition-transform transform hover:scale-105 hover:shadow-md flex flex-col overflow-hidden"
+        @click="handleSubItemClick(subItem.link)"
+      >
+        <!-- Slika kao pozadina sa formatom 4:3 -->
+        <div class="relative w-full" style="padding-top: 75%;">
+      <img 
+        :src="subItem.image" 
+        :alt="subItem.title" 
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      />
+        </div>
+
+        <!-- Tamni overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 z-10 p-8 flex flex-col justify-center items-center text-center">
+          <div>
+        <h4 class="text-lg md:text-xl font-medium text-white">{{ subItem.title }}</h4>
+        <p class="text-sm md:text-base text-white mt-2">{{ subItem.description }}</p>
+        <a
+          :href="subItem.link"
+          target="_blank"
+          class="text-slate-200 hover:underline text-sm md:text-base mt-3 inline-block transition-transform transform hover:scale-110 hover:text-slate-100"
         >
-          <div class="flex flex-col justify-between h-full bg-black bg-opacity-50 p-6">
-            <div>
-              <h4 class="text-xl font-medium text-white">{{ subItem.title }}</h4>
-              <p class="text-sm text-white mt-1">{{ subItem.description }}</p>
-              <a
-                :href="subItem.link"
-                target="_blank"
-                class="text-slate-800 hover:underline text-sm mt-2 inline-block"
-              >
-                Detaljnije
-              </a>
+          Detaljnije
+        </a>
             </div>
-          </div>
         </div>
       </div>
+    </div>
+
+
     </div>
   </div>
 </template>
