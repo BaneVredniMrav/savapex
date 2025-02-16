@@ -32,12 +32,12 @@ const navLinks = [
 
 <template>
   <nav class="bg-slate-800 border-b border-yellow-500">
-    <div class="mx-auto py-1 px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto py-2 px-2 sm:px-6 lg:px-8">
       <div class="flex h-30 items-center">
         <!-- Logo -->
         <div class="flex flex-1 items-center">
           <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-16 sm:h-20 md:h-28 w-auto ml-4" :src="logo" alt="Vue Jobs" />
+            <img class="h-16 sm:h-20 md:h-24 w-auto ml-4" :src="logo" alt="Vue Jobs" />
           </RouterLink>
         </div>
 
@@ -46,7 +46,7 @@ const navLinks = [
           <button @click="toggleMobileMenu" class="text-white hover:bg-slate-600 p-2 rounded-md">
             <span v-if="!isMobileMenuOpen" class="text-5xl">&#9776;</span>
             <!-- Hamburger icon -->
-            <span v-else class="text-4xl">&#10005;</span>
+            <span v-else class="text-5xl">&#10005;</span>
             <!-- Close icon -->
           </button>
         </div>
@@ -78,7 +78,8 @@ const navLinks = [
                   'mx-1',
                   'rounded-md',
   'text-center',
-                  'text-xl',
+  'lg:text-base',
+  'xl:text-lg',
                   'flex',
                   'items-center',
                   'justify-center',
