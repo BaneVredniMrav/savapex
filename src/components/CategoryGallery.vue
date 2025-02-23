@@ -100,14 +100,14 @@ const goBack = () => {
     <!-- Modal za pregled slike -->
     <div v-if="isModalOpen" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
         <!-- Dugme za zatvaranje -->
-        <button @click="closeModal" class="absolute top-5 right-5 text-white text-5xl font-bold">&times;</button>
+        <button @click="closeModal" class="absolute top-5 right-5 text-white text-5xl font-bold z-10">&times;</button>
 
-        <div class="relative flex items-center w-full max-w-6xl">
+        <div class="relative flex items-center w-full max-w-6xl px-4">
             <!-- Dugme za prethodnu sliku -->
             <button @click="prevImage" class="text-white text-5xl px-4 absolute left-2 hover:opacity-80 transition">❮</button>
             
             <!-- Veća slika -->
-            <img :src="selectedCategory.images[currentImageIndex]" class="max-w-5xl max-h-screen object-contain rounded-lg shadow-lg mx-auto">
+            <img :src="selectedCategory.images[currentImageIndex]" class="max-w-full max-h-screen object-contain rounded-lg shadow-lg mx-auto">
             
             <!-- Dugme za sledeću sliku -->
             <button @click="nextImage" class="text-white text-5xl px-4 absolute right-2 hover:opacity-80 transition">❯</button>
