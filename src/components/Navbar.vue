@@ -30,12 +30,12 @@ const navLinks = [
 
 <template>
   <nav class="bg-slate-800 border-b border-yellow-500">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="flex h-20 items-center justify-between">
+    <div class="mx-auto w-[90vw] px-2 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
         <!-- Logo -->
-        <div class="flex flex-1 items-center justify-between md:items-stretch md:justify-start">
+        <div class="flex flex-1 items-center justify-between md:items-stretch md:justify-start py-2">
           <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-16 w-auto ml-4" :src="logo" alt="Vue Jobs" />
+            <img class="h-20 w-auto ml-4" :src="logo" alt="Vue Jobs" />
           </RouterLink>
         </div>
 
