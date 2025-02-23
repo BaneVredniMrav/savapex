@@ -1,21 +1,20 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import logo from "@/assets/img/footer-logo.png";
 
+const route = useRoute();
+
 const isActiveLink = (routePath) => {
-  const route = useRoute();
-  return route.path === routePath;
+  return computed(() => route.path === routePath);
 };
 
 const isMobileMenuOpen = ref(false);
 
-// Otvaranje/zatvaranje mobilnog menija
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
 
-// Zatvaranje mobilnog menija na klik opcije
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
 };
@@ -30,10 +29,10 @@ const navLinks = [
 ];
 
 const copyPhoneNumber = () => {
-  const phoneNumber = "+1234567890"; // Zamenite sa stvarnim brojem
+  const phoneNumber = "+1234567890"; // Replace with actual number
   navigator.clipboard.writeText(phoneNumber)
     .then(() => {
-      alert("Broj telefona je sačuvan u memoriji!"); // Opcionalno, možete dodati obaveštenje
+      alert("Broj telefona je sačuvan u memoriji!"); // Optional notification
     })
     .catch((err) => {
       console.error("Greška pri kopiranju broja:", err);
@@ -43,29 +42,27 @@ const copyPhoneNumber = () => {
 
 <template>
   <nav class="bg-slate-800 border-b border-yellow-500">
-    <div class="mx-auto py-2 px-2 sm:px-6 lg:px-8">
-      <div class="flex h-30 items-center">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
         <!-- Logo -->
-        <div class="flex flex-1 items-center">
+        <div class="flex flex-1 items-center justify-between md:items-stretch md:justify-start">
           <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-16 sm:h-20 md:h-24 w-auto ml-4" :src="logo" alt="Vue Jobs" />
+            <img class="h-24 w-auto ml-4" :src="logo" alt="Vue Jobs" />
           </RouterLink>
         </div>
 
         <!-- Mobile Hamburger Button -->
         <div class="lg:hidden flex items-center">
-          <button @click="toggleMobileMenu" class="text-white hover:bg-slate-600 p-2 rounded-md">
+          <button @click="toggleMobileMenu" class="text-white hover:bg-slate-600 p-2 rounded-md" aria-label="Toggle mobile menu">
             <span v-if="!isMobileMenuOpen" class="text-5xl">&#9776;</span>
-            <!-- Hamburger icon -->
-            <span v-else class="text-5xl">&#10005;</span>
-            <!-- Close icon -->
+            <span v-else class="text-4xl">&#10005;</span>
           </button>
         </div>
 
         <!-- Desktop Menu -->
-        <div class="flex flex-col items-center justify-center text-center">
-          <div class="hidden lg:flex border-b max-w-xl ml-auto">
-            <div class="flex lg:space-x-6 xl:px-8 pb-2">
+        <div class="hidden lg:flex flex-col items-center justify-center text-center">
+          <div class="border-b max-w-xl ml-auto">
+            <div class="flex lg:space-x-6 xl:px-8 pt-2">
               <button @click="copyPhoneNumber" class="text-white flex items-center justify-center">
                 <i class="pi pi-phone font-semibold mr-2"></i> 011/ 2-111-333
               </button>
@@ -74,14 +71,14 @@ const copyPhoneNumber = () => {
               </a>
             </div>
           </div>
-          <div class="hidden lg:flex py-4 mx-8">
+          <div class="py-4 mx-8">
             <div class="flex items-center">
               <RouterLink
                 v-for="link in navLinks"
                 :key="link.path"
                 :to="link.path"
                 :class="[
-                  isActiveLink(link.path) ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
+                  isActiveLink(link.path).value ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
                   'text-white',
                   'xl:px-10',
                   'lg:px-6',
@@ -113,7 +110,7 @@ const copyPhoneNumber = () => {
             :to="link.path"
             @click="closeMobileMenu"
             :class="[
-              isActiveLink(link.path) ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
+              isActiveLink(link.path).value ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
               'text-white',
               'px-8',
               'py-2',
