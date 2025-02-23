@@ -9,7 +9,7 @@ import kran3 from "@/assets/img/kran3.jpg";
 const items = [
   {
     name: "Kablovske dizalice",
-    subText: "Opis za karticu 1",
+    subText: "U svetu tehnologije, inovacije se stalno menjaju, a preduzetnici moraju da se prilagode brzom tempu napretka. Novi trendovi, kao što su veštačka inteligencija, automatizacija i održivost, oblikuju budućnost tržišta. Prilagodljivost, kreativnost i sposobnost učenja ključne su veštine za uspeh u ovom dinamičnom okruženju. Prepoznavanje prilika, kao i spremnost na inovacije, omogućava preduzetnicima da ostanu konkurentni i postignu dugoročni uspeh.",
     link: "https://example.com/1",
     subItems: [
       {
@@ -98,7 +98,7 @@ const handleSubItemClick = (link) => {
       :key="index"
       ref="cardRefs"
       :class="[
-        'relative rounded-2xl p-6 bg-white shadow-xl mx-auto w-[90vw] transition-all duration-800 ease-in cursor-pointer break-words ring-1 ring-offset-2 ring-offset-gray-50',
+        'relative rounded-2xl p-6 py-8 bg-white shadow-xl mx-auto w-[90vw] transition-all duration-800 ease-in cursor-pointer break-words ring-1 ring-offset-2 ring-offset-gray-50',
         openIndex === index
           ? 'ring-slate-500/70 shadow-slate-800/20 scale-105'
           : 'ring-slate-400/50 hover:ring-slate-500/60 hover:shadow-slate-500/20 hover:scale-105',
@@ -108,7 +108,7 @@ const handleSubItemClick = (link) => {
       <div class="flex items-center justify-between">
         <div class="text-left">
           <h3 class="text-xl md:text-2xl font-semibold text-gray-800">{{ item.name }}</h3>
-          <p class="text-sm md:text-base text-gray-600 mt-2">{{ item.subText }}</p>
+          <p class="text-sm md:text-base text-gray-600 mt-2 px-2">{{ item.subText }}</p>
         </div>
 
         <!-- Strelica koja pokazuje otvaranje koristeći PrimeIcons -->

@@ -6,9 +6,17 @@ import ServicesView from "@/views/ServicesView.vue";
 import ServiceAndSupportView from "@/views/ServiceAndSupportView.vue";
 import ContactUsView from "@/views/ContactUsView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
+import CategoryGallery from '../components/CategoryGallery.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+        return savedPosition;
+    } else {
+        return { top: 0 }; 
+    }
+},
   routes: [
     {
       path: "/",
@@ -44,6 +52,11 @@ const router = createRouter({
       name: "not-found",
       component: NotFoundView,
     },
+    {
+      path: '/category-gallery/:id',
+      name: 'category-galery',
+      component: CategoryGallery
+    }
   ],
 });
 
