@@ -1,13 +1,9 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import logo from "@/assets/img/footer-logo.png";
 
-const isActiveLink = (routePath) => {
-  const route = useRoute();
-  return route.path === routePath;
-};
-
+const route = useRoute();
 const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {
@@ -26,66 +22,60 @@ const navLinks = [
   { path: "/service-and-support", label: "Servis i Podrška" },
   { path: "/contact-us", label: "Kontakt" },
 ];
+
+const isActiveLink = (routePath) => computed(() => route.path === routePath);
 </script>
 
 <template>
-  <nav class="bg-slate-800 border-b border-yellow-500">
-    <div class="mx-auto w-[90vw] px-2 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between">
+  <nav class="bg-slate-800 border-b border-brandRose shadow-md">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-3">
         <!-- Logo -->
-        <div class="flex flex-1 items-center justify-between md:items-stretch md:justify-start py-2">
-          <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-20 w-auto ml-4" :src="logo" alt="Vue Jobs" />
-          </RouterLink>
-        </div>
+        <RouterLink to="/" class="flex items-center">
+          <img class="h-12 w-auto sm:h-16" :src="logo" alt="Vue Jobs" />
+        </RouterLink>
 
         <!-- Mobile Hamburger Button -->
-        <div class="lg:hidden flex items-center">
-          <button @click="toggleMobileMenu" class="text-white hover:bg-slate-600 p-2 rounded-md">
-            <span v-if="!isMobileMenuOpen" class="text-5xl">&#9776;</span>
-            <span v-else class="text-4xl">&#10005;</span>
-          </button>
-        </div>
+        <button @click="toggleMobileMenu" class="lg:hidden text-white hover:bg-slate-700 p-2 rounded-md">
+          <span v-if="!isMobileMenuOpen" class="text-3xl sm:text-4xl">&#9776;</span>
+          <span v-else class="text-3xl sm:text-4xl">&#10005;</span>
+        </button>
 
         <!-- Desktop Menu -->
-        <div class="hidden lg:flex">
-            <div class="flex lg:space-x-2 xl:space-x-4">
-            <RouterLink
-              v-for="link in navLinks"
-              :key="link.path"
-              :to="link.path"
-              :class="[
-              isActiveLink(link.path) ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'lg:px-5',
-              'xl:px-8',
-              'py-2',
-              'rounded-md',
-              ]"
-            >{{ link.label }}</RouterLink>
-            </div>
+        <div class="hidden lg:flex lg:space-x-4">
+          <RouterLink
+            v-for="link in navLinks"
+            :key="link.path"
+            :to="link.path"
+            :class="[ 
+              isActiveLink(link.path).value 
+                ? 'bg-brandOrange text-black shadow-lg-brandOrange' 
+                : 'text-white hover:bg-brandOrange hover:text-black',
+              'px-4 py-2 rounded-lg transition-all duration-300 sm:px-6 xl:px-10 2xl:px-12'
+            ]"
+          >
+            {{ link.label }}
+          </RouterLink>
         </div>
       </div>
 
       <!-- Mobile Menu -->
-      <div v-if="isMobileMenuOpen" class="lg:hidden">
-        <div class="flex flex-col items-center space-y-4 py-4">
-          <a href="tel:+1234567890" class="text-white px-8 py-2 hover:underline">
-            <i class="pi pi-phone font-semibold mr-2"></i> Pozovite nas
-          </a>
+      <div v-if="isMobileMenuOpen" class="lg:hidden shadow-md">
+        <div class="flex flex-col items-center py-4 space-y-2">
           <RouterLink
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
             @click="closeMobileMenu"
             :class="[
-              isActiveLink(link.path) ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'px-8',
-              'py-2',
-              'rounded-md',
+              isActiveLink(link.path).value 
+                ? 'bg-brandOrange text-black' 
+                : 'text-white hover:bg-brandOrange hover:text-black',
+              'px-4 py-2 rounded-lg transition-all duration-300 w-full text-center'
             ]"
-          >{{ link.label }}</RouterLink>
+          >
+            {{ link.label }}
+          </RouterLink>
         </div>
       </div>
     </div>

@@ -9,6 +9,10 @@ export default {
       gridTemplateColumns: {
         "70/30": "70% 28%",
       },
+      colors: {
+        brandOrange: '#f8951e', 
+        brandRose: '#e94265'
+      },
     },
   },
   variants: {

@@ -1,56 +1,91 @@
+<script setup>
+import { RouterLink } from "vue-router";
+import { ref, onMounted } from "vue";
+import logo from "@/assets/img/footer-logo.png";
+
+const navLinks = [
+  { path: "/", label: "Početna" },
+  { path: "/about-us", label: "O Nama" },
+  { path: "/products", label: "Proizvodi" },
+  { path: "/services", label: "Usluge" },
+  { path: "/service-and-support", label: "Servis i Podrška" },
+  { path: "/contact-us", label: "Kontakt" },
+];
+
+const phoneNumber = "+381641234567";
+const showToaster = ref(false);
+const isMobile = ref(false);
+
+const copyPhoneNumber = async () => {
+  try {
+    await navigator.clipboard.writeText(phoneNumber);
+    showToaster.value = true;
+    setTimeout(() => {
+      showToaster.value = false;
+    }, 2000);
+  } catch (err) {
+    console.error("Kopiranje nije uspelo", err);
+  }
+};
+
+onMounted(() => {
+  isMobile.value = window.innerWidth <= 768;
+});
+</script>
+
 <template>
-  <footer class="bg-slate-800 text-white">
-    <div class="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <footer class="bg-slate-800 text-white border-t border-brandRose shadow-lg">
+    <div class="mx-auto w-[90vw] px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
         <!-- O nama -->
         <div>
-          <h3 class="text-xl font-semibold mb-4">O nama</h3>
-          <img
-            src="@/assets/img/footer-logo.png"
-            alt="Savapex"
-            class="mb-4 w-40 mx-auto sm:mx-0"
-          />
-          <p class="text-sm sm:text-base">
-            Savapex se bavi održavanjem, servisiranjem i popravkom kranova širom Srbije. Posvećeni smo kvalitetu, sigurnosti i pouzdanosti vaše opreme.
+          <h3 class="text-2xl font-bold text-brandOrange mb-4">O nama</h3>
+          <RouterLink to="/">
+            <img class="h-28 mx-auto" :src="logo" alt="Savapex" />
+          </RouterLink>
+          <p class="text-sm text-gray-300 leading-relaxed mt-4">
+            Savapex se bavi održavanjem, servisiranjem i popravkom kranova širom Srbije.
+            Posvećeni smo kvalitetu, sigurnosti i pouzdanosti vaše opreme.
           </p>
         </div>
 
         <!-- Korisni linkovi -->
         <div>
-          <h3 class="text-xl font-semibold mb-4">Korisni linkovi</h3>
-          <ul class="space-y-2 text-sm sm:text-base">
-            <li>
-              <RouterLink to="/" class="hover:underline">Početna</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/about-us" class="hover:underline">O nama</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/products" class="hover:underline">Proizvodi</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/services" class="hover:underline">Usluge</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/service-and-support" class="hover:underline">Servis i Podrška</RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/contact-us" class="hover:underline">Kontakt</RouterLink>
+          <h3 class="text-2xl font-bold text-brandOrange mb-4">Korisni linkovi</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li v-for="link in navLinks" :key="link.path">
+              <RouterLink
+                :to="link.path"
+                class="hover:text-brandOrange transition duration-300"
+              >
+                {{ link.label }}
+              </RouterLink>
             </li>
           </ul>
         </div>
 
         <!-- Kontakt -->
         <div>
-          <h3 class="text-xl font-semibold mb-4">Kontakt</h3>
-          <ul class="space-y-2 text-sm sm:text-base">
+          <h3 class="text-2xl font-bold text-brandOrange mb-4">Kontakt</h3>
+          <ul class="space-y-3 text-gray-300">
             <li>
-              <a href="tel:+381641234567" class="hover:underline">
-                <i class="pi pi-phone mr-2"></i> +381 64 123 4567
+              <a
+                v-if="isMobile"
+                :href="`tel:${phoneNumber}`"
+                class="hover:text-brandOrange transition duration-300"
+              >
+                <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
               </a>
+              <button
+                v-else
+                @click="copyPhoneNumber"
+                class="hover:text-brandOrange transition duration-300 focus:outline-none"
+              >
+                <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+              </button>
             </li>
             <li>
-              <a href="mailto:info@savapex.rs" class="hover:underline">
+              <a href="mailto:info@savapex.rs" class="hover:text-brandOrange transition duration-300">
                 <i class="pi pi-envelope mr-2"></i> info@savapex.rs
               </a>
             </li>
@@ -59,9 +94,9 @@
                 href="https://www.google.com/maps"
                 target="_blank"
                 rel="noopener"
-                class="hover:underline"
+                class="hover:text-brandOrange transition duration-300"
               >
-                <i class="pi pi-map-marker mr-2"></i> Adresa: Beograd, Srbija
+                <i class="pi pi-map-marker mr-2"></i> Beograd, Srbija
               </a>
             </li>
           </ul>
@@ -70,22 +105,27 @@
     </div>
 
     <!-- Copyright -->
-    <div class="bg-slate-700 py-4">
-      <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <p class="text-sm sm:text-base">
+    <div class="bg-slate-700 py-5">
+      <div class="text-center text-sm text-gray-400">
+        <p>
           2025 ©
-          <a href="/" class="hover:underline">Savapex d.o.o.</a>
-          | <RouterLink to="/politika-privatnosti" class="hover:underline">Politika privatnosti</RouterLink>
+          <a href="/" class="hover:text-brandOrange transition duration-300">Savapex d.o.o.</a>
+          | <RouterLink to="/politika-privatnosti" class="hover:text-brandOrange transition duration-300">Politika privatnosti</RouterLink>
           | Web izrada:
           <a
             href="https://github.com/BaneVredniMrav"
             target="_blank"
-            class="hover:underline"
+            class="hover:text-brandOrange transition duration-300"
           >
             BaneVredniMrav
           </a>
         </p>
       </div>
+    </div>
+
+    <!-- Custom Toaster Notification -->
+    <div v-if="showToaster" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brandOrange text-black px-8 py-4 rounded-lg shadow-xl text-lg font-semibold">
+      Broj je kopiran!
     </div>
   </footer>
 </template>
