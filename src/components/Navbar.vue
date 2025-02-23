@@ -42,36 +42,32 @@ const copyPhoneNumber = () => {
 
 <template>
   <nav class="bg-slate-800 border-b border-yellow-500">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between">
+    <div class="mx-auto w-[95.5vw] px-2 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center">
         <!-- Logo -->
-        <div class="flex flex-1 items-center justify-between md:items-stretch md:justify-start">
-          <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-24 w-auto ml-4" :src="logo" alt="Vue Jobs" />
-          </RouterLink>
-        </div>
+        <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
+          <img class="h-24 w-auto ml-4" :src="logo" alt="Vue Jobs" />
+        </RouterLink>
 
         <!-- Mobile Hamburger Button -->
-        <div class="lg:hidden flex items-center">
-          <button @click="toggleMobileMenu" class="text-white hover:bg-slate-600 p-2 rounded-md" aria-label="Toggle mobile menu">
-            <span v-if="!isMobileMenuOpen" class="text-5xl">&#9776;</span>
-            <span v-else class="text-4xl">&#10005;</span>
-          </button>
-        </div>
+        <button @click="toggleMobileMenu" class="text-white hover:bg-slate-600 p-2 rounded-md lg:hidden" aria-label="Toggle mobile menu">
+          <span v-if="!isMobileMenuOpen" class="text-5xl">&#9776;</span>
+          <span v-else class="text-4xl">&#10005;</span>
+        </button>
 
         <!-- Desktop Menu -->
-        <div class="hidden lg:flex flex-col items-center justify-center text-center">
-          <div class="border-b max-w-xl ml-auto">
+        <div class="hidden lg:flex flex-col items-center justify-center text-center w-full">
+            <div class="border-b max-w-xl ml-auto">
             <div class="flex lg:space-x-6 xl:px-8 pt-2">
-              <button @click="copyPhoneNumber" class="text-white flex items-center justify-center">
-                <i class="pi pi-phone font-semibold mr-2"></i> 011/ 2-111-333
+              <button @click="copyPhoneNumber" class="text-white flex items-center justify-center transition-transform transform hover:scale-105">
+              <i class="pi pi-phone font-semibold mr-2"></i> 011/ 2-111-333
               </button>
-              <a href="mailto:info@savapex.com" class="text-white text-center flex items-center justify-center">
-                <i class="pi pi-envelope font-semibold mr-2"></i> info@savapex.com
+              <a href="mailto:info@savapex.com" class="text-white text-center flex items-center justify-center transition-transform transform hover:scale-105">
+              <i class="pi pi-envelope font-semibold mr-2"></i> info@savapex.com
               </a>
             </div>
-          </div>
-          <div class="py-4 mx-8">
+            </div>
+          <div class="py-4 ">
             <div class="flex items-center">
               <RouterLink
                 v-for="link in navLinks"
@@ -99,26 +95,37 @@ const copyPhoneNumber = () => {
       </div>
 
       <!-- Mobile Menu -->
-      <div v-if="isMobileMenuOpen" class="lg:hidden">
-        <div class="flex flex-col items-center space-y-4 py-4">
-          <a href="tel:+1234567890" class="text-white px-8 py-2 hover:underline">
-            <i class="pi pi-phone font-semibold mr-2"></i> Pozovite nas
-          </a>
-          <RouterLink
-            v-for="link in navLinks"
-            :key="link.path"
-            :to="link.path"
-            @click="closeMobileMenu"
-            :class="[
-              isActiveLink(link.path).value ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
-              'text-white',
-              'px-8',
-              'py-2',
-              'rounded-md',
-            ]"
-          >{{ link.label }}</RouterLink>
+      <transition name="fade">
+        <div v-if="isMobileMenuOpen" class="lg:hidden">
+          <div class="flex flex-col items-center space-y-4 py-4">
+            <a href="tel:+1234567890" class="text-white px-8 py-2 hover:underline">
+              <i class="pi pi-phone font-semibold mr-2"></i> Pozovite nas
+            </a>
+            <RouterLink
+              v-for="link in navLinks"
+              :key="link.path"
+              :to="link.path"
+              @click="closeMobileMenu"
+              :class="[
+                isActiveLink(link.path).value ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
+                'text-white',
+                'px-8',
+                'py-2',
+                'rounded-md',
+              ]"
+            >{{ link.label }}</RouterLink>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </nav>
 </template>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>
