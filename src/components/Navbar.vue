@@ -48,21 +48,22 @@ const navLinks = [
         </div>
 
         <!-- Desktop Menu -->
-        <div class="hidden lg:flex lg:ml-auto">
-          <div class="flex lg:space-x-2 xl:space-x-12">
+        <div class="hidden lg:flex">
+            <div class="flex lg:space-x-2 xl:space-x-4">
             <RouterLink
               v-for="link in navLinks"
               :key="link.path"
               :to="link.path"
               :class="[
-                isActiveLink(link.path) ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
-                'text-white',
-                'px-8',
-                'py-2',
-                'rounded-md',
+              isActiveLink(link.path) ? 'bg-slate-700' : 'hover:bg-slate-600 hover:text-white',
+              'text-white',
+              'lg:px-5',
+              'xl:px-8',
+              'py-2',
+              'rounded-md',
               ]"
             >{{ link.label }}</RouterLink>
-          </div>
+            </div>
         </div>
       </div>
 
