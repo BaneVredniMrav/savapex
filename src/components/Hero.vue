@@ -36,7 +36,7 @@ onMounted(() => {
       <!-- Button with click animation -->
       <button
         @click="handleClick"
-        class="bg-slate-800 text-xl text-white px-24 py-4 rounded-3xl hover:bg-brandOrange hover:text-slate-800 transform transition-all duration-300 ease-in-out"
+        class="bg-slate-800 text-xl text-white px-12 py-4 rounded-lg hover:bg-brandOrange hover:text-slate-800 transform transition-all duration-300 ease-in-out"
         :class="{ 'shake-bottom': isButtonClicked }"
         aria-label="Contact-us"
       >
