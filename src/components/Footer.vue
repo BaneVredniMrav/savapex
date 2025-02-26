@@ -22,7 +22,7 @@ const copyPhoneNumber = async () => {
     showToaster.value = true;
     setTimeout(() => {
       showToaster.value = false;
-    }, 2000);
+    }, 3000);
   } catch (err) {
     console.error("Kopiranje nije uspelo", err);
   }
