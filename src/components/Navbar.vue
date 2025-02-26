@@ -1,13 +1,32 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
-import { ref, computed } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import logo from "@/assets/img/footer-logo.png";
 
 const route = useRoute();
 const isMobileMenuOpen = ref(false);
+const showTopBar = ref(true);
+const lastScrollY = ref(0);
 
-const toggleMobileMenu = () => {
+const phoneNumber = "+381641234567";
+const showToaster = ref(false);
+const isMobile = ref(false);
+
+const copyPhoneNumber = async () => {
+  try {
+    await navigator.clipboard.writeText(phoneNumber);
+    showToaster.value = true;
+    setTimeout(() => {
+      showToaster.value = false;
+    }, 3000);
+  } catch (err) {
+    console.error("Kopiranje nije uspelo", err);
+  }
+};
+
+const toggleMobileMenu = async () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
+  await nextTick();
 };
 
 const closeMobileMenu = () => {
@@ -23,22 +42,78 @@ const navLinks = [
   { path: "/contact-us", label: "Kontakt" },
 ];
 
-const isActiveLink = (routePath) => computed(() => route.path === routePath);
+const handleScroll = () => {
+  requestAnimationFrame(() => {
+    showTopBar.value = window.scrollY < lastScrollY.value || window.scrollY < 10;
+    lastScrollY.value = window.scrollY;
+  });
+};
+onMounted(() => {
+  isMobile.value = window.innerWidth <= 768;
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <nav class="bg-slate-800 border-b border-brandRose shadow-md">
+  <!-- Gornja traka sa kontakt informacijama -->
+  <transition name="fade">
+    <div
+      v-show="showTopBar"
+      class="fixed top-0 left-0 w-full bg-slate-700 text-white text-sm py-2 z-50 transition-all duration-100"
+    >
+      <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
+      <span class="mr-4">
+        <a
+        v-if="isMobile"
+        :href="`tel:${phoneNumber}`"
+        class="hover:text-brandOrange transition duration-300"
+        >
+        <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+        </a>
+        <button
+        v-else
+        @click="copyPhoneNumber"
+        class="hover:text-brandOrange transition duration-300 focus:outline-none"
+        >
+        <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+        </button>
+      </span>
+      <span>
+        <a href="mailto:info@savapex.rs" class="hover:text-brandOrange transition duration-300">
+        <i class="pi pi-envelope mr-2"></i> info@savapex.rs
+        </a>
+      </span>
+      </div>
+    </div>
+  </transition>
+
+  <!-- Navigacija -->
+  <nav
+    class="fixed left-0 w-full z-50 bg-slate-800 border-b border-brandRose shadow-md transition-all duration-100"
+    :class="{ 'top-8': showTopBar, 'top-0': !showTopBar }"
+  >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-3">
+      <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <RouterLink to="/" class="flex items-center">
-          <img class="h-12 w-auto sm:h-16" :src="logo" alt="Vue Jobs" />
+          <img class="h-12 w-auto sm:h-14" :src="logo" alt="Vue Jobs" />
         </RouterLink>
 
         <!-- Mobile Hamburger Button -->
-        <button @click="toggleMobileMenu" class="lg:hidden text-white hover:bg-slate-700 p-2 rounded-md">
-          <span v-if="!isMobileMenuOpen" class="text-3xl sm:text-4xl">&#9776;</span>
-          <span v-else class="text-3xl sm:text-4xl">&#10005;</span>
+        <button
+          @click="toggleMobileMenu"
+          class="lg:hidden text-white hover:bg-slate-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+        >
+          <svg v-if="!isMobileMenuOpen" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg v-else class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
 
         <!-- Desktop Menu -->
@@ -47,37 +122,49 @@ const isActiveLink = (routePath) => computed(() => route.path === routePath);
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            :class="[ 
-              isActiveLink(link.path).value 
-                ? 'bg-brandOrange text-black shadow-lg-brandOrange' 
-                : 'text-white hover:bg-brandOrange hover:text-black',
-              'px-4 py-2 rounded-lg transition-all duration-300 sm:px-6 xl:px-10 2xl:px-12'
-            ]"
-          >
-            {{ link.label }}
-          </RouterLink>
-        </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div v-if="isMobileMenuOpen" class="lg:hidden shadow-md">
-        <div class="flex flex-col items-center py-4 space-y-2">
-          <RouterLink
-            v-for="link in navLinks"
-            :key="link.path"
-            :to="link.path"
-            @click="closeMobileMenu"
-            :class="[
-              isActiveLink(link.path).value 
-                ? 'bg-brandOrange text-black' 
-                : 'text-white hover:bg-brandOrange hover:text-black',
-              'px-4 py-2 rounded-lg transition-all duration-300 w-full text-center'
-            ]"
+            class="px-4 py-2 rounded-lg transition-all duration-300 sm:px-6 xl:px-10 2xl:px-12"
+            :class="route.path === link.path ? 'bg-brandOrange text-black shadow-lg' : 'text-white hover:bg-brandOrange hover:text-black'"
           >
             {{ link.label }}
           </RouterLink>
         </div>
       </div>
     </div>
+
+    <!-- Mobile Menu -->
+    <transition name="fade">
+      <div v-if="isMobileMenuOpen" class="absolute top-16 left-0 w-full bg-slate-800 shadow-md">
+        <div class="flex flex-col items-center py-4 space-y-2">
+          <RouterLink
+            v-for="link in navLinks"
+            :key="link.path"
+            :to="link.path"
+            @click="closeMobileMenu"
+            class="px-4 py-2 rounded-lg transition-all duration-300 w-full text-center"
+            :class="route.path === link.path ? 'bg-brandOrange text-black' : 'text-white hover:bg-brandOrange hover:text-black'"
+          >
+            {{ link.label }}
+          </RouterLink>
+        </div>
+      </div>
+    </transition>
+    <div v-if="showToaster" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brandOrange text-black px-8 py-4 rounded-lg shadow-xl text-lg font-semibold">
+      Broj je kopiran!
+    </div>
   </nav>
 </template>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+.slide-enter { transform: translateY(-100%); }
+.slide-leave-to { transform: translateY(-100%); }
+</style>
