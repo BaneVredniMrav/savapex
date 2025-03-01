@@ -16,31 +16,31 @@ import kran4 from '@/assets/img/kran4.jpg';
     <Services
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Proizvodnja dizalica'"
-            :description="'Your Description'"
+            :description="'Projektujemo i proizvodimo dizalice prema vašim specifičnim zahtevima, kombinujući vrhunsku tehnologiju i dugogodišnje iskustvo. Pogledajte naš proces proizvodnje i saznajte kako stvaramo pouzdane i efikasne dizalice.'"
             :details-link="'/details'"
             :slide-direction="'left'"
-            :button-name="'Detaljnije'"
+            :button-name="'Saznajte više'"
     />     <Services
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Prodaja dizalica'"
-            :description="'Your Description'"
+            :description="'Pomažemo vam da odaberete savršenu dizalicu za vašu industriju, uz stručno savetovanje i širok asortiman rešenja. Bez obzira na zahteve, imamo pravu opciju za vas.'"
             :details-link="'/details'"
             :slide-direction="'right'"
-            :button-name="'Pogledajte našu ponudu'"
+            :button-name="'Pogledajte ponudu'"
     /> 
     <Services
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Ugradnja dizalica'"
-            :description="'Your Description'"
+            :description="'Naš iskusni tim osigurava preciznu i brzu montažu dizalica na terenu, vodeći računa o sigurnosti i efikasnosti. Prepustite instalaciju stručnjacima.'"
             :details-link="'/details'"
             :slide-direction="'left'"
-            :button-name="'Detaljnije'"
+            :button-name="'Zakažite ugradnju'"
     />     <Services
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Servis i održavanje'"
-            :description="'Your Description'"
+            :description="'Redovno održavanje i pravovremeni servis produžavaju vek trajanja vaše dizalice i osiguravaju bezbedan rad. Oslonite se na nas za preventivnu i hitnu intervenciju.'"
             :details-link="'/details'"
             :slide-direction="'right'"
-            :button-name="'Saznajte više'"
+            :button-name="'Kontaktirajte servis'"
     /> 
 </template>

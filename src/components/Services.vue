@@ -68,12 +68,24 @@ const handleIntersection = (entries) => {
 
 const startImageSwap = () => {
     if (swapInterval) return;
+    let firstSwap = true;
     swapInterval = setInterval(() => {
         imageAnimation.value = 'swirl-out';
         setTimeout(() => {
             currentImageIndex.value = (currentImageIndex.value + 1) % props.images.length;
             imageAnimation.value = 'swirl-in';
         }, 500);
+        if (firstSwap) {
+            clearInterval(swapInterval);
+            swapInterval = setInterval(() => {
+                imageAnimation.value = 'swirl-out';
+                setTimeout(() => {
+                    currentImageIndex.value = (currentImageIndex.value + 1) % props.images.length;
+                    imageAnimation.value = 'swirl-in';
+                }, 500);
+            }, 4500);
+            firstSwap = false;
+        }
     }, 2500);
 };
 

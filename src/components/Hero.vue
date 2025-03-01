@@ -7,8 +7,6 @@ const isVisible = ref(false); // Animation on load
 const isButtonClicked = ref(false); // Animation on button click
 
 const handleClick = () => {
-  console.log("Request quote button clicked!");
-
   // Trigger animation on click
   isButtonClicked.value = true;
 
