@@ -1,9 +1,9 @@
 <template>
-    <section class="bg-slate-100 py-12 px-4 md:px-8 flex justify-center overflow-hidden">
+    <section class="bg-slate-100 py-12 px-4 md:px-8 flex justify-center overflow-hidden" @mouseenter="startImageSwap" @mouseleave="stopImageSwap">
         <div :class="slideSectionClasses" ref="slideSection">
             <div
                 class="flex flex-col md:flex-row items-center gap-6 p-8 bg-slate-600 rounded-lg shadow-md hover:shadow-lg hover:shadow-2xl hover:shadow-brandOrange h-auto md:h-[50vh] transform transition duration-500 hover:scale-105 w-full max-w-7xl"
-                @mouseenter="startImageSwap" @mouseleave="stopImageSwap">
+                >
                 
                 <!-- Slika uvek prva u mobilnom prikazu -->
                 <img v-if="isMobile || slideDirection === 'left'" :src="currentImage" alt="Image" 
