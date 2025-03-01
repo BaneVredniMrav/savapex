@@ -3,6 +3,7 @@ import Hero from "@/components/Hero.vue";
 import OurVision from "@/components/Our-vision.vue";
 import OurMission from "@/components/Our-mission.vue";
 import Products from "@/components/Products.vue";
+import ServicesView from "./ServicesView.vue";
 </script>
 
 <template>
@@ -10,4 +11,5 @@ import Products from "@/components/Products.vue";
   <OurVision />
   <OurMission />
   <Products />
+<ServicesView />
 </template>

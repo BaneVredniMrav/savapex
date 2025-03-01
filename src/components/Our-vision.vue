@@ -1,93 +1,81 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
-// Funkcija koja osmatra kad su elementi vidljivi na ekranu
+const elements = ref([]);
+
+const items = [
+  {
+    title: 'Inovacija',
+    description: 'Mi smo posvećeni kontinuiranoj inovaciji kako bismo pružili rešenja koja unapređuju efikasnost i produktivnost u svim industrijama.'
+  },
+  {
+    title: 'Stručnost',
+    description: 'Naš tim stručnjaka je posvećen pružanju vrhunskih usluga i rešenja koja su temeljena na dugogodišnjem iskustvu i temeljnom znanju industrije.'
+  },
+  {
+    title: 'Održivost',
+    description: 'Fokusiramo se na održive prakse koje pomažu u očuvanju resursa i smanjenju negativnog uticaja na životnu sredinu, stvarajući dugoročnu vrednost.'
+  }
+];
+
 const observeVisibility = () => {
   const options = {
-    root: null, // Koristi viewport kao root
-    threshold: 0.1, // Kada je 10% elementa u prikazu
+    root: null,
+    threshold: 0.1,
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // Ako je element u vidokrugu, dodajemo klasu 'visible'
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       } else {
-        entry.target.classList.remove('visible'); // Uklanjamo klasu kad element nije vidljiv
+        entry.target.classList.remove('visible');
       }
     });
   }, options);
 
-  // Ciljamo sve elemente koje želimo da pratimo
-  const elements = document.querySelectorAll('.animate-on-scroll');
-  elements.forEach(element => {
-    observer.observe(element); // Pratimo svaki element
+  elements.value.forEach(element => {
+    observer.observe(element);
   });
 };
 
-// Osiguravamo da pokrenemo funkciju kada komponenta bude montirana
 onMounted(() => {
   observeVisibility();
 });
 </script>
 
 <template>
-  <section class="py-16 px-6 md:px-12 lg:px-24">
-    <!-- Title and Description -->
+  <section class="py-16 px-6 md:px-12 lg:px-24 bg-gray-100">
     <div class="text-center text-black max-w-3xl mx-auto mb-12">
-      <h2 class="text-4xl font-bold mb-6 animate-on-scroll">Naša Vizija</h2>
-      <p class="text-lg mb-8 animate-on-scroll">
+      <h2 class="text-4xl font-bold mb-6 animate-on-scroll" ref="elements">Naša Vizija</h2>
+      <p class="text-lg mb-8 animate-on-scroll" ref="elements">
         Naša vizija je da postanemo lider na tržištu industrijskih dizalica, poznati po kvalitetu, inovacijama i odličnom korisničkom servisu.
       </p>
     </div>
 
-    <!-- Grid Section with Animations -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-      <div class="card animate-on-scroll">
-        <h3 class="text-2xl font-semibold text-gray-700 mb-4">Inovacija</h3>
-        <p class="text-gray-600">
-          Mi smo posvećeni kontinuiranoj inovaciji kako bismo pružili rešenja koja
-          unapređuju efikasnost i produktivnost u svim industrijama.
-        </p>
-      </div>
-
-      <div class="card animate-on-scroll">
-        <h3 class="text-2xl font-semibold text-gray-700 mb-4">Stručnost</h3>
-        <p class="text-gray-600">
-          Naš tim stručnjaka je posvećen pružanju vrhunskih usluga i rešenja koja
-          su temeljena na dugogodišnjem iskustvu i temeljnom znanju industrije.
-        </p>
-      </div>
-
-      <div class="card animate-on-scroll">
-        <h3 class="text-2xl font-semibold text-gray-700 mb-4">Održivost</h3>
-        <p class="text-gray-600">
-          Fokusiramo se na održive prakse koje pomažu u očuvanju resursa i smanjenju
-          negativnog uticaja na životnu sredinu, stvarajući dugoročnu vrednost.
-        </p>
+      <div v-for="(item, index) in items" :key="index" class="card animate-on-scroll" ref="elements">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4 text-slate-800">{{ item.title }}</h3>
+        <p class="text-gray-600">{{ item.description }}</p>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* Svi elementi su sakriveni pri početnom renderovanju */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(50px); /* Pomeranje sa dole */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Glatka animacija */
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Kada je element u prikazu, učini ga vidljivim */
 .animate-on-scroll.visible {
   opacity: 1;
-  transform: translateY(0); /* Vraća element na originalnu poziciju */
+  transform: translateY(0);
 }
 
-/* Povećavamo razmake i menjamo boje za lepši dizajn */
 section {
-  background-color: #f7fafc; /* Svetla pozadina */
+  background-color: #f7fafc;
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
@@ -107,11 +95,6 @@ p {
   margin-bottom: 2rem;
 }
 
-/* Stilovi za kartice */
-.bg-white {
-  background-color: #ffffff;
-}
-
 .card {
   padding: 2rem;
   border-radius: 12px;
@@ -126,7 +109,6 @@ p {
 
 .card h3 {
   font-size: 1.75rem;
-  color: #2b6cb0;
   font-weight: 600;
 }
 

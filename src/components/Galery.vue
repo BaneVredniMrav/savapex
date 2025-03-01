@@ -25,14 +25,16 @@ const navigateToGallery = (id) => {
 </script>
 
 <template>
-    <div class="max-w-7xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <div v-for="category in categories" :key="category.id" 
+    <div class="bg-gray-100 py-10 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div v-for="category in categories" :key="category.id" 
             class="relative rounded-lg shadow-lg overflow-hidden cursor-pointer group"
             @click="navigateToGallery(category.id)">
-            <div class="absolute top-0 left-0 w-full bg-black/50 text-white text-center py-2 z-10"> 
-                <h3 class="text-xl font-semibold">{{ category.title }}</h3>
+                <div class="absolute top-0 left-0 w-full bg-black/50 text-white text-center py-2 z-10"> 
+                    <h3 class="text-xl font-semibold">{{ category.title }}</h3>
+                </div>
+                <img :src="category.image" :alt="category.title" class="w-full h-60 object-cover transition-transform group-hover:scale-105" />
             </div>
-            <img :src="category.image" :alt="category.title" class="w-full h-96 object-cover transition-transform group-hover:scale-105" />
         </div>
     </div>
 </template>

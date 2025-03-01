@@ -74,7 +74,7 @@ const goBack = () => {
     <div class="max-w-6xl mx-auto p-6 ">
         <!-- Back dugme -->
         <div class="flex justify-end mb-4">
-            <button @click="goBack" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-700 transition">
+            <button @click="goBack" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition">
                 ← Nazad
             </button>
         </div>

@@ -5,9 +5,6 @@ import logo from "@/assets/img/footer-logo.png";
 
 const route = useRoute();
 const isMobileMenuOpen = ref(false);
-const showTopBar = ref(true);
-const lastScrollY = ref(0);
-
 const phoneNumber = "+381641234567";
 const showToaster = ref(false);
 const isMobile = ref(false);
@@ -42,60 +39,41 @@ const navLinks = [
   { path: "/contact-us", label: "Kontakt" },
 ];
 
-const handleScroll = () => {
-  requestAnimationFrame(() => {
-    showTopBar.value = window.scrollY < lastScrollY.value || window.scrollY < 10;
-    lastScrollY.value = window.scrollY;
-  });
-};
 onMounted(() => {
   isMobile.value = window.innerWidth <= 768;
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
 <template>
   <!-- Gornja traka sa kontakt informacijama -->
-  <transition name="fade">
-    <div
-      v-show="showTopBar"
-      class="fixed top-0 left-0 w-full bg-slate-700 text-white text-sm py-2 z-50 transition-all duration-100"
-    >
-      <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
+  <div class="fixed top-0 left-0 w-full bg-slate-700 text-white text-sm py-2 z-50">
+    <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
       <span class="mr-4">
         <a
-        v-if="isMobile"
-        :href="`tel:${phoneNumber}`"
-        class="hover:text-brandOrange transition duration-300"
+          v-if="isMobile"
+          :href="`tel:${phoneNumber}`"
+          class="hover:text-brandOrange transition duration-300"
         >
-        <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+          <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
         </a>
         <button
-        v-else
-        @click="copyPhoneNumber"
-        class="hover:text-brandOrange transition duration-300 focus:outline-none"
+          v-else
+          @click="copyPhoneNumber"
+          class="hover:text-brandOrange transition duration-300 focus:outline-none"
         >
-        <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+          <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
         </button>
       </span>
       <span>
         <a href="mailto:info@savapex.rs" class="hover:text-brandOrange transition duration-300">
-        <i class="pi pi-envelope mr-2"></i> info@savapex.rs
+          <i class="pi pi-envelope mr-2"></i> info@savapex.rs
         </a>
       </span>
-      </div>
     </div>
-  </transition>
+  </div>
 
   <!-- Navigacija -->
-  <nav
-    class="fixed left-0 w-full z-50 bg-slate-800 border-b border-brandRose shadow-md transition-all duration-100"
-    :class="{ 'top-8': showTopBar, 'top-0': !showTopBar }"
-  >
+  <nav class="fixed top-8 left-0 w-full z-50 bg-slate-800 border-b border-brandRose shadow-md">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
@@ -141,7 +119,7 @@ onUnmounted(() => {
             :to="link.path"
             @click="closeMobileMenu"
             class="px-4 py-2 rounded-lg transition-all duration-300 w-full text-center"
-            :class="route.path === link.path ? 'bg-brandOrange text-black' : 'text-white hover:bg-brandOrange hover:text-black'"
+            :class="route.path === link.path ? 'bg-brandOrange text-black' : 'text-white hover:bg-brandOrange hover:text-slate-800'"
           >
             {{ link.label }}
           </RouterLink>
@@ -161,10 +139,4 @@ onUnmounted(() => {
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
-
-.slide-enter-active, .slide-leave-active {
-  transition: transform 0.3s ease-in-out;
-}
-.slide-enter { transform: translateY(-100%); }
-.slide-leave-to { transform: translateY(-100%); }
 </style>
