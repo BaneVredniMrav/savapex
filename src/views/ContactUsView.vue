@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import AnimatedText from "@/components/AnimatedText.vue";
+import ContactForm from "@/components/ContactForm.vue";
 const latitude = 20.953905899855933;
 const longitude = -86.8361211038529;
 const mapLink = computed(
@@ -41,7 +42,7 @@ const mapLink = computed(
           <a
             :href="mapLink"
             target="_blank"
-            class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition"
+            class="bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brandOrange hover:text-slate-800 transition-all duration-300"
           >
             Otvori u Google Mapama
           </a>
@@ -49,4 +50,5 @@ const mapLink = computed(
       </div>
     </div>
   </section>
+  <ContactForm />
 </template>
