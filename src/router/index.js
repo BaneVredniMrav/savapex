@@ -1,63 +1,53 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
-import AboutUsView from "@/views/AboutUsView.vue";
-import ProductsView from "@/views/ProductsView.vue";
-import ServicesView from "@/views/ServicesView.vue";
-import ServiceAndSupportView from "@/views/ServiceAndSupportView.vue";
-import ContactUsView from "@/views/ContactUsView.vue";
-import NotFoundView from "@/views/NotFoundView.vue";
-import CategoryGallery from '../components/CategoryGallery.vue'
+
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/HomeView.vue')
+  },
+  {
+    path: '/about-us',
+    name: 'AboutUs',
+    component: () => import(/* webpackChunkName: "about-us" */ '@/views/AboutUsView.vue')
+  },
+  {
+    path: '/products',
+    name: 'Products',
+    component: () => import(/* webpackChunkName: "products" */ '@/views/ProductsView.vue')
+  },
+  {
+    path: '/services',
+    name: 'Services',
+    component: () => import(/* webpackChunkName: "services" */ '@/views/ServicesView.vue')
+  },
+  {
+    path: '/service-and-support',
+    name: 'ServiceAndSupport',
+    component: () => import(/* webpackChunkName: "service-and-support" */ '@/views/ServiceAndSupportView.vue')
+  },
+  {
+    path: '/contact-us',
+    name: 'ContactUs',
+    component: () => import(/* webpackChunkName: "contact-us" */ '@/views/ContactUsView.vue')
+  },
+  {
+    path: '/category-gallery/:id',
+    name: 'CategoryGallery',
+    component: () => import(/* webpackChunkName: "category-gallery" */ '@/components/CategoryGallery.vue')
+  }
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL), // BASE_URL mora biti podešen u vite.config.js
+  history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-        return savedPosition;
+      return savedPosition;
     } else {
-        return { top: 0 }; 
+      return { top: 0 };
     }
-},
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: HomeView,
-    },
-    {
-      path: "/about-us",
-      name: "about-us",
-      component: AboutUsView,
-    },
-    {
-      path: "/products",
-      name: "products",
-      component: ProductsView,
-    },
-    {
-      path: "/services",
-      name: "services",
-      component: ServicesView,
-    },    {
-      path: "/service-and-support",
-      name: "service-and-support",
-      component: ServiceAndSupportView,
-    },
-    {
-      path: "/contact-us",
-      name: "contact-us",
-      component: ContactUsView,
-    },
-    {
-      path: "/:catchAll(.*)",
-      name: "not-found",
-      component: NotFoundView,
-    },
-    {
-      path: '/category-gallery/:id',
-      name: 'category-galery',
-      component: CategoryGallery
-    }
-  ],
+  },
+  routes
 });
 
 export default router;
