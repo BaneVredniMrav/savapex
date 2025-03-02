@@ -1,25 +1,6 @@
 <script setup>
-import { ref, onMounted } from "vue";
 import AnimatedText from "./AnimatedText.vue";
 
-// Reactive variables for animations
-const isVisible = ref(false); // Animation on load
-const isButtonClicked = ref(false); // Animation on button click
-
-const handleClick = () => {
-  // Trigger animation on click
-  isButtonClicked.value = true;
-
-  // Remove animation after it finishes
-  setTimeout(() => {
-    isButtonClicked.value = false;
-  }, 800); // Duration must match @keyframes definition
-};
-
-// Trigger animations when the component is mounted
-onMounted(() => {
-  isVisible.value = true; // Trigger animations for all elements
-});
 </script>
 
 <template>
@@ -32,14 +13,13 @@ onMounted(() => {
         text-color="white"
       /> 
       <!-- Button with click animation -->
-      <button
-        @click="handleClick"
-        class="bg-slate-800 text-xl text-white px-12 py-4 rounded-lg hover:bg-brandOrange hover:text-slate-800 transform transition-all duration-300 ease-in-out"
-        :class="{ 'shake-bottom': isButtonClicked }"
+      <RouterLink
+      to="/contact-us"
+        class="bg-slate-800 text-xl text-white px-12 py-4 rounded-lg hover:bg-brandOrange hover:text-slate-800 transform transition-all duration-300 ease-in-out font-semibold"
         aria-label="Contact-us"
       >
       Kontaktirajte nas
-      </button>
+      </RouterLink>
     </div>
 
     <!-- Optional: Add an overlay for better contrast with the background image -->
@@ -66,50 +46,6 @@ onMounted(() => {
   .hero button {
     width: 100%; /* Make button full-width on mobile */
     padding: 16px; /* Add padding for better touch target */
-  }
-}
-
-.text-focus-in {
-  animation: text-focus-in 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@keyframes text-focus-in {
-  0% {
-    filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-
-/* Animation for shake-bottom */
-.shake-bottom {
-  animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-}
-
-@keyframes shake-bottom {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  10%,
-  30%,
-  50%,
-  70% {
-    transform: translateY(4px);
-  }
-  20%,
-  40%,
-  60% {
-    transform: translateY(-4px);
-  }
-  80% {
-    transform: translateY(2px);
-  }
-  90% {
-    transform: translateY(-2px);
   }
 }
 </style>
