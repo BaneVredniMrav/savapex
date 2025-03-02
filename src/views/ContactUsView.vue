@@ -19,7 +19,7 @@ const mapLink = computed(
     <div class="max-w-6xl mx-auto bg-slate-600 p-8 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
         <h3 class="text-2xl font-semibold text-white mb-4">Podaci o firmi</h3>
-        <p class="text-white mt-2 mb-2"><strong>Naziv:</strong> XYZ d.o.o.</p>
+        <p class="text-white mt-2 mb-2"><strong>Naziv:</strong> Savapex d.o.o.</p>
         <p class="text-white mb-2"><strong>Adresa:</strong> Ulica 123, 11000 Beograd, Srbija</p>
         <p class="text-white mb-2"><strong>Telefon:</strong> +381 11 123 456</p>
         <p class="text-white mb-2"><strong>Email:</strong> kontakt@xyz.com</p>

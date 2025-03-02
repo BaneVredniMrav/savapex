@@ -24,7 +24,7 @@ import kran4 from '@/assets/img/kran4.jpg';
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Prodaja dizalica'"
             :description="'Pomažemo vam da odaberete savršenu dizalicu za vašu industriju, uz stručno savetovanje i širok asortiman rešenja. Bez obzira na zahteve, imamo pravu opciju za vas.'"
-            :details-link="'/details'"
+            :details-link="'/products'"
             :slide-direction="'right'"
             :button-name="'Pogledajte ponudu'"
     /> 

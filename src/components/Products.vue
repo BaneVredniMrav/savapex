@@ -1,158 +1,204 @@
-<script setup>
-import { ref, nextTick } from "vue";
-import AnimatedText from "./AnimatedText.vue";
-import kran1 from "@/assets/img/kran1.jpg";
-import kran2 from "@/assets/img/kran2.jpg";
-import kran3 from "@/assets/img/kran3.jpg";
+  <script setup>
+  import { ref, computed, onMounted, onUnmounted } from "vue";
+  import { useRouter } from 'vue-router';
+  import AnimatedText from "@/components/AnimatedText.vue";
+  import kran1 from "@/assets/img/kran1.jpg";
+  import kran2 from "@/assets/img/kran2.jpg";
+  import kran3 from "@/assets/img/kran3.jpg";
+  import kran4 from "@/assets/img/kran4.jpg";
+  import kran5 from "@/assets/img/kran5.jpg";
 
-// Podaci za glavne i sub-kartice
-const items = [
-  {
-    name: "Kablovske dizalice",
-    subText: "U svetu tehnologije, inovacije se stalno menjaju, a preduzetnici moraju da se prilagode brzom tempu napretka. Novi trendovi, kao što su veštačka inteligencija, automatizacija i održivost, oblikuju budućnost tržišta. Prilagodljivost, kreativnost i sposobnost učenja ključne su veštine za uspeh u ovom dinamičnom okruženju. Prepoznavanje prilika, kao i spremnost na inovacije, omogućava preduzetnicima da ostanu konkurentni i postignu dugoročni uspeh.",
-    link: "https://example.com/1",
-    subItems: [
-      {
-        title: "Dizalica za kablovske dizalice",
-        description: "Veoma kvalitetna dizalica za kablovske dizalice",
-        link: "https://example.com/sub1",
-        image: kran1,
-      },
-      {
-        title: "Sub 1.2",
-        description: "Opis Sub 1.2",
-        link: "https://example.com/sub2",
-        image: kran2,
-      },
-    ],
-  },
-  {
-    name: "Lančane dizalice",
-    subText: "Opis za karticu 2",
-    link: "https://example.com/2",
-    subItems: [
-      {
-        title: "Sub 2.1",
-        description: "Opis Sub 2.1",
-        link: "https://example.com/sub3",
-        image: kran1,
-      },
-      {
-        title: "Sub 2.2",
-        description: "Opis Sub 2.2",
-        link: "https://example.com/sub4",
-        image: kran3,
-      },
-    ],
-  },
-  {
-    name: "Mobilne dizalice",
-    subText: "Opis za karticu 3",
-    link: "https://example.com/3",
-    subItems: [
-      {
-        title: "Sub 3.1",
-        description: "Opis Sub 3.1",
-        link: "https://example.com/sub5",
-        image: kran2,
-      },
-    ],
-  },
-];
+  const router = useRouter();
+  
+  // Kategorije proizvoda
+  const categories = ref([
+    "Kablovske dizalice",
+    "Lančane dizalice",
+    "Mobilne dizalice",
+    "Dizalice za specijalizovane namene",
+    "Dizalice za industrijske hale i postrojenja",
+  ]);
+  
+  // Opcije kapaciteta
+  const capacities = ref([1, 2, 5, 10, 20, 50]);
+  
+  // Lista proizvoda
+  const products = ref([
+    { id: 1, name: "Dizalica 5000", category: "Kablovske dizalice", capacity: 5, image: kran1 },
+    { id: 2, name: "Lančana dizalica X100", category: "Lančane dizalice", capacity: 10, image: kran2 },
+    { id: 3, name: "Mobilna dizalica Pro", category: "Mobilne dizalice", capacity: 20, image: kran3 },
+    { id: 4, name: "Industrijska hala 200T", category: "Dizalice za industrijske hale i postrojenja", capacity: 50, image: kran4 },
+    { id: 5, name: "Specijalizovana dizalica S-500", category: "Dizalice za specijalizovane namene", capacity: 2, image: kran5 },
+  ]);
+  
+  // Selektovani filteri
+  const selectedCategory = ref("");
+  const selectedCapacity = ref("");
+  const openDropdown = ref(null); // Prati koji dropdown je otvoren
+  
+  const toggleDropdown = (type) => {
+    openDropdown.value = openDropdown.value === type ? null : type;
+  };
 
-// Praćenje otvorenih elemenata
-const openIndex = ref(null);
-const cardRefs = ref([]); // Ref lista za čuvanje kartica
-
-// Funkcija za otvaranje/zatvaranje kartica
-const toggle = async (index) => {
-  if (openIndex.value === index) {
-    openIndex.value = null;
-  } else {
-    openIndex.value = index;
-    await nextTick(); // Osigurava da DOM bude ažuriran pre skrolovanja
-    if (cardRefs.value[index]) {
-      cardRefs.value[index].scrollIntoView({
-        behavior: "smooth",
-        block: "nearest", // Pozicionira element u centar ekrana
-      });
-    }
+  const closeDropdown = (event) => {
+  if (!event.target.closest(".dropdown-container")) {
+    openDropdown.value = null;
   }
 };
+  
+  const selectCategory = (category) => {
+    selectedCategory.value = category;
+    openDropdown.value = null;
+  };
+  
+  const selectCapacity = (capacity) => {
+    selectedCapacity.value = capacity;
+    openDropdown.value = null;
+  };
+  
+  // Filtrirani proizvodi
+  const filteredProducts = computed(() => {
+    return products.value.filter((product) => {
+      return (
+        (selectedCategory.value === "" || product.category === selectedCategory.value) &&
+        (selectedCapacity.value === "" || product.capacity === parseInt(selectedCapacity.value))
+      );
+    });
+  });
 
-// Funkcija za upravljanje klikom na sub karticu
-const handleSubItemClick = (link) => {
-  window.open(link, "_blank");
+  const goToProduct = (id) => {
+  router.push(`/product/${id}`);
 };
-</script>
+
+  onMounted(() => {
+  document.addEventListener("click", closeDropdown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", closeDropdown);
+});
+  </script>
 
 <template>
-  <div class="flex flex-col gap-8 max-w-full mx-auto text-center pb-16">
-    <!-- Glavne kartice -->
-    <AnimatedText
-      title="Naša ponuda dizalica"
-      subtitle="Pronađite dizalicu koja odgovara vašim potrebama"
-    />
-    <div
-      v-for="(item, index) in items"
-      :key="index"
-      ref="cardRefs"
-      :class="[
-        'relative rounded-2xl p-6 py-8 bg-white shadow-xl mx-auto w-[90vw] transition-all duration-800 ease-in cursor-pointer break-words ring-1 ring-offset-2 ring-offset-gray-50',
-        openIndex === index
-          ? 'ring-slate-500/70 shadow-slate-800/20 scale-105'
-          : 'ring-slate-400/50 hover:ring-slate-500/60 hover:shadow-slate-500/20 hover:scale-105',
-      ]"
-      @click="toggle(index)"
-    >
-      <div class="flex items-center justify-between">
-        <div class="text-left">
-          <h3 class="text-xl md:text-2xl font-semibold text-gray-800">{{ item.name }}</h3>
-          <p class="text-sm md:text-base text-gray-600 mt-2 px-2">{{ item.subText }}</p>
-        </div>
-
-        <!-- Strelica koja pokazuje otvaranje koristeći PrimeIcons -->
-        <i
-          :class="{
-            'pi pi-chevron-up md:text-xl rotate-0': openIndex === index,
-            'pi pi-chevron-up md:text-xl rotate-180': openIndex !== index,
-            'text-slate-800 transition-transform duration-300 ease-in-out': true,
-          }"
-        ></i>
+  <AnimatedText
+    title="Naša ponuda dizalica"
+    subtitle="Pronađite dizalicu koja odgovara vašim potrebama"
+  />
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <!-- Filteri -->
+    <div class="mt-8 flex gap-6 justify-center flex-wrap sm:flex-nowrap">
+      <!-- Filter: Kategorija -->
+      <div class="relative w-full dropdown-container">
+        <button
+          @click="toggleDropdown('category')"
+          class="w-full flex justify-between items-center border px-4 py-3 rounded-lg bg-white shadow-md hover:bg-gray-100 transition"
+        >
+          <span>{{ selectedCategory || "Sve kategorije" }}</span>
+          <span
+            :class="{
+              'pi pi-chevron-up md:text-xl rotate-0': openDropdown === 'category',
+              'pi pi-chevron-up md:text-xl rotate-180': openDropdown !== 'category',
+              'text-slate-800 transition-transform duration-300 ease-in-out': true,
+            }"
+          ></span>
+        </button>
+        <transition name="dropdown">
+          <div v-if="openDropdown === 'category'"
+            class="absolute w-full bg-white shadow-lg rounded-lg mt-2 z-10 overflow-hidden"
+          >
+            <ul class="py-2">
+              <li @click="selectCategory('')" class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                Sve kategorije
+              </li>
+              <li
+                v-for="category in categories"
+                :key="category"
+                @click="selectCategory(category)"
+                class="px-4 py-3 hover:bg-gray-100 cursor-pointer"
+              >
+                {{ category }}
+              </li>
+            </ul>
+          </div>
+        </transition>
       </div>
 
-      <div v-show="openIndex === index" class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          v-for="(subItem, subIndex) in item.subItems"
-          :key="subIndex"
-          class="relative border rounded-lg bg-gray-50 hover:bg-gray-100 transition-transform transform hover:scale-105 hover:shadow-md flex flex-col overflow-hidden"
-          @click="handleSubItemClick(subItem.link)"
+      <!-- Filter: Kapacitet -->
+      <div class="relative w-full dropdown-container">
+        <button
+          @click="toggleDropdown('capacity')"
+          class="w-full flex justify-between items-center border px-4 py-3 rounded-lg bg-white shadow-md hover:bg-gray-100 transition"
         >
-          <!-- Slika kao pozadina sa formatom 4:3 -->
-          <div class="relative w-full" style="padding-top: 50%;">
-            <img
-              :src="subItem.image"
-              :alt="subItem.title"
-              class="absolute inset-0 w-full h-full object-cover z-0"
-            />
-          </div>
-
-          <!-- Tamni overlay -->
-          <div class="absolute inset-0 bg-black bg-opacity-50 z-10 p-8 flex flex-col justify-center items-center text-center">
-            <div>
-              <h4 class="text-lg md:text-xl font-medium text-white">{{ subItem.title }}</h4>
-              <p class="text-sm md:text-base text-white mt-2">{{ subItem.description }}</p>
-              <a
-                :href="subItem.link"
-                target="_blank"
-                class="text-slate-200 hover:underline text-sm md:text-base mt-3 inline-block transition-transform transform hover:scale-105"
+          <span>{{ selectedCapacity || "Kapacitet" }}</span>
+          <span
+            :class="{
+              'pi pi-chevron-up md:text-xl rotate-0': openDropdown === 'capacity',
+              'pi pi-chevron-up md:text-xl rotate-180': openDropdown !== 'capacity',
+              'text-slate-800 transition-transform duration-300 ease-in-out': true,
+            }"
+          ></span>
+        </button>
+        <transition name="dropdown">
+          <div v-if="openDropdown === 'capacity'"
+            class="absolute w-full bg-white shadow-lg rounded-lg mt-2 z-10 overflow-hidden"
+          >
+            <ul class="py-2">
+              <li @click="selectCapacity('')" class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                Svi kapaciteti
+              </li>
+              <li
+                v-for="capacity in capacities"
+                :key="capacity"
+                @click="selectCapacity(capacity)"
+                class="px-4 py-3 hover:bg-gray-100 cursor-pointer"
               >
-                Detaljnije
-              </a>
-            </div>
+                {{ capacity }} tona
+              </li>
+            </ul>
           </div>
+        </transition>
+      </div>
+    </div>
+
+    <div v-if="filteredProducts.length === 0" class="text-center text-gray-500 text-lg mt-6">
+  Nema pronađenih proizvoda.
+</div>
+
+
+    <!-- Lista proizvoda -->
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        v-for="product in filteredProducts"
+        :key="product.id"
+        class="bg-white shadow-lg rounded-lg overflow-hidden"
+      >
+        <img :src="product.image" :alt="product.name" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold text-gray-800">{{ product.name }}</h3>
+          <p class="text-gray-600 text-sm">{{ product.category }}</p>
+          <p class="mt-2 text-brandOrange font-bold">{{ product.capacity }} tona</p>
+          <button
+          @click="goToProduct(product.id)"
+            class="mt-4 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-brandOrange hover:text-slate-800 transition"
+          >
+            Detalji
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+/* Animacija za dropdown */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+</style>

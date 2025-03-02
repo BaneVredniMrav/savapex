@@ -35,12 +35,6 @@ import AnimatedText from "./AnimatedText.vue";
   justify-content: center;
 }
 
-.hero .max-w-4xl {
-  width: 100%;
-  max-width: 800px; /* Limiting the width of content */
-  padding: 0 16px; /* Adds some padding on smaller screens */
-}
-
 /* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
   .hero button {
