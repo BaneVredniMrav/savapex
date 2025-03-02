@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import AboutUsView from "@/views/AboutUsView.vue";
 import ProductsView from "@/views/ProductsView.vue";
@@ -9,7 +9,7 @@ import NotFoundView from "@/views/NotFoundView.vue";
 import CategoryGallery from '../components/CategoryGallery.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL), // BASE_URL mora biti podešen u vite.config.js
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
         return savedPosition;
