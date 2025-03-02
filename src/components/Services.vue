@@ -13,7 +13,7 @@
                     <h2 class="text-2xl md:text-3xl font-bold mb-4">{{ title }}</h2>
                     <p class="text-base md:text-lg leading-relaxed mb-6">{{ description }}</p>
                     <RouterLink :to="detailsLink"  target="_self" 
-                        class="inline-block bg-slate-800 text-white font-semibold py-3 px-6 md:px-8 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition">{{ buttonName }}</RouterLink>
+                        class="inline-block bg-slate-800 text-white font-semibold py-3 px-6 md:px-8 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition-all duration-300">{{ buttonName }}</RouterLink>
                 </div>
                 
                 <img v-if="!isMobile && slideDirection !== 'left'" :src="currentImage" alt="Image" 
