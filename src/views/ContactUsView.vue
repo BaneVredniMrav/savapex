@@ -2,8 +2,8 @@
 import { computed } from "vue";
 import AnimatedText from "@/components/AnimatedText.vue";
 import ContactForm from "@/components/ContactForm.vue";
-const latitude = 20.953905899855933;
-const longitude = -86.8361211038529;
+const latitude = 44.439385;
+const longitude = 20.735282;
 const mapLink = computed(
   () =>
     `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`
@@ -15,7 +15,7 @@ const mapLink = computed(
   title="Kontaktirajte nas"
   subtitle="Tu smo da odgovorimo na sva vaša pitanja"
   /> 
-  <section class="bg-gray-100 py-12 px-6 md:px-12 lg:px-24 border-b border-t border-brandRose">
+  <section class="bg-gray-100 py-12 px-6 md:px-12 lg:px-24 border-b border-brandRose">
     <div class="max-w-6xl mx-auto bg-slate-600 p-8 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
         <h3 class="text-2xl font-semibold text-white mb-4">Podaci o firmi</h3>
@@ -30,8 +30,9 @@ const mapLink = computed(
         <h3 class="text-2xl font-semibold text-white">Lokacija</h3>
         <iframe
           class="w-full h-64 mt-4 rounded-lg"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3435.244368655417!2d-86.83987993492067!3d20.95314842212426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e86bbc7183c17%3A0x7d452b4b7f19bed!2sHilton%20Cancun%2C%20an%20All-Inclusive%20Resort!5e0!3m2!1ssr!2sus!4v1738275048246!5m2!1ssr!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.632752454525!2d20.731731076908517!3d44.440694971075736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4750b74e70bb53d3%3A0x3ea6a576343ff0b8!2z0JrQvtCy0LDRh9C10LLQsNGG!5e0!3m2!1ssr!2srs!4v1740952376498!5m2!1ssr!2srs"
           allowfullscreen
+          loading="lazy"
         ></iframe>
         <div class="mt-8 text-center">
           <a
