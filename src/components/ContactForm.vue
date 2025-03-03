@@ -38,8 +38,10 @@ const handleSubmit = async () => {
   try {
     const response = await fetch("https://submit-form.com/gag45afBl", {
       method: "POST",
-      headers: { "Content-Type": "application/json" }, // Ispravan Content-Type
-      body: JSON.stringify(formData.value), // Slanje JSON formata
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        form: formData.value,
+      }),
     });
 
     if (response.ok) {
