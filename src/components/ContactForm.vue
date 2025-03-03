@@ -36,7 +36,7 @@ const handleSubmit = async () => {
   isSubmitting.value = true;
 
   try {
-    const response = await fetch("https://formsubmit.co/d68eccebfd5af4b924d3aa0b5dc46b24", {
+    const response = await fetch("https://submit-form.com/gag45afBl", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData.value),
