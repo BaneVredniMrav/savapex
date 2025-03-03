@@ -72,8 +72,8 @@ onMounted(() => {
   <section ref="formSection" class="bg-gray-100 py-12 px-6 md:px-12 lg:px-24">
   <div class="max-w-6xl mx-auto p-6 bg-slate-600 shadow-lg rounded-lg my-8">
     <h2 class="text-2xl font-bold text-brandOrange mb-8 text-center">Popunite kontakt formu</h2>
-    <p v-if="successMessage" class="text-green-600 text-center font-semibold" aria-live="polite">{{ successMessage }}</p>
-    <p v-if="errorMessage" class="text-red-600 text-center font-semibold" aria-live="polite">{{ errorMessage }}</p>
+    <p v-if="successMessage" class="text-green-600 text-center font-semibold pb-2" aria-live="polite">{{ successMessage }}</p>
+    <p v-if="errorMessage" class="text-red-600 text-center font-semibold pb-2" aria-live="polite">{{ errorMessage }}</p>
     <form @submit.prevent="handleSubmit" class="space-y-4">
       <input
         v-model="formData.name"
