@@ -37,19 +37,21 @@ const handleSubmit = async () => {
 
   try {
     const response = await fetch("https://formspree.io/f/xyzkrlzo", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData.value),
-    });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json", // Sprečava redirect na /thanks
+  },
+  body: JSON.stringify(formData.value),
+});
 
-    if (response.ok) {
-      successMessage.value = "Poruka uspešno poslata!";
-      formData.value = { name: "", email: "", message: "" };
-    } else if (response.status >= 400 && response.status < 500) {
-      errorMessage.value = "Došlo je do greške sa vašim unosom. Pokušajte ponovo.";
-    } else {
-      errorMessage.value = "Došlo je do greške na serveru. Pokušajte ponovo kasnije.";
-    }
+if (response.ok) {
+  successMessage.value = "Poruka uspešno poslata!";
+  formData.value = { name: "", email: "", subject: "", message: "" };
+} else {
+  errorMessage.value = "Došlo je do greške. Pokušajte ponovo.";
+}
+
   } catch (error) {
     errorMessage.value = "Nije moguće poslati poruku.";
   }
