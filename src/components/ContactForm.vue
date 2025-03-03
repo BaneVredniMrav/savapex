@@ -40,6 +40,7 @@ const handleSubmit = async () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData.value),
+      mode: "no-cors",
     });
 
     if (response.ok) {
