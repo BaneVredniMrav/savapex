@@ -38,17 +38,15 @@ const handleSubmit = async () => {
   try {
     const response = await fetch("https://submit-form.com/gag45afBl", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData.value),
+      headers: { "Content-Type": "application/json" }, // Ispravan Content-Type
+      body: JSON.stringify(formData.value), // Slanje JSON formata
     });
 
     if (response.ok) {
       successMessage.value = "Poruka uspešno poslata!";
-      formData.value = { name: "", email: "", message: "" };
-    } else if (response.status >= 400 && response.status < 500) {
-      errorMessage.value = "Došlo je do greške sa vašim unosom. Pokušajte ponovo.";
+      formData.value = { name: "", email: "", subject: "", message: "" };
     } else {
-      errorMessage.value = "Došlo je do greške na serveru. Pokušajte ponovo kasnije.";
+      errorMessage.value = "Došlo je do greške. Pokušajte ponovo.";
     }
   } catch (error) {
     errorMessage.value = "Nije moguće poslati poruku.";
