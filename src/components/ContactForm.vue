@@ -39,9 +39,7 @@ const handleSubmit = async () => {
     const response = await fetch("https://submit-form.com/gag45afBl", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        form: formData.value,
-      }),
+      body: JSON.stringify(formData.value), 
     });
 
     if (response.ok) {
@@ -60,7 +58,6 @@ const handleSubmit = async () => {
 onMounted(() => {
   if (route.query.subject) {
     formData.value.subject = route.query.subject;
-    formSection.value.scrollIntoView({ behavior: "smooth" });
   }
 });
 
