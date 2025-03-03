@@ -38,15 +38,17 @@ const handleSubmit = async () => {
   try {
     const response = await fetch("https://submit-form.com/gag45afBl", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData.value), 
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData.value),
     });
 
     if (response.ok) {
       successMessage.value = "Poruka uspešno poslata!";
-      formData.value = { name: "", email: "", subject: "", message: "" };
+      formData.value = { name: "", email: "", message: "" };
+    } else if (response.status >= 400 && response.status < 500) {
+      errorMessage.value = "Došlo je do greške sa vašim unosom. Pokušajte ponovo.";
     } else {
-      errorMessage.value = "Došlo je do greške. Pokušajte ponovo.";
+      errorMessage.value = "Došlo je do greške na serveru. Pokušajte ponovo kasnije.";
     }
   } catch (error) {
     errorMessage.value = "Nije moguće poslati poruku.";
@@ -58,6 +60,7 @@ const handleSubmit = async () => {
 onMounted(() => {
   if (route.query.subject) {
     formData.value.subject = route.query.subject;
+    formSection.value.scrollIntoView({ behavior: "smooth" });
   }
 });
 
@@ -73,7 +76,6 @@ onMounted(() => {
       <input
         v-model="formData.name"
         type="text"
-        name="name"
         placeholder="Ime / Ime firme"
         class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
         required
@@ -81,7 +83,6 @@ onMounted(() => {
       <input
       v-model="formData.email"
       type="email"
-      name="email"
       placeholder="Email"
       class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
       required
@@ -89,14 +90,12 @@ onMounted(() => {
       <input
         v-model="formData.subject"
         type="text"
-        name="subject"
         placeholder="Naslov"
         class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
         required/>
       <textarea
         v-model="formData.message"
-        rows="5"
-        name="message"
+        rows="4"
         placeholder="Vaša poruka"
         class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
         required
