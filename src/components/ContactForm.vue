@@ -36,11 +36,10 @@ const handleSubmit = async () => {
   isSubmitting.value = true;
 
   try {
-    const response = await fetch("https://submit-form.com/gag45afBl", {
+    const response = await fetch("https://formspree.io/f/xyzkrlzo", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData.value),
-      mode: "no-cors",
     });
 
     if (response.ok) {
