@@ -84,7 +84,8 @@ onUnmounted(() => {
     title="Naša ponuda dizalica"
     subtitle="Pronađite dizalicu koja odgovara vašim potrebama"
   />
-  <div class="max-w-7xl mx-auto px-6 pt-2 pb-8">
+  <div class="bg-gray-100 py-10 px-4">
+  <div class="max-w-7xl mx-auto pt-2">
     <!-- Filteri -->
     <div class="mt-8 flex gap-6 justify-center flex-wrap sm:flex-nowrap">
       <!-- Filter: Kategorija -->
@@ -189,6 +190,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
