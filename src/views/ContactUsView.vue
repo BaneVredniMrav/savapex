@@ -18,7 +18,7 @@ const mapLink = computed(
   <section class="bg-gray-100 py-12 px-6 md:px-12 lg:px-24 border-b border-brandRose">
     <div class="max-w-6xl mx-auto bg-slate-600 p-8 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
-        <h3 class="text-2xl font-semibold text-white mb-4">Podaci o firmi</h3>
+        <h3 class="text-2xl font-semibold text-brandOrange mb-4">Podaci o firmi</h3>
         <p class="text-white mt-2 mb-2"><strong>Naziv:</strong> Savapex d.o.o.</p>
         <p class="text-white mb-2"><strong>Adresa:</strong> Ulica 123, 11000 Beograd, Srbija</p>
         <p class="text-white mb-2"><strong>Telefon:</strong> +381 11 123 456</p>
@@ -27,7 +27,7 @@ const mapLink = computed(
       </div>
 
       <div>
-        <h3 class="text-2xl font-semibold text-white">Lokacija</h3>
+        <h3 class="text-2xl font-semibold text-brandOrange">Lokacija</h3>
         <iframe
           class="w-full h-64 mt-4 rounded-lg"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.632752454525!2d20.731731076908517!3d44.440694971075736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4750b74e70bb53d3%3A0x3ea6a576343ff0b8!2z0JrQvtCy0LDRh9C10LLQsNGG!5e0!3m2!1ssr!2srs!4v1740952376498!5m2!1ssr!2srs"

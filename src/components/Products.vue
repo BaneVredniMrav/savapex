@@ -84,7 +84,7 @@ onUnmounted(() => {
     title="Naša ponuda dizalica"
     subtitle="Pronađite dizalicu koja odgovara vašim potrebama"
   />
-  <div class="max-w-7xl mx-auto px-6 py-12">
+  <div class="max-w-7xl mx-auto px-6 pt-2 pb-8">
     <!-- Filteri -->
     <div class="mt-8 flex gap-6 justify-center flex-wrap sm:flex-nowrap">
       <!-- Filter: Kategorija -->
@@ -107,14 +107,15 @@ onUnmounted(() => {
             class="absolute w-full bg-white shadow-lg rounded-lg mt-2 z-10 overflow-hidden"
           >
             <ul class="py-2">
-              <li @click="selectCategory('')" class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+              <li @click="selectCategory('')"                 class="px-4 py-3 hover:bg-brandOrange hover:text-slate-800 cursor-pointer"
+              >
                 Sve kategorije
               </li>
               <li
                 v-for="category in categories"
                 :key="category"
                 @click="selectCategory(category)"
-                class="px-4 py-3 hover:bg-gray-100 cursor-pointer"
+                class="px-4 py-3 hover:bg-brandOrange hover:text-slate-800 cursor-pointer"
               >
                 {{ category }}
               </li>
@@ -129,7 +130,7 @@ onUnmounted(() => {
           @click="toggleDropdown('capacity')"
           class="w-full flex justify-between items-center border px-4 py-3 rounded-lg bg-white shadow-md hover:bg-gray-100 transition"
         >
-          <span>{{ selectedCapacity || "Kapacitet" }}</span>
+          <span>{{ selectedCapacity || "Svi kapaciteti" }}</span>
           <span
             :class="{
               'pi pi-chevron-up md:text-xl rotate-0': openDropdown === 'capacity',
@@ -143,14 +144,16 @@ onUnmounted(() => {
             class="absolute w-full bg-white shadow-lg rounded-lg mt-2 z-10 overflow-hidden"
           >
             <ul class="py-2">
-              <li @click="selectCapacity('')" class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+              <li @click="selectCapacity('')"                 class="px-4 py-3 hover:bg-brandOrange hover:text-slate-800 cursor-pointer"
+>
                 Svi kapaciteti
               </li>
               <li
                 v-for="capacity in capacities"
                 :key="capacity"
                 @click="selectCapacity(capacity)"
-                class="px-4 py-3 hover:bg-gray-100 cursor-pointer"
+                                class="px-4 py-3 hover:bg-brandOrange hover:text-slate-800 cursor-pointer"
+
               >
                 {{ capacity }} tona
               </li>
@@ -181,7 +184,7 @@ onUnmounted(() => {
           @click="goToProduct(product.id)"
             class="mt-4 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-brandOrange hover:text-slate-800 transition"
           >
-            Detalji
+            Detaljnije
           </button>
         </div>
       </div>

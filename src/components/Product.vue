@@ -1,5 +1,10 @@
 <template>
     <div class="max-w-4xl mx-auto px-6 py-12 pt-32">
+      <div class="flex justify-end mb-4">
+            <button @click="goBack" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition">
+                ← Nazad
+            </button>
+        </div>
       <div v-if="product" class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img :src="product.image" :alt="product.name" class="w-full h-64 object-cover" />
         <div class="p-6">
@@ -7,9 +12,9 @@
           <p class="text-gray-600 mt-2">Kategorija: {{ product.category }}</p>
           <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }} tona</p>
           <p class="mt-4 text-gray-700">{{ product.description }}</p>
-          <button @click="$router.push('/products')" class="mt-6 bg-brandOrange text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition">
-            Nazad na ponudu
-          </button>
+            <button @click="$router.push({ path: '/contact-us', query: { subject: product.name } })" class="mt-6 bg-slate-800 text-white text-semibold px-4 py-2 rounded-lg hover:bg-brandOrange hover:text-slate-800 transition">
+            Zatraži ponudu
+            </button>
         </div>
       </div>
       <div v-else class="text-center text-gray-500 text-lg mt-6">Proizvod nije pronađen.</div>
@@ -18,7 +23,7 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
-  import { useRoute } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
   import kran1 from '@/assets/img/kran1.jpg';
   import kran2 from '@/assets/img/kran2.jpg';
   import kran3 from '@/assets/img/kran3.jpg';
@@ -26,6 +31,7 @@
   import kran5 from '@/assets/img/kran5.jpg';
   
   const route = useRoute();
+  const router = useRouter();
   const product = ref(null);
   
   const products = [
@@ -40,5 +46,9 @@
     const productId = parseInt(route.params.id);
     product.value = products.find(p => p.id === productId) || null;
   });
+
+  const goBack = () => {
+    router.back();
+};
   </script>
   

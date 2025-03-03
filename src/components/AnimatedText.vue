@@ -89,7 +89,7 @@ watch([titleRef, textRef], () => {
         <!-- Naslov sa animacijom -->
         <h1
             ref="titleRef"
-            class="text-3xl md:text-4xl lg:text-5xl font-bold sm:pb-24"
+            class="text-3xl md:text-4xl lg:text-5xl font-bold sm:pb-12"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTitleVisible }"
             aria-hidden="true"
@@ -100,7 +100,7 @@ watch([titleRef, textRef], () => {
         <!-- Podnaslov sa animacijom -->
         <h2
             ref="textRef"
-            class="text-xl md:text-2xl lg:text-3xl mt-4 mb-8"
+            class="text-xl md:text-2xl lg:text-3xl mt-4 mb-8 sm:mb-16"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTextVisible }"
             aria-hidden="true"
