@@ -4,6 +4,7 @@ import OurVision from "@/components/Our-vision.vue";
 import OurMission from "@/components/Our-mission.vue";
 import Products from "@/components/Products.vue";
 import ServicesView from "./ServicesView.vue";
+import Partners from "@/components/Partners.vue";
 </script>
 
 <template>
@@ -11,5 +12,6 @@ import ServicesView from "./ServicesView.vue";
   <OurVision />
   <OurMission />
   <Products />
-<ServicesView />
+  <ServicesView />
+  <Partners />
 </template>
