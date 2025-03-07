@@ -1,0 +1,1 @@
+import"./AnimatedText-B352zNA3.js";import{_ as o}from"./Products-BarDoqab.js";import{i as r,o as t}from"./index-604IEmlR.js";import"./kran4-BoPYd_H1.js";import"./kran5-D6UeJNV4.js";const n={__name:"ProductsView",setup(e){return(_,a)=>(t(),r(o))}};export{n as default};
