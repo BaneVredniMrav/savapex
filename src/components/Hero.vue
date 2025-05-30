@@ -44,8 +44,9 @@ import AnimatedText from "./AnimatedText.vue";
 /* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
   .hero {
-    background-position: top center; /* Fokusiraj gornji deo slike */
-    min-height: 80vh; /* Veća visina na mobilnim uređajima */
+    background-position: top center; 
+    min-height: 80vh; 
+    background-attachment: scroll;
   }
 
   .hero button {
