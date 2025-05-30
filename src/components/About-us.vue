@@ -21,7 +21,7 @@ import AnimatedText from '@/components/AnimatedText.vue';
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/img/kran1.jpg"); /* Replace with your own image URL */
+  background-image: url("@/assets/img/kran10.jpg"); /* Replace with your own image URL */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: flex;
   justify-content: center;
