@@ -5,7 +5,7 @@ import AnimatedText from "./AnimatedText.vue";
 
 <template>
 <section class="hero h-[70vh] bg-cover bg-center bg-fixed relative justify-center md:items-center">
-  <div class="max-w-4xl px-4 py-12 text-center relative z-10">
+  <div class="max-w-4xl px-4 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
         title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"

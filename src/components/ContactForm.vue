@@ -82,7 +82,7 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <section class="bg-gray-100 dark:bg-slate-900 py-16 px-6 md:px-12 lg:px-24">
+  <section class="bg-gray-100 py-16 px-6 md:px-12 lg:px-24">
     <div class="max-w-4xl mx-auto bg-slate-600 p-8 p-8 rounded-xl shadow-lg text-white">
       <div class="w-full flex flex-col items-center justify-center mb-8 text-center px-4 animate-fade-in-up">
         <!-- Ikonica -->
