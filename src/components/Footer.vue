@@ -38,7 +38,7 @@ onMounted(() => {
     <div class="mx-auto w-[90vw] px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
       <!-- O nama -->
-      <div class="bg-slate-600 p-6 rounded-lg">
+      <div class="bg-slate-700 p-6 rounded-lg">
         <h3 class="text-xl font-bold border-b border-brandRose pb-2 mb-4 tracking-wide">
         O nama
         </h3>
@@ -52,7 +52,7 @@ onMounted(() => {
       </div>
 
       <!-- Korisni linkovi -->
-      <div class="bg-slate-600 p-6 rounded-lg">
+      <div class="bg-slate-700 p-6 rounded-lg">
         <h3 class="text-xl font-bold border-b border-brandRose pb-2 mb-4 tracking-wide">
         Korisni linkovi
         </h3>
@@ -66,7 +66,7 @@ onMounted(() => {
       </div>
 
       <!-- Kontakt -->
-      <div class="bg-slate-600 p-6 rounded-lg">
+      <div class="bg-slate-700 p-6 rounded-lg">
         <h3 class="text-xl font-bold border-b border-brandRose pb-2 mb-4 tracking-wide">
         Kontakt
         </h3>

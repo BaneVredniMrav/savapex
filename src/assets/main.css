@@ -4,7 +4,7 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block relative bg-slate-800 font-semibold px-4 py-2 rounded-lg text-white border border-transparent shadow-lg ;
+    @apply inline-block relative bg-slate-800 font-semibold px-4 py-2 rounded-lg text-white border border-brandOrange shadow-lg ;
     @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent;
     @apply active:bg-brandOrange active:text-slate-800 active:border-transparent active:shadow-xl active:scale-100 focus:outline-none;
   }
