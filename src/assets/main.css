@@ -8,4 +8,18 @@
     @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent;
     @apply active:bg-brandOrange active:text-slate-800 active:border-transparent active:shadow-xl active:scale-100 focus:outline-none;
   }
+
+    .link {
+    @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out;
+    @apply hover:text-brandOrange hover:underline underline-offset-4;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2;
+    @apply active:scale-95;
+  }
+  .input {
+    @apply w-full p-3 border border-slate-300 rounded-xl bg-white text-slate-800 placeholder-slate-400;
+    @apply shadow-sm transition-all duration-200 ease-in-out;
+    @apply hover:border-brandOrange hover:ring-1 hover:ring-brandOrange;
+    @apply focus:border-brandOrange focus:ring-2 focus:ring-brandOrange;
+    @apply focus:outline-none focus:bg-white;
+  }
 }

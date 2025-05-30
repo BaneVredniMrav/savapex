@@ -56,7 +56,7 @@ onMounted(() => {
             <li v-for="link in navLinks" :key="link.path">
               <RouterLink
                 :to="link.path"
-                class="hover:text-brandOrange transition duration-300"
+                class="link"
               >
                 {{ link.label }}
               </RouterLink>
@@ -72,20 +72,20 @@ onMounted(() => {
               <a
                 v-if="isMobile"
                 :href="`tel:${phoneNumber}`"
-                class="hover:text-brandOrange transition duration-300"
+                class="link"
               >
                 <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
               </a>
               <button
                 v-else
                 @click="copyPhoneNumber"
-                class="hover:text-brandOrange transition duration-300 focus:outline-none"
+                class="link focus:outline-none"
               >
                 <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
               </button>
             </li>
             <li>
-              <a href="mailto:info@savapex.rs" class="hover:text-brandOrange transition duration-300">
+              <a href="mailto:info@savapex.rs" class="link">
                 <i class="pi pi-envelope mr-2"></i> info@savapex.rs
               </a>
             </li>
@@ -94,7 +94,7 @@ onMounted(() => {
                 href="https://www.google.com/maps"
                 target="_blank"
                 rel="noopener"
-                class="hover:text-brandOrange transition duration-300"
+                class="link"
               >
                 <i class="pi pi-map-marker mr-2"></i> Beograd, Srbija
               </a>
@@ -109,13 +109,13 @@ onMounted(() => {
       <div class="text-center text-sm text-gray-400">
         <p>
           2025 ©
-          <a href="/" class="hover:text-brandOrange transition duration-300">Savapex d.o.o.</a>
-          | <RouterLink to="/politika-privatnosti" class="hover:text-brandOrange transition duration-300">Politika privatnosti</RouterLink>
+          <a href="/" class="link">Savapex d.o.o.</a>
+          | <RouterLink to="/politika-privatnosti" class="link">Politika privatnosti</RouterLink>
           | Web izrada:
           <a
             href="https://github.com/BaneVredniMrav"
             target="_blank"
-            class="hover:text-brandOrange transition duration-300"
+            class="link"
           >
             BaneVredniMrav
           </a>

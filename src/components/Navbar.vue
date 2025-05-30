@@ -46,26 +46,26 @@ onMounted(() => {
 
 <template>
   <!-- Gornja traka sa kontakt informacijama -->
-  <div class="fixed top-0 left-0 w-full bg-slate-700 text-white text-sm py-2 z-50">
+  <div class="fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50">
     <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
       <span class="mr-4">
         <a
           v-if="isMobile"
           :href="`tel:${phoneNumber}`"
-          class="hover:text-brandOrange transition duration-300"
+          class="link"
         >
           <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
         </a>
         <button
           v-else
           @click="copyPhoneNumber"
-          class="hover:text-brandOrange transition duration-300 focus:outline-none"
+          class="link focus:outline-none"
         >
           <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
         </button>
       </span>
       <span>
-        <a href="mailto:info@savapex.rs" class="hover:text-brandOrange transition duration-300">
+        <a href="mailto:info@savapex.rs" class="link">
           <i class="pi pi-envelope mr-2"></i> info@savapex.rs
         </a>
       </span>
