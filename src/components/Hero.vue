@@ -23,7 +23,7 @@ import AnimatedText from "./AnimatedText.vue";
     </div>
 
     <!-- Overlay for better contrast, adapts to dark mode -->
-    <div class="absolute inset-0 bg-black/30 dark:bg-black/60"></div>
+    <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
   </section>
 </template>
 

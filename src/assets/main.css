@@ -4,16 +4,24 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block relative bg-slate-800 font-semibold px-4 py-2 rounded-lg text-white border border-brandOrange shadow-lg ;
+    @apply inline-block relative bg-white font-semibold px-4 py-2 rounded-lg text-slate-800 border border-slate-800 shadow-lg ;
     @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent;
     @apply active:bg-brandOrange active:text-slate-800 active:border-transparent active:shadow-xl active:scale-100 focus:outline-none;
+
+    @apply dark:bg-slate-800 dark:text-white dark:border-white;
+    @apply dark:hover:bg-brandOrange dark:hover:text-white dark:hover:border-transparent;
+    @apply dark:active:bg-brandOrange dark:active:text-white;
   }
 
     .link {
-    @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out;
+    @apply relative inline-block font-medium text-slate-800 transition-all duration-200 ease-in-out;
     @apply hover:text-brandOrange hover:underline underline-offset-4;
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2;
+    @apply focus:outline-none focus-visible:ring-offset-2;
     @apply active:scale-95;
+
+    @apply  dark:text-white ;
+    @apply dark:hover:text-brandOrange ;
+
   }
   .input {
     @apply w-full p-3 border border-slate-300 rounded-xl bg-white text-slate-800 placeholder-slate-400;
