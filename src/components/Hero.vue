@@ -1,10 +1,9 @@
 <script setup>
 import AnimatedText from "./AnimatedText.vue";
-
 </script>
 
 <template>
-<section class="hero h-[70vh] bg-fixed relative md:items-center">
+<section class="hero h-[70vh] bg-fixed relative md:items-center dark:bg-black/80">
   <div class="max-w-4xl px-4 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
@@ -16,15 +15,15 @@ import AnimatedText from "./AnimatedText.vue";
       <!-- Button with click animation -->
       <RouterLink
         to="/contact-us"
-        class="text-xl px-10 py-4 btn-primary"
+        class="text-xl px-10 py-4 btn-primary dark:bg-white dark:text-black"
         aria-label="Contact-us"
       >
         Kontaktirajte nas
       </RouterLink>
     </div>
 
-    <!-- Optional: Add an overlay for better contrast with the background image -->
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+    <!-- Overlay for better contrast, adapts to dark mode -->
+    <div class="absolute inset-0 bg-black/30 dark:bg-black/60"></div>
   </section>
 </template>
 
@@ -50,8 +49,8 @@ import AnimatedText from "./AnimatedText.vue";
   }
 
   .hero button {
-    width: 100%; /* Make button full-width on mobile */
-    padding: 16px; /* Add padding for better touch target */
+    width: 100%;
+    padding: 16px;
   }
 }
 </style>
