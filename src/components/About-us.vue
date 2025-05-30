@@ -3,7 +3,7 @@ import AnimatedText from '@/components/AnimatedText.vue';
 </script>
 
 <template>
-<section class="hero h-[70vh] bg-cover bg-center bg-fixed relative justify-center md:items-center">
+<section class="hero h-[70vh] bg-fixed relative md:items-center">
   <div class="max-w-4xl px-4 text-center relative z-10">
     <AnimatedText
       title="O firmi Savapex"
@@ -21,8 +21,28 @@ import AnimatedText from '@/components/AnimatedText.vue';
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/img/kran10.jpg"); /* Replace with your own image URL */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-image: url("@/assets/img/kran10.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
+  align-items: center;
   justify-content: center;
-}</style>
+  min-height: 60vh;
+  position: relative;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    background-position: top center; 
+    min-height: 80vh; 
+    background-attachment: scroll;
+  }
+
+  .hero button {
+    width: 100%; /* Make button full-width on mobile */
+    padding: 16px; /* Add padding for better touch target */
+  }
+}
+</style>
