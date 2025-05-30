@@ -14,7 +14,7 @@ import AnimatedText from '@/components/AnimatedText.vue';
         text-color="white"
       />
 </div>
-<div class="absolute inset-0 bg-black bg-opacity-30"></div>
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
   </section>
 </template>

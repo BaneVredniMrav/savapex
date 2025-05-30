@@ -1,72 +1,41 @@
-<script setup>
-import { onMounted } from 'vue';
-
-// Funkcija za osmatranje vidljivosti elemenata
-const observeVisibility = () => {
-  const options = {
-    root: null, // Koristi viewport kao root
-    threshold: 0.30, // Kada je 30% elementa u prikazu
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible'); // Dodajemo klasu kad je element vidljiv
-        observer.unobserve(entry.target); // Prestanemo da posmatramo element nakon što je animacija primenjena
-      }
-    });
-  }, options);
-
-  // Ciljamo sve elemente koji imaju animacije
-  const elements = document.querySelectorAll('.animate-on-scroll');
-  elements.forEach((element) => {
-    observer.observe(element);
-  });
-};
-
-// Pokrećemo osmatranje kada se komponenta montira
-onMounted(() => {
-  observeVisibility();
-});
-</script>
-
 <template>
-  <section class="bg-slate-600 py-16 px-6 sm:px-12 lg:px-24 min-h-screen flex flex-col justify-center">
-    <!-- Naslov i opis -->
-    <div class="text-center text-white max-w-4xl mx-auto mb-12 sm:mb-16">
-      <h2 class="text-4xl sm:text-5xl font-bold mb-6 leading-tight animate-on-scroll slide-in-left">
-        Naša Misija
-      </h2>
-      <p class="text-lg sm:text-xl mb-8 leading-relaxed animate-on-scroll slide-in-right">
-        Naša misija je da pružimo inovativna rešenja koja unapređuju poslovanje naših
-        klijenata. Posvećeni smo kontinuiranom unapređenju kvaliteta i efikasnosti kroz
-        timski rad i kreativna rešenja.
+  <section class="bg-white py-20 px-6 sm:px-12 lg:px-24 overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-6 animate-fade-up">NAŠA MISIJA</h2>
+      <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-12 animate-fade-up delay-100">
+        Težimo da pružimo inovativna i pouzdana rešenja koja unapređuju operativnu izvrsnost,
+        podržavaju održivi rast i grade trajna partnerstva u različitim industrijama.
       </p>
     </div>
 
-    <!-- Sekcija sa gridom -->
-    <div class="grid grid-cols-1 gap-8 sm:gap-12">
-      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg">
-        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Inovacija</h3>
-        <p class="text-base sm:text-lg text-gray-600">
-          Posvećeni smo stalnom inoviranju naših rešenja kako bismo našim klijentima
-          obezbedili konkurentske prednosti u industriji.
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-slate-100 p-8 rounded-xl text-center shadow-md hover:shadow-xl transition duration-300 animate-fade-up">
+        <div class="w-16 h-16 mx-auto mb-4 bg-brandOrange text-white rounded-full flex items-center justify-center text-2xl">
+          🚀
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Inovacija</h3>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Neprestano pomeramo granice sa naprednim tehnologijama koje oblikuju budućnost.
         </p>
       </div>
 
-      <div class="animate-on-scroll slide-in-right bg-white p-8 rounded-lg">
-        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Kvalitet</h3>
-        <p class="text-base sm:text-lg text-gray-600">
-          Uveravamo se da svaki proizvod i usluga koji pružimo zadovoljavaju najviše
-          standarde kvaliteta, u skladu sa potrebama naših klijenata.
+      <div class="bg-slate-100 p-8 rounded-xl text-center shadow-md hover:shadow-xl transition duration-300 animate-fade-up delay-100">
+        <div class="w-16 h-16 mx-auto mb-4 bg-brandOrange text-white rounded-full flex items-center justify-center text-2xl">
+          💎
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Izvrsnost</h3>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Isporučujemo beskompromisan kvalitet, prilagođena rešenja i merljive rezultate.
         </p>
       </div>
 
-      <div class="animate-on-scroll slide-in-left bg-white p-8 rounded-lg">
-        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">Inovacija</h3>
-        <p class="text-base sm:text-lg text-gray-600">
-          Posvećeni smo stalnom inoviranju naših rešenja kako bismo našim klijentima
-          obezbedili konkurentske prednosti u industriji.
+      <div class="bg-slate-100 p-8 rounded-xl text-center shadow-md hover:shadow-xl transition duration-300 animate-fade-up delay-200">
+        <div class="w-16 h-16 mx-auto mb-4 bg-brandOrange text-white rounded-full flex items-center justify-center text-2xl">
+          🤝
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Poverenje</h3>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Gradimo trajne odnose zasnovane na integritetu, transparentnosti i posvećenosti.
         </p>
       </div>
     </div>
@@ -74,58 +43,26 @@ onMounted(() => {
 </template>
 
 <style scoped>
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* Osigurava da padding i border ne utiču na širinu elementa */
+/* Simple scroll-in animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Sprečava horizontalno pomeranje */
-  width: 100%; /* Osigurava da širina uvek bude 100% */
-}
-
-section, .animate-on-scroll {
-  max-width: 100%; /* Obezbeđuje da širina sekcija nikada ne bude veća od 100% */
-  overflow: hidden; /* Sprečava izlazak sadržaja sa strane */
-}
-
-body {
-  width: 100vw; /* Osigurava da body zauzima 100% širine ekrana */
-}
-
-.grid {
-  max-width: 100%;
-}
-/* Svi elementi su sakriveni pri početnom renderovanju */
-.animate-on-scroll {
+.animate-fade-up {
   opacity: 0;
-  transform: translateY(50px); /* Pomeranje sa dole kao podrazumevano */
-  transition: opacity 1s ease-out, transform 1s ease-out; /* Glatka animacija */
+  animation: fadeUp 0.8s ease-out forwards;
 }
-
-/* Kada je element u prikazu, učini ga vidljivim */
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0); /* Vraća element na originalnu poziciju */
+.animate-fade-up.delay-100 {
+  animation-delay: 0.1s;
 }
-
-/* Animacija za slide-in-left za web view */
-.slide-in-left {
-  transform: translateX(calc(-50vw)); /* Pomeranje ulevo na 50% širine ekrana */
+.animate-fade-up.delay-200 {
+  animation-delay: 0.2s;
 }
-
-/* Animacija za slide-in-right za web view */
-.slide-in-right {
-  transform: translateX(calc(50vw)); /* Pomeranje udesno na 50% širine ekrana */
-}
-
-/* Kada su elementi vidljivi, resetuj poziciju */
-.slide-in-left.visible,
-.slide-in-right.visible {
-  transform: translateX(0) translateY(0);
-}
-
 </style>
