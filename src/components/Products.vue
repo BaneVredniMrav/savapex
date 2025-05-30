@@ -183,7 +183,7 @@ onUnmounted(() => {
           <p class="mt-2 text-brandOrange font-bold">{{ product.capacity }} tona</p>
           <button
           @click="goToProduct(product.id)"
-            class="mt-4 bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-brandOrange hover:text-slate-800 transition"
+            class="mt-4 btn-primary"
           >
             Detaljnije
           </button>

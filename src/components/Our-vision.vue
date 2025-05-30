@@ -48,13 +48,13 @@ onMounted(() => {
   <section class="py-16 px-6 md:px-12 lg:px-24 bg-gray-100">
     <div class="text-center text-black max-w-3xl mx-auto mb-12">
       <h2 class="text-4xl font-bold mb-6 animate-on-scroll" ref="elements">Naša Vizija</h2>
-      <p class="text-lg mb-8 animate-on-scroll" ref="elements">
+      <p class="text-lg mb-8 " ref="elements">
         Naša vizija je da postanemo lider na tržištu industrijskih dizalica, poznati po kvalitetu, inovacijama i odličnom korisničkom servisu.
       </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-      <div v-for="(item, index) in items" :key="index" class="card animate-on-scroll" ref="elements">
+      <div v-for="(item, index) in items" :key="index" class="card " ref="elements">
         <h3 class="text-2xl font-semibold text-gray-700 mb-4 text-slate-800">{{ item.title }}</h3>
         <p class="text-gray-600">{{ item.description }}</p>
       </div>

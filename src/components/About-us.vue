@@ -3,8 +3,8 @@ import AnimatedText from '@/components/AnimatedText.vue';
 </script>
 
 <template>
-<section class="hero h-screen bg-cover bg-center bg-fixed relative justify-center md:items-center">
-  <div class="max-w-4xl px-4 py-12 text-center relative z-10">
+<section class="hero h-[70vh] bg-cover bg-center bg-fixed relative justify-center md:items-center">
+  <div class="max-w-4xl px-4 text-center relative z-10">
     <AnimatedText
       title="O firmi Savapex"
       subtitle="Firma Savapex iz Kovačevca bavi se proizvodnjom, prodajom i ugradnjom industrijskih dizalica,

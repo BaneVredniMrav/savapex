@@ -38,7 +38,7 @@ const mapLink = computed(
           <a
             :href="mapLink"
             target="_blank"
-            class="bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brandOrange hover:text-slate-800 transition-all duration-300"
+            class="btn-primary"
           >
             Otvori u Google Mapama
           </a>

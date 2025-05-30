@@ -59,13 +59,6 @@ if (response.ok) {
   isSubmitting.value = false;
 };
 
-onMounted(() => {
-  if (route.query.subject) {
-    formData.value.subject = route.query.subject;
-    formSection.value.scrollIntoView({ behavior: "smooth" });
-  }
-});
-
 </script>
 
 <template>
@@ -104,7 +97,7 @@ onMounted(() => {
       ></textarea>
       <button
         :disabled="isSubmitting"
-        class="bg-slate-800 text-white py-2 px-8 rounded-lg transition-all duration-300 hover:bg-brandOrange hover:text-slate-800 block mx-auto font-semibold"
+        class="block mx-auto btn-primary"
       >
         <span v-if="!isSubmitting">Pošalji</span>
         <span v-else class="animate-pulse">Slanje...</span>

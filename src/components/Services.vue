@@ -1,23 +1,23 @@
 <template>
-    <section class="bg-slate-100 py-12 px-4 md:px-8 flex justify-center overflow-hidden" @mouseenter="startImageSwap" @mouseleave="stopImageSwap">
+    <section class="bg-slate-100 py-6 px-4 md:px-8 flex justify-center overflow-hidden" @mouseenter="startImageSwap" @mouseleave="stopImageSwap">
         <div :class="slideSectionClasses" ref="slideSection">
             <div
-                class="flex flex-col md:flex-row items-center gap-6 p-8 bg-slate-600 rounded-lg shadow-md hover:shadow-lg hover:shadow-2xl hover:shadow-brandOrange h-auto md:h-[50vh] transform transition duration-500 hover:scale-105 w-full max-w-7xl"
+                class="flex flex-col md:flex-row items-center gap-6 p-8 bg-slate-600 rounded-lg hover:shadow-lg h-auto md:h-[50vh] transform transition duration-500 hover:scale-105 w-full max-w-7xl"
                 >
                 
                 <!-- Slika uvek prva u mobilnom prikazu -->
                 <img v-if="isMobile || slideDirection === 'left'" :src="currentImage" alt="Image" 
-                    class="w-full md:w-1/2 h-auto rounded-lg shadow-md object-cover transition-transform duration-1000" :class="imageAnimation" />
+                    class="w-full md:w-1/2 h-auto rounded-lg object-cover transition-transform duration-1000" :class="imageAnimation" />
                 
                 <div class="w-full md:w-1/2 text-white text-center">
                     <h2 class="text-2xl md:text-3xl font-bold mb-4">{{ title }}</h2>
                     <p class="text-base md:text-lg leading-relaxed mb-6">{{ description }}</p>
-                    <RouterLink :to="detailsLink"  target="_self" 
-                        class="inline-block bg-slate-800 text-white font-semibold py-3 px-6 md:px-8 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition-all duration-300">{{ buttonName }}</RouterLink>
+                    <RouterLink :to="detailsLink" 
+                        class="btn-primary">{{ buttonName }}</RouterLink>
                 </div>
                 
                 <img v-if="!isMobile && slideDirection !== 'left'" :src="currentImage" alt="Image" 
-                    class="w-full md:w-1/2 h-auto rounded-lg shadow-md object-cover transition-transform duration-1000" :class="imageAnimation" />
+                    class="w-full md:w-1/2 h-auto rounded-lg object-cover transition-transform duration-1000" :class="imageAnimation" />
             </div>
         </div>
     </section>

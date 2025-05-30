@@ -4,21 +4,22 @@ import AnimatedText from "./AnimatedText.vue";
 </script>
 
 <template>
-<section class="hero h-screen bg-cover bg-center bg-fixed relative justify-center md:items-center">
+<section class="hero h-[70vh] bg-cover bg-center bg-fixed relative justify-center md:items-center">
   <div class="max-w-4xl px-4 py-12 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
         title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"
         subtitle="Savapex donosi pouzdana i inovativna rešenja – od proizvodnje do ugradnje, sa fokusom na dugoročnu pouzdanost i sigurnost vaših operacija"
         text-color="white"
+        background-color="black"
       /> 
       <!-- Button with click animation -->
       <RouterLink
-      to="/contact-us"
-        class="bg-slate-800 text-xl text-white px-12 py-4 rounded-lg hover:bg-brandOrange hover:text-slate-800 transform transition-all duration-300 ease-in-out font-semibold"
+        to="/contact-us"
+        class="text-xl px-12 py-4 btn-primary"
         aria-label="Contact-us"
       >
-      Kontaktirajte nas
+        Kontaktirajte nas
       </RouterLink>
     </div>
 
@@ -29,7 +30,7 @@ import AnimatedText from "./AnimatedText.vue";
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/img/kran4.jpg"); /* Replace with your own image URL */
+  background-image: url("@/assets/img/krane13.jpg"); /* Replace with your own image URL */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: flex;
   justify-content: center;

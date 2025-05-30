@@ -22,6 +22,11 @@ const props = defineProps({
         required: false,
         default: "#1e293b", // Podrazumevana boja (slate-800)
     },
+    backgroundColor: {
+        type: String,
+        required: false,
+        default: "", 
+    },
 });
 
 // Intersection Observer callback funkcija
@@ -85,28 +90,45 @@ watch([titleRef, textRef], () => {
 </script>
 
 <template>
-    <div class="max-w-5xl mx-auto text-center z-10 pt-32 md:pt-40 px-2">
+    <div class="max-w-5xl mx-auto text-center z-10 pt-32 sm:pt-32 px-2">
         <!-- Naslov sa animacijom -->
-        <h1
+        <div class="relative ">
+            <h1
             ref="titleRef"
-            class="text-3xl md:text-4xl lg:text-5xl font-bold sm:pb-12"
+            class="relative text-3xl md:text-4xl lg:text-5xl font-bold"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTitleVisible }"
             aria-hidden="true"
-        >
-            {{ props.title }}
-        </h1>
+            >
+            <span
+                class="absolute inset-0 left-0 right-0 top-0 bottom-0 rounded-lg opacity-30 blur-sm pointer-events-none"
+                aria-hidden="true"
+                :style="{ zIndex: 0, backgroundColor: props.backgroundColor }"
+            ></span>
+            <span style="position:relative; z-index:1;">
+                {{ props.title }}
+            </span>
+            </h1>
+        </div>
 
-        <!-- Podnaslov sa animacijom -->
-        <h2
+        <div class="relative">
+            <h2
             ref="textRef"
-            class="text-xl md:text-2xl lg:text-3xl mt-4 mb-8 sm:mb-16"
+            class="text-xl md:text-2xl lg:text-3xl mt-4 mb-8 relative"
             :style="{ color: props.textColor }"
             :class="{ 'text-focus-in': isTextVisible }"
             aria-hidden="true"
-        >
-            {{ props.subtitle }}
-        </h2>
+            >
+            <span
+                class="absolute inset-0 left-0 right-0 top-0 bottom-0 rounded-lg opacity-30 blur-sm pointer-events-none"
+                aria-hidden="true"
+                :style="{ zindex: 0, backgroundColor: props.backgroundColor }"
+            ></span>
+            <span style="position:relative; z-index:1;">
+                {{ props.subtitle }}
+            </span>
+            </h2>
+        </div>
     </div>
 </template>
 

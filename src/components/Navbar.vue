@@ -100,8 +100,13 @@ onMounted(() => {
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="px-4 py-2 rounded-lg transition-all duration-300 sm:px-6 xl:px-10 2xl:px-12"
-            :class="route.path === link.path ? 'bg-brandOrange text-black shadow-lg' : 'text-white hover:bg-brandOrange hover:text-black'"
+            class="px-4 py-2 rounded-lg "
+            :class="[
+              'px-4 py-2 sm:px-6 xl:px-10 2xl:px-12 rounded-lg font-semibold transition-all duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2',
+              route.path === link.path
+                ? 'bg-brandOrange text-slate-900 shadow-lg border border-transparent'
+                : 'text-white border border-transparent hover:text-brandOrange hover:border-brandOrange hover:shadow-md active:bg-brandOrange active:text-slate-900 active:border-transparent'
+            ]"
           >
             {{ link.label }}
           </RouterLink>
@@ -118,8 +123,8 @@ onMounted(() => {
             :key="link.path"
             :to="link.path"
             @click="closeMobileMenu"
-            class="px-4 py-2 rounded-lg transition-all duration-300 w-full text-center"
-            :class="route.path === link.path ? 'bg-brandOrange text-black' : 'text-white hover:bg-brandOrange hover:text-slate-800'"
+            class="px-4 py-2 rounded-lg w-full text-center"
+            :class="route.path === link.path ? 'bg-brandOrange text-black border border-transparent' : 'text-white border border-transparent hover:border-brandOrange active:bg-brandOrange active:border-transparent active:text-slate-800'"
           >
             {{ link.label }}
           </RouterLink>

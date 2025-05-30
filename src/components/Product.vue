@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-4xl mx-auto px-6 py-12 pt-32">
       <div class="flex justify-end mb-4">
-            <button @click="goBack" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition">
+            <button @click="goBack" class="btn-primary">
                 ← Nazad
             </button>
         </div>
@@ -12,7 +12,10 @@
           <p class="text-gray-600 mt-2">Kategorija: {{ product.category }}</p>
           <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }} tona</p>
           <p class="mt-4 text-gray-700">{{ product.description }}</p>
-            <button @click="$router.push({ path: '/contact-us', query: { subject: product.name } })" class="mt-6 bg-slate-800 text-white text-semibold px-4 py-2 rounded-lg hover:bg-brandOrange hover:text-slate-800 transition">
+            <button
+              @click="$router.push({ path: '/contact-us' })"
+              class="mt-6 btn-primary"
+            >
             Zatraži ponudu
             </button>
         </div>
