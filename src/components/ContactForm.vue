@@ -72,31 +72,27 @@ if (response.ok) {
         v-model="formData.name"
         type="text"
         placeholder="Ime / Ime firme"
-        class="w-full p-3 border border-slate-300 rounded-xl bg-white text-slate-800 placeholder-slate-400 
-       shadow-sm transition-all duration-200 ease-in-out 
-       hover:border-brandOrange hover:ring-1 hover:ring-brandOrange 
-       focus:border-brandOrange focus:ring-2 focus:ring-brandOrange 
-       focus:outline-none focus:bg-white"
+        class="input"
         required
       />
       <input
       v-model="formData.email"
       type="email"
       placeholder="Email"
-      class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
+      class="input"
       required
       />
       <input
         v-model="formData.subject"
         type="text"
         placeholder="Naslov"
-        class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
+        class="input"
         required/>
       <textarea
         v-model="formData.message"
         rows="4"
         placeholder="Vaša poruka"
-        class="w-full p-3 border border-slate-400 rounded-lg focus:outline-none hover:ring-1 hover:ring-brandOrange focus:ring-2 focus:ring-brandOrange"
+        class="input"
         required
       ></textarea>
       <button
