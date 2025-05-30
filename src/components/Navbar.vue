@@ -46,7 +46,7 @@ onMounted(() => {
 
 <template>
   <!-- Gornja traka sa kontakt informacijama -->
-  <div class="fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50">
+  <div class="fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50 ">
     <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
       <span class="mr-4">
         <a
@@ -73,7 +73,7 @@ onMounted(() => {
   </div>
 
   <!-- Navigacija -->
-  <nav class="fixed top-8 left-0 w-full z-50 bg-slate-800 border-b border-brandRose shadow-md">
+  <nav class="fixed top-8 left-0 w-full z-50 bg-slate-800 border-t border-b border-brandRose shadow-md">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->

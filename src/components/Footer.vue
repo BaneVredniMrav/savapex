@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <footer class="bg-slate-800 text-white border-t border-brandRose shadow-lg">
-    <div class="mx-auto w-[90vw] px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mx-auto w-[90vw] px-4 sm:px-6 lg:px-8 py-12 ">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
       <!-- O nama -->
       <div class="bg-slate-700 p-6 rounded-lg">
@@ -108,7 +108,7 @@ onMounted(() => {
     </div>
 
     <!-- Copyright -->
-    <div class="bg-slate-700 py-5">
+    <div class="bg-slate-700 py-5 border-t border-brandRose">
       <div class="text-center text-sm text-gray-400">
         <p>
           2025 ©
