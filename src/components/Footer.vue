@@ -37,70 +37,73 @@ onMounted(() => {
   <footer class="bg-slate-800 text-white border-t border-brandRose shadow-lg">
     <div class="mx-auto w-[90vw] px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
-        <!-- O nama -->
-        <div>
-          <h3 class="text-2xl font-bold text-brandOrange mb-4">O nama</h3>
-          <RouterLink to="/">
-            <img class="h-28 mx-auto" :src="logo" alt="Savapex" />
+      <!-- O nama -->
+      <div class="bg-slate-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold border-b border-brandRose pb-2 mb-4 tracking-wide">
+        O nama
+        </h3>
+        <RouterLink to="/">
+        <img class="h-28 mx-auto" :src="logo" alt="Savapex" />
+        </RouterLink>
+        <p class="text-md text-gray-300 leading-relaxed mt-4">
+        Savapex se bavi održavanjem, servisiranjem i popravkom kranova širom Srbije.
+        Posvećeni smo kvalitetu, sigurnosti i pouzdanosti vaše opreme.
+        </p>
+      </div>
+
+      <!-- Korisni linkovi -->
+      <div class="bg-slate-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold border-b border-brandRose pb-2 mb-4 tracking-wide">
+        Korisni linkovi
+        </h3>
+        <ul class="space-y-3 text-gray-300">
+        <li v-for="link in navLinks" :key="link.path">
+          <RouterLink :to="link.path" class="link">
+          {{ link.label }}
           </RouterLink>
-          <p class="text-sm text-gray-300 leading-relaxed mt-4">
-            Savapex se bavi održavanjem, servisiranjem i popravkom kranova širom Srbije.
-            Posvećeni smo kvalitetu, sigurnosti i pouzdanosti vaše opreme.
-          </p>
-        </div>
+        </li>
+        </ul>
+      </div>
 
-        <!-- Korisni linkovi -->
-        <div>
-          <h3 class="text-2xl font-bold text-brandOrange mb-4">Korisni linkovi</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li v-for="link in navLinks" :key="link.path">
-              <RouterLink
-                :to="link.path"
-                class="link"
-              >
-                {{ link.label }}
-              </RouterLink>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Kontakt -->
-        <div>
-          <h3 class="text-2xl font-bold text-brandOrange mb-4">Kontakt</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li>
-              <a
-                v-if="isMobile"
-                :href="`tel:${phoneNumber}`"
-                class="link"
-              >
-                <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
-              </a>
-              <button
-                v-else
-                @click="copyPhoneNumber"
-                class="link focus:outline-none"
-              >
-                <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
-              </button>
-            </li>
-            <li>
-              <a href="mailto:info@savapex.rs" class="link">
-                <i class="pi pi-envelope mr-2"></i> info@savapex.rs
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                rel="noopener"
-                class="link"
-              >
-                <i class="pi pi-map-marker mr-2"></i> Beograd, Srbija
-              </a>
-            </li>
-          </ul>
-        </div>
+      <!-- Kontakt -->
+      <div class="bg-slate-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold border-b border-brandRose pb-2 mb-4 tracking-wide">
+        Kontakt
+        </h3>
+        <ul class="space-y-3 text-gray-300">
+        <li>
+          <a
+          v-if="isMobile"
+          :href="`tel:${phoneNumber}`"
+          class="link"
+          >
+          <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+          </a>
+          <button
+          v-else
+          @click="copyPhoneNumber"
+          class="link focus:outline-none"
+          >
+          <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+          </button>
+        </li>
+        <li>
+          <a href="mailto:info@savapex.rs" class="link">
+          <i class="pi pi-envelope mr-2"></i> info@savapex.rs
+          </a>
+        </li>
+        <li>
+          <a
+          href="https://www.google.com/maps"
+          target="_blank"
+          rel="noopener"
+          class="link"
+          >
+          <i class="pi pi-map-marker mr-2"></i> Beograd, Srbija
+          </a>
+        </li>
+        </ul>
+      </div>
       </div>
     </div>
 
