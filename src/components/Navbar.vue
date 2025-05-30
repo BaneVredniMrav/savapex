@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
-import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import logo from "@/assets/img/footer-logo.png";
 
 const route = useRoute();
@@ -41,12 +41,35 @@ const navLinks = [
 
 onMounted(() => {
   isMobile.value = window.innerWidth <= 768;
+    const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    isDark.value = true;
+    document.documentElement.classList.add('dark');
+  }
 });
+
+const isDark = ref(false);
+
+const toggleDarkMode = () => {
+  isDark.value = !isDark.value;
+  if (isDark.value) {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }
+};
 </script>
 
 <template>
   <!-- Gornja traka sa kontakt informacijama -->
-  <div class="fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50 ">
+  <div class="flex fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50 ">
+        <div class="container mx-auto flex justify-start px-4 sm:px-6 lg:px-8">
+            <button @click="toggleDarkMode" class="px-2 rounded text-white">
+    {{ isDark ? '🌙 Dark Mode' : '☀️ Light Mode' }}
+  </button>
+        </div>
     <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
       <span class="mr-4">
         <a
