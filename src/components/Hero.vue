@@ -3,14 +3,14 @@ import AnimatedText from "./AnimatedText.vue";
 </script>
 
 <template>
-<section class="hero h-[70vh] bg-fixed relative md:items-center dark:bg-black/80">
+<section class="hero h-[100vh] bg-fixed relative md:items-center">
   <div class="max-w-4xl px-4 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
         title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"
         subtitle="Savapex donosi pouzdana i inovativna rešenja – od proizvodnje do ugradnje, sa fokusom na dugoročnu pouzdanost i sigurnost vaših operacija"
         text-color="white"
-        background-color="black"
+        background-color="gray"
       /> 
       <!-- Button with click animation -->
       <RouterLink
