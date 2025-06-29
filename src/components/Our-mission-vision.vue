@@ -8,7 +8,7 @@ import vision from '@/assets/img/vision.png';
     <!-- Title & Description -->
     <div class="w-full flex flex-col items-center mb-20">
       <h2
-        class="text-4xl md:text-5xl font-extrabold mb-4 text-white drop-shadow-lg tracking-tight text-center"
+        class="text-white"
       >
         Naš Put i Pravac
       </h2>
@@ -20,7 +20,7 @@ import vision from '@/assets/img/vision.png';
     </div>
 
     <!-- Cards Grid -->
-    <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 flex-grow">
+    <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 flex-grow">
       <!-- Mission Card -->
       <div
         class="group bg-white/90 rounded-3xl p-10 flex flex-col items-center text-center shadow-2xl border border-slate-200 hover:scale-105 hover:shadow-3xl transition-all duration-300 md:-translate-y-6 h-full"

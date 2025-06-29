@@ -1,42 +1,3 @@
-<template>
-    <section
-        class="bg-slate-100 py-6 px-4 md:px-8 flex justify-center overflow-hidden"
-        @mouseenter="startImageSwap"
-        @mouseleave="stopImageSwap"
-    >
-        <div :class="slideSectionClasses" ref="slideSection">
-            <div
-                class="group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-10 bg-slate-700 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out w-full max-w-7xl overflow-hidden md::h-[40vh]"
-            >
-                <!-- Image always first in mobile view -->
-                <img
-                    v-if="isMobile || slideDirection === 'left'"
-                    :src="currentImage"
-                    alt="Image"
-                    class="w-full md:w-1/2 h-64 md:h-full rounded-xl object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
-                    :class="imageAnimation"
-                />
-
-                <div class="w-full md:w-1/2 text-white text-center">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4">{{ title }}</h2>
-                    <p class="text-base md:text-lg leading-relaxed mb-6">{{ description }}</p>
-                    <RouterLink :to="detailsLink" class="btn-primary">
-                        {{ buttonName }}
-                    </RouterLink>
-                </div>
-
-                <img
-                    v-if="!isMobile && slideDirection !== 'left'"
-                    :src="currentImage"
-                    alt="Image"
-                    class="w-full md:w-1/2 h-64 md:h-full rounded-xl object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
-                    :class="imageAnimation"
-                />
-            </div>
-        </div>
-    </section>
-</template>
-
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { RouterLink } from 'vue-router';
@@ -56,12 +17,9 @@ const props = defineProps({
 
 const slideSection = ref(null);
 const isInView = ref(false);
-const currentImageIndex = ref(0);
-const imageAnimation = ref('');
 const isMobile = ref(window.innerWidth < 768);
-let swapInterval = null;
 
-const currentImage = computed(() => props.images[currentImageIndex.value] || '');
+const currentImage = computed(() => props.images[0] || '');
 
 const slideSectionClasses = computed(() => [
     'w-full max-w-7xl',
@@ -80,35 +38,6 @@ const handleIntersection = (entries) => {
     }
 };
 
-const startImageSwap = () => {
-    if (swapInterval) return;
-    let firstSwap = true;
-    swapInterval = setInterval(() => {
-        imageAnimation.value = 'swirl-out';
-        setTimeout(() => {
-            currentImageIndex.value = (currentImageIndex.value + 1) % props.images.length;
-            imageAnimation.value = 'swirl-in';
-        }, 500);
-        if (firstSwap) {
-            clearInterval(swapInterval);
-            swapInterval = setInterval(() => {
-                imageAnimation.value = 'swirl-out';
-                setTimeout(() => {
-                    currentImageIndex.value = (currentImageIndex.value + 1) % props.images.length;
-                    imageAnimation.value = 'swirl-in';
-                }, 500);
-            }, 4500);
-            firstSwap = false;
-        }
-    }, 2500);
-};
-
-const stopImageSwap = () => {
-    clearInterval(swapInterval);
-    swapInterval = null;
-    imageAnimation.value = '';
-};
-
 onMounted(() => {
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -118,10 +47,44 @@ onMounted(() => {
 
 onUnmounted(() => {
     window.removeEventListener('resize', handleResize);
-    if (slideSection.value) observer.unobserve(slideSection.value);
-    stopImageSwap();
 });
 </script>
+
+<template>
+    <section
+        class="bg-slate-100 py-6 px-4 md:px-8 flex justify-center overflow-hidden"
+    >
+        <div :class="slideSectionClasses" ref="slideSection">
+            <div
+                class="group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-10 bg-slate-700 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out w-full max-w-7xl overflow-hidden md:h-[50vh]"
+            >
+                <!-- Image always first in mobile view -->
+                <img
+                    v-if="isMobile || slideDirection === 'left'"
+                    :src="currentImage"
+                    alt="Image"
+                    class="w-full md:w-1/2 h-64 md:h-full rounded-xl object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
+                />
+
+                <div class="w-full md:w-1/2 text-white text-center">
+                    <h2>{{ title }}</h2>
+                    <p class="text-base md:text-lg leading-relaxed mb-6">{{ description }}</p>
+                    
+                    <RouterLink :to="detailsLink" class="btn-primary">
+                        {{ buttonName }}
+                    </RouterLink>
+                </div>
+
+                <img
+                    v-if="!isMobile && slideDirection !== 'left'"
+                    :src="currentImage"
+                    alt="Image"
+                    class="w-full md:w-1/2 h-64 md:h-full rounded-xl object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
+                />
+            </div>
+        </div>
+    </section>
+</template>
 
 <style scoped>
 @keyframes slideInLeft {
@@ -134,20 +97,7 @@ onUnmounted(() => {
     to { transform: translateX(0); }
 }
 
-@keyframes swirlIn {
-    from { transform: rotate(-360deg) scale(0); opacity: 0; }
-    to { transform: rotate(0) scale(1); opacity: 1; }
-}
-
-@keyframes swirlOut {
-    from { transform: rotate(0) scale(1); opacity: 1; }
-    to { transform: rotate(360deg) scale(0); opacity: 0; }
-}
-
 .animate-slideInLeft { animation: slideInLeft 1s ease-out; }
 .animate-slideInRight { animation: slideInRight 1s ease-out; }
 .opacity-0 { opacity: 0; }
-
-.swirl-in { animation: swirlIn 0.5s ease-out forwards; }
-.swirl-out { animation: swirlOut 0.5s ease-in forwards; }
 </style>

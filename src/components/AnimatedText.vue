@@ -1,143 +1,98 @@
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref, onMounted, onUnmounted, watchEffect } from "vue";
 
-// Reaktivne promenljive
-const isTitleVisible = ref(false); // Praćenje vidljivosti <h1> elementa
-const isTextVisible = ref(false); // Praćenje vidljivosti <h2> elementa
-const titleRef = ref(null); // Referenca na <h1> element
-const textRef = ref(null); // Referenca na <h2> element
-
-// Primanje title, subtitle i textColor kao props
 const props = defineProps({
-    title: {
-        type: String,
-        required: true,
-    },
-    subtitle: {
-        type: String,
-        required: true,
-    },
-    textColor: {
-        type: String,
-        required: false,
-        default: "#1e293b", // Podrazumevana boja (slate-800)
-    },
-    backgroundColor: {
-        type: String,
-        required: false,
-        default: "", 
-    },
+    title: { type: String, required: true },
+    subtitle: { type: String, required: true },
+    textColor: { type: String, default: "#1e293b" },
+    backgroundColor: { type: String, default: "" },
 });
 
-// Intersection Observer callback funkcija
-const handleIntersection = (entries, observerTarget) => {
-    const entry = entries[0];
-    if (entry.isIntersecting) {
-        if (observerTarget === "title") isTitleVisible.value = true;
-        if (observerTarget === "text") isTextVisible.value = true;
-    }
-};
+const isTitleVisible = ref(false);
+const isSubtitleVisible = ref(false);
+const titleRef = ref(null);
+const subtitleRef = ref(null);
 
-let titleObserver, textObserver; // Promenljive za Intersection Observer-e
+let observer;
 
-// Inicijalizacija observer-a
-const initObservers = () => {
-    // Observer za <h1>
-    titleObserver = new IntersectionObserver(
-        (entries) => handleIntersection(entries, "title"),
-        {
-            threshold: 0.5,
+const handleIntersection = (entries) => {
+    entries.forEach((entry) => {
+        if (entry.target === titleRef.value && entry.isIntersecting) {
+            isTitleVisible.value = true;
+            observer.unobserve(titleRef.value);
         }
-    );
-    if (titleRef.value) {
-        titleObserver.observe(titleRef.value);
-    }
-
-    // Observer za <h2>
-    textObserver = new IntersectionObserver(
-        (entries) => handleIntersection(entries, "text"),
-        {
-            threshold: 0.5,
+        if (entry.target === subtitleRef.value && entry.isIntersecting) {
+            isSubtitleVisible.value = true;
+            observer.unobserve(subtitleRef.value);
         }
-    );
-    if (textRef.value) {
-        textObserver.observe(textRef.value);
-    }
-};
-
-// Čišćenje observer-a
-const cleanupObservers = () => {
-    if (titleObserver && titleRef.value) {
-        titleObserver.unobserve(titleRef.value);
-    }
-    if (textObserver && textRef.value) {
-        textObserver.unobserve(textRef.value);
-    }
+    });
 };
 
 onMounted(() => {
-    initObservers();
+    observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+    if (titleRef.value) observer.observe(titleRef.value);
+    if (subtitleRef.value) observer.observe(subtitleRef.value);
 });
 
 onUnmounted(() => {
-    cleanupObservers();
+    if (observer) {
+        if (titleRef.value) observer.unobserve(titleRef.value);
+        if (subtitleRef.value) observer.unobserve(subtitleRef.value);
+        observer.disconnect();
+    }
 });
 
-watch([titleRef, textRef], () => {
-    cleanupObservers();
-    initObservers();
+watchEffect(() => {
+    if (observer) {
+        if (titleRef.value) observer.observe(titleRef.value);
+        if (subtitleRef.value) observer.observe(subtitleRef.value);
+    }
 });
 </script>
 
 <template>
-    <div class="max-w-5xl mx-auto text-center z-10 pt-32 px-2">
-        <!-- Naslov sa animacijom -->
-        <div class="relative ">
+    <header class="max-w-5xl mx-auto text-center z-10 pt-32 px-4">
+        <div class="relative mb-6">
             <h1
-            ref="titleRef"
-            class="relative text-3xl md:text-4xl lg:text-5xl font-bold"
-            :style="{ color: props.textColor }"
-            :class="{ 'text-focus-in': isTitleVisible }"
-            aria-hidden="true"
+                ref="titleRef"
+                class="relative text-3xl md:text-4xl lg:text-5xl font-bold"
+                :style="{ color: props.textColor }"
+                :class="{ 'text-focus-in': isTitleVisible }"
             >
-            <span
-                class="absolute inset-0 left-0 right-0 top-0 bottom-0 rounded-lg opacity-30 blur-sm pointer-events-none"
-                aria-hidden="true"
-                :style="{ zIndex: 0, backgroundColor: props.backgroundColor }"
-            ></span>
-            <span style="position:relative; z-index:1;">
-                {{ props.title }}
-            </span>
+                <span
+                    class="absolute inset-0 rounded-lg opacity-30 blur-sm pointer-events-none"
+                    aria-hidden="true"
+                    :style="{ zIndex: 0, backgroundColor: props.backgroundColor }"
+                ></span>
+                <span class="relative z-10">
+                    {{ props.title }}
+                </span>
             </h1>
         </div>
-
         <div class="relative">
-            <h2
-            ref="textRef"
-            class="text-xl md:text-2xl lg:text-3xl mt-4 mb-8 relative"
-            :style="{ color: props.textColor }"
-            :class="{ 'text-focus-in': isTextVisible }"
-            aria-hidden="true"
+            <h3
+                ref="subtitleRef"
+                class="mt-4 mb-8 relative"
+                :style="{ color: props.textColor }"
+                :class="{ 'text-focus-in': isSubtitleVisible }"
             >
-            <span
-                class="absolute inset-0 left-0 right-0 top-0 bottom-0 rounded-lg opacity-30 blur-sm pointer-events-none"
-                aria-hidden="true"
-                :style="{ zindex: 0, backgroundColor: props.backgroundColor }"
-            ></span>
-            <span style="position:relative; z-index:1;">
-                {{ props.subtitle }}
-            </span>
-            </h2>
+                <span
+                    class="absolute inset-0 rounded-lg opacity-30 blur-sm pointer-events-none"
+                    aria-hidden="true"
+                    :style="{ zIndex: 0, backgroundColor: props.backgroundColor }"
+                ></span>
+                <span class="relative z-10">
+                    {{ props.subtitle }}
+                </span>
+            </h3>
         </div>
-    </div>
+    </header>
 </template>
 
 <style scoped>
-/* Animacija za text-focus-in */
 .text-focus-in {
-    animation: text-focus-in 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: text-focus-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-
 @keyframes text-focus-in {
     0% {
         filter: blur(12px);
