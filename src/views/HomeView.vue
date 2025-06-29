@@ -5,12 +5,14 @@ import OurMission from "@/components/Our-mission.vue";
 import Products from "@/components/Products.vue";
 import ServicesView from "./ServicesView.vue";
 import Partners from "@/components/Partners.vue";
+import MissionVision from "@/components/Our-mission-vision.vue";
 </script>
 
 <template>
   <Hero />
-  <OurVision />
-  <OurMission />
+  <MissionVision />
+  <!-- <OurVision />
+  <OurMission /> -->
   <Products />
   <ServicesView />
   <Partners />

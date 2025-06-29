@@ -1,29 +1,3 @@
-<template>
-    <div class="max-w-4xl mx-auto px-6 py-12 pt-32">
-      <div class="flex justify-end mb-4">
-            <button @click="goBack" class="btn-primary">
-                ← Nazad
-            </button>
-        </div>
-      <div v-if="product" class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img :src="product.image" :alt="product.name" class="w-full h-64 object-cover" />
-        <div class="p-6">
-          <h1 class="text-2xl font-bold text-gray-800">{{ product.name }}</h1>
-          <p class="text-gray-600 mt-2">Kategorija: {{ product.category }}</p>
-          <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }} tona</p>
-          <p class="mt-4 text-gray-700">{{ product.description }}</p>
-            <button
-              @click="$router.push({ path: '/contact-us' })"
-              class="mt-6 btn-primary"
-            >
-            Zatraži ponudu
-            </button>
-        </div>
-      </div>
-      <div v-else class="text-center text-gray-500 text-lg mt-6">Proizvod nije pronađen.</div>
-    </div>
-  </template>
-  
   <script setup>
   import { ref, onMounted } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
@@ -54,4 +28,31 @@
     router.back();
 };
   </script>
+
+<template>
+    <div class="max-w-4xl mx-auto px-6 py-12 pt-32">
+      <div class="flex justify-end mb-4">
+            <button @click="goBack" class="btn-primary">
+                ← Nazad
+            </button>
+        </div>
+      <div v-if="product" class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <img :src="product.image" :alt="product.name" class="w-full h-64 object-cover" />
+        <div class="p-6">
+          <h1 class="text-2xl font-bold text-gray-800">{{ product.name }}</h1>
+          <p class="text-gray-600 mt-2">Kategorija: {{ product.category }}</p>
+          <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }} tona</p>
+          <p class="mt-4 text-gray-700">{{ product.description }}</p>
+            <button
+              @click="$router.push({ path: '/contact-us' })"
+              class="mt-6 btn-primary"
+            >
+            Zatraži ponudu
+            </button>
+        </div>
+      </div>
+      <div v-else class="text-center text-gray-500 text-lg mt-6">Proizvod nije pronađen.</div>
+    </div>
+  </template>
+
   

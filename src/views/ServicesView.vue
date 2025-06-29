@@ -28,14 +28,15 @@ import kran4 from '@/assets/img/kran4.jpg';
             :slide-direction="'right'"
             :button-name="'Pogledajte ponudu'"
     /> 
-    <Services
+    <!-- <Services
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Ugradnja dizalica'"
             :description="'Naš iskusni tim osigurava preciznu i brzu montažu dizalica na terenu, vodeći računa o sigurnosti i efikasnosti. Prepustite instalaciju stručnjacima.'"
             :details-link="'/details'"
             :slide-direction="'left'"
             :button-name="'Zakažite ugradnju'"
-    />     <Services
+    />  -->
+        <Services
     :images="[kran1, kran2, kran3, kran4]"
             :title="'Servis i održavanje'"
             :description="'Redovno održavanje i pravovremeni servis produžavaju vek trajanja vaše dizalice i osiguravaju bezbedan rad. Oslonite se na nas za preventivnu i hitnu intervenciju.'"

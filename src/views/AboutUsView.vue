@@ -7,6 +7,7 @@ import OurMission from '@/components/Our-mission.vue';
 
 <template>
 <AboutUs />
-  <OurVision />
-  <OurMission />
+  <!-- <OurVision />
+  <OurMission /> -->
+  <!-- https://alfakran.rs/o-nama/ -->
 </template>
