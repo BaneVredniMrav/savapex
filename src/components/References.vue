@@ -18,7 +18,7 @@ const navigateToGallery = (id) => {
             <div v-for="category in categories" :key="category.id" 
             class="relative rounded-lg shadow-lg overflow-hidden cursor-pointer group"
             @click="navigateToGallery(category.id)">
-                <div class="absolute top-0 left-0 w-full bg-black/50 text-white text-center py-4 px-2 z-10"> 
+                <div class="absolute top-0 left-0 w-full bg-black/55 text-white text-center py-4 px-2 z-10"> 
                     <h3 class="text-xl font-semibold">{{ category.client }}</h3>
                     <p class="md:hidden group-hover:block">{{ category.description }}</p>
                 </div>

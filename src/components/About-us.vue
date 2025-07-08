@@ -4,7 +4,7 @@ import AnimatedText from '@/components/AnimatedText.vue';
 
 <template>
   <main>
-    <section class="hero h-[70vh] bg-fixed relative flex items-center justify-center">
+    <section class="hero h-[100vh] bg-fixed relative flex items-center justify-center">
       <div class="max-w-4xl px-4 text-center relative z-10">
         <AnimatedText
           title="O firmi Savapex"
@@ -60,7 +60,7 @@ import AnimatedText from '@/components/AnimatedText.vue';
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/img/kran10.jpg");
+  background-image: url("@/assets/img/kran10.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
