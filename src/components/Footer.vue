@@ -8,7 +8,7 @@ const navLinks = [
   { path: "/about-us", label: "O Nama" },
   { path: "/products", label: "Proizvodi" },
   { path: "/services", label: "Usluge" },
-  { path: "/service-and-support", label: "Servis i Podrška" },
+  { path: "/references", label: "Reference" },
   { path: "/contact-us", label: "Kontakt" },
 ];
 

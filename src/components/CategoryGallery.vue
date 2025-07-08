@@ -2,27 +2,14 @@
 import { useRoute, useRouter } from 'vue-router';
 import { ref, computed, nextTick } from 'vue';
 import AnimatedText from './AnimatedText.vue';
-
-import kran1 from '@/assets/img/kran1.jpg';
-import kran2 from '@/assets/img/kran2.jpg';
-import kran3 from '@/assets/img/kran3.jpg';
-import kran4 from '@/assets/img/kran4.jpg';
+import { references } from '@/constants/references';
 
 // Vue Router instance
 const route = useRoute();
 const router = useRouter();
 
 // Definiši slike za svaku kategoriju
-const categories = ref([
-    { id: 1, title: 'Kranovi', images: [kran1, kran2, kran3, kran4, kran1, kran2, kran3, kran4, kran1, kran2] },
-    { id: 2, title: 'Mostovi', images: [kran2, kran3, kran4, kran1, kran2, kran3, kran4, kran1, kran2, kran3] },
-    { id: 3, title: 'Zgrade', images: [kran3, kran4, kran1, kran2, kran3, kran4, kran1, kran2, kran3, kran4] },
-    { id: 4, title: 'Mašine', images: [kran4, kran1, kran2, kran3, kran4, kran1, kran2, kran3, kran4, kran1] },
-    { id: 5, title: 'Kranovi', images: [kran1, kran2, kran3, kran4, kran1, kran2, kran3, kran4, kran1, kran2] },
-    { id: 6, title: 'Mostovi', images: [kran2, kran3, kran4, kran1, kran2, kran3, kran4, kran1, kran2, kran3] },
-    { id: 7, title: 'Zgrade', images: [kran3, kran4, kran1, kran2, kran3, kran4, kran1, kran2, kran3, kran4] },
-    { id: 8, title: 'Mašine', images: [kran4, kran1, kran2, kran3, kran4, kran1, kran2, kran3, kran4, kran1] },
-]);
+const categories = ref(references);
 
 const categoryId = computed(() => route.params.id);
 const selectedCategory = computed(() => categories.value.find(category => category.id == categoryId.value));
@@ -68,8 +55,8 @@ const goBack = () => {
 
 <template>
     <AnimatedText
-        :title="selectedCategory.title"
-        subtitle="Osiguranje da vaša oprema uvek bude u optimalnom stanju"
+        :title="selectedCategory.client"
+        :subtitle="selectedCategory.description"
     />
     <div class="max-w-6xl mx-auto p-6 ">
         <!-- Back dugme -->
@@ -86,7 +73,7 @@ const goBack = () => {
                     v-for="(image, index) in selectedCategory.images" 
                     :key="index" 
                     :src="image" 
-                    :alt="selectedCategory.title" 
+                    :alt="selectedCategory.client" 
                     class="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105"
                     @click="openModal(index)"
                 />

@@ -27,9 +27,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "services" */ '@/views/ServicesView.vue')
   },
   {
-    path: '/service-and-support',
-    name: 'ServiceAndSupport',
-    component: () => import(/* webpackChunkName: "service-and-support" */ '@/views/ServiceAndSupportView.vue')
+    path: '/references',
+    name: 'References',
+    component: () => import(/* webpackChunkName: "references" */ '@/views/ReferencesView.vue')
   },
   {
     path: '/contact-us',

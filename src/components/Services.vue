@@ -56,7 +56,7 @@ onUnmounted(() => {
     >
         <div :class="slideSectionClasses" ref="slideSection">
             <div
-                class="group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-10 bg-slate-700 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out w-full max-w-7xl overflow-hidden md:h-[50vh]"
+                class="group relative flex flex-row items-center gap-8 p-6 md:p-10 bg-slate-700 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out w-full max-w-7xl"
             >
                 <!-- Image always first in mobile view -->
                 <img

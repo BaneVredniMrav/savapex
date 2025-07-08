@@ -1,69 +1,36 @@
 <script setup>
-const cranes = [
-    {
-        client: "ČIP-Prokuplje",
-        description:
-            "Jednogreda mostna dizalica na električni pogon nosivosti Q=5t i raspona L = 12,4m",
-    },
-    {
-        client: "GAMA CONSULTING-Prokuplje",
-        description:
-            "Jednogreda mostna dizalica na električni pogon nosivosti Q=10t i raspona L=21m",
-    },
-    {
-        client: "MATIJAŠEVIĆ-Šopić-Lazarevac",
-        description:
-            "Jednogreda mostna dizalica na električni pogon nosivosti Q=3,2t i raspona L= 21m",
-    },
-    {
-        client: "GAMA CONSULTING-Prokuplje",
-        description:
-            "Jednogreda mostna dizalica na električni pogon nosivosti Q=10t i raspona L=21m",
-    },
-    {
-        client: "WACKER NEUSON-Kragujevac",
-        description:
-            "Obrtna stubna konzolna dizalica nosivosti Q=1000kg, dužine konzole L=4m n=180°",
-    },
-    {
-        client: "VALJAONICA BAKRA-SEVOJNO",
-        description: "Električno lančano vitlo 1000kg",
-    },
-    {
-        client: "GAMA CONSULTING-Prokuplje",
-        description:
-            "Jednogreda mostna dizalica na električni pogon nosivosti Q=5t i raspona L=22m",
-    },
-];
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { references } from '@/constants/references';
+
+const router = useRouter();
+
+const categories = ref(references);
+
+const navigateToGallery = (id) => {
+    router.push(`/category-gallery/${id}`);
+};
 </script>
 
 <template>
-    <div class="min-h-screen bg-slate-100 flex items-center justify-center">
-        <section class="max-w-4xl mx-auto p-8 flex flex-col items-center">
-            <h2>
-                Reference Ugrađenih Dizalica
-            </h2>
-            <ul class="space-y-8 w-full flex flex-col items-center mt-10">
-                <li
-                    v-for="(item, index) in cranes"
-                    :key="index"
-                    class="flex flex-col md:flex-row md:items-center md:space-x-8 bg-white rounded-xl shadow hover:shadow-lg transition-shadow border-l-8 border-slate-800 p-6 w-full max-w-5xl"
-                >
-                    <span
-                        class="flex-shrink-0 w-12 h-12 bg-slate-800 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-slate-200"
-                    >
-                        {{ index + 1 }}
-                    </span>
-                    <div class="mt-4 md:mt-0">
-                        <h3 >
-                            {{ item.client }}
-                        </h3>
-                        <p class="text-slate-700 text-lg leading-relaxed whitespace-pre-line">
-                            {{ item.description }}
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </div>
+    <section class="bg-gray-100 py-10 px-4 text-center">
+        <div class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div v-for="category in categories" :key="category.id" 
+            class="relative rounded-lg shadow-lg overflow-hidden cursor-pointer group"
+            @click="navigateToGallery(category.id)">
+                <div class="absolute top-0 left-0 w-full bg-black/50 text-white text-center py-4 px-2 z-10"> 
+                    <h3 class="text-xl font-semibold">{{ category.client }}</h3>
+                    <p class="md:hidden group-hover:block">{{ category.description }}</p>
+                </div>
+                <img :src="category.images[0]" :alt="category.client" class="w-full h-60 object-cover transition-transform group-hover:scale-105" />
+            </div>
+        </div>
+    </section>
 </template>
+
+<style scoped>
+.group:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+</style>

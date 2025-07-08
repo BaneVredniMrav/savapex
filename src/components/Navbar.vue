@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
-import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import logo from "@/assets/img/footer-logo.png";
 
 const route = useRoute();
@@ -35,7 +35,7 @@ const navLinks = [
   { path: "/about-us", label: "O Nama" },
   { path: "/products", label: "Proizvodi" },
   { path: "/services", label: "Usluge" },
-  { path: "/service-and-support", label: "Servis i Podrška" },
+  { path: "/references", label: "Reference" },
   { path: "/contact-us", label: "Kontakt" },
 ];
 
