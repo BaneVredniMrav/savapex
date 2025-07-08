@@ -83,7 +83,7 @@ const handleSubmit = async () => {
 
 <template>
   <section class="bg-gray-100 py-16 px-6 md:px-12 lg:px-24">
-    <div class="max-w-4xl mx-auto bg-slate-600 p-8 p-8 rounded-xl shadow-lg text-white">
+    <div class="max-w-6xl mx-auto bg-slate-600 p-8 p-8 rounded-xl shadow-lg text-white">
       <div class="w-full flex flex-col items-center justify-center mb-8 text-center px-4 animate-fade-in-up">
         <!-- Ikonica -->
         <div class="text-4xl mb-4">💬</div>
@@ -170,7 +170,7 @@ const handleSubmit = async () => {
         <button
           type="submit"
           :disabled="isSubmitting"
-          class="btn-primary w-full sm:w-auto mx-auto block"
+          class="btn-primary mx-auto block"
         >
           <span v-if="!isSubmitting">Pošalji</span>
           <span v-else class="animate-pulse">Slanje...</span>
