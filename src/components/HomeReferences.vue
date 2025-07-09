@@ -6,8 +6,7 @@ import { references } from "@/constants/references";
 <template>
     <div class="min-h-screen bg-slate-100 flex items-center justify-center">
         <section class="max-w-4xl mx-auto p-8 flex flex-col items-center">
-            <h2>
-                Reference Ugrađenih Dizalica
+            <h2>Proverena rešenja i zadovoljni klijenti širom Srbije
             </h2>
             <ul class="space-y-8 w-full flex flex-col items-center mt-10">
                 <li

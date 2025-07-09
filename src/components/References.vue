@@ -8,7 +8,7 @@ const router = useRouter();
 const categories = ref(references);
 
 const navigateToGallery = (id) => {
-    router.push(`/category-gallery/${id}`);
+    router.push(`/references-gallery/${id}`);
 };
 </script>
 

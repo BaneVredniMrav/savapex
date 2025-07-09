@@ -20,7 +20,7 @@ import AnimatedText from '@/components/AnimatedText.vue';
       <span class="sr-only">Background image of industrial crane</span>
     </section>
 
-    <article class="p-6 max-w-4xl mx-auto space-y-8">
+    <article class="p-16 max-w-4xl mx-auto space-y-8">
       <section aria-labelledby="osnovna-delatnost">
         <h2 id="osnovna-delatnost" >Osnovna delatnost SAVAPEX d.o.o.</h2>
         <div>

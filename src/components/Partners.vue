@@ -27,10 +27,7 @@ const partners = [
 <template>
   <section class="py-12 bg-gray-100">
     <div class="container max-w-7xl mx-auto text-center px-4">
-      <h2>Naši Partneri</h2>
-      <p class="mb-10 text-lg text-gray-500">
-        Ponosno sarađujemo sa vodećim kompanijama iz industrije
-      </p>
+      <h2>Ponosno sarađujemo sa vodećim kompanijama iz industrije</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-16 items-center my-16">
         <div
           v-for="partner in partners"

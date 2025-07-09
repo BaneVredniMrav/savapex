@@ -11,6 +11,6 @@ import HomeReferences from "@/components/HomeReferences.vue";
   <Hero />
   <MissionVision />
   <!-- <ServicesView /> -->
-  <Partners />
   <HomeReferences />
+  <Partners />
 </template>
