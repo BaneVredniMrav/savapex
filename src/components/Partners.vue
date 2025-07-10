@@ -28,11 +28,11 @@ const partners = [
   <section class="py-12 bg-gray-100">
     <div class="container max-w-7xl mx-auto text-center px-4">
       <h2>Ponosno sarađujemo sa vodećim kompanijama iz industrije</h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-16 items-center my-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center my-16">
         <div
           v-for="partner in partners"
           :key="partner.name"
-          class="flex justify-center"
+          class="flex justify-center bg-white p-2 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
             <img
             :src="partner.logo"

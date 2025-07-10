@@ -75,6 +75,15 @@ const routes = [
     description: 'Pregledajte galeriju fotografija naših realizovanih projekata i montaža, organizovanih po kategorijama proizvoda i usluga.'
   }
 }
+,
+  {
+    path: '/politika-privatnosti',
+    component: () => import('@/components/PrivacyPolicy.vue'),
+    meta: {
+      title: 'Politika privatnosti | Savapex',
+      description: 'Saznajte kako Savapex prikuplja, koristi i štiti vaše lične podatke u skladu sa važećim zakonima o zaštiti privatnosti.'
+    }
+  }
 ];
 
 const router = createRouter({

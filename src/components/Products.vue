@@ -80,7 +80,7 @@
       title="Naša ponuda dizalica"
       subtitle="Pronađite dizalicu koja odgovara vašim potrebama"
     />
-    <div class="bg-gray-100 py-10 px-4">
+    <div class="bg-gray-100 pb-8 px-4">
       <div class="max-w-7xl mx-auto pt-2">
         <!-- Filteri -->
         <div class="mt-8 flex gap-6 justify-center flex-wrap sm:flex-nowrap">
