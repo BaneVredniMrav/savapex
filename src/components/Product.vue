@@ -1,22 +1,19 @@
   <script setup>
   import { ref, onMounted } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
-  import kran1 from '@/assets/img/kran1.jpg';
-  import kran2 from '@/assets/img/kran2.jpg';
-  import kran3 from '@/assets/img/kran3.jpg';
-  import kran4 from '@/assets/img/kran4.jpg';
-  import kran5 from '@/assets/img/kran5.jpg';
+  import kran from '@/assets/img/products/kran.jpeg';
+
   
   const route = useRoute();
   const router = useRouter();
   const product = ref(null);
   
   const products = [
-    { id: 1, name: "Dizalica 5000", category: "Kablovske dizalice", capacity: 5, image: kran1, description: "Ova dizalica je pogodna za velike građevinske projekte." },
-    { id: 2, name: "Lančana dizalica X100", category: "Lančane dizalice", capacity: 10, image: kran2, description: "Izdržljiva lančana dizalica za teške terete." },
-    { id: 3, name: "Mobilna dizalica Pro", category: "Mobilne dizalice", capacity: 20, image: kran3, description: "Savršena za mobilne operacije i brze prenose." },
-    { id: 4, name: "Industrijska hala 200T", category: "Dizalice za industrijske hale i postrojenja", capacity: 50, image: kran4, description: "Industrijska dizalica za velike terete." },
-    { id: 5, name: "Specijalizovana dizalica S-500", category: "Dizalice za specijalizovane namene", capacity: 2, image: kran5, description: "Idealna za specijalizovane operacije i precizne radove." }
+    { id: 1, name: "Dizalica 5000", category: "Kablovske dizalice", capacity: 5, image: kran, description: "Ova dizalica je pogodna za velike građevinske projekte." },
+    { id: 2, name: "Lančana dizalica X100", category: "Lančane dizalice", capacity: 10, image: kran, description: "Izdržljiva lančana dizalica za teške terete." },
+    { id: 3, name: "Mobilna dizalica Pro", category: "Mobilne dizalice", capacity: 20, image: kran, description: "Savršena za mobilne operacije i brze prenose." },
+    { id: 4, name: "Industrijska hala 200T", category: "Dizalice za industrijske hale i postrojenja", capacity: 50, image: kran, description: "Industrijska dizalica za velike terete." },
+    { id: 5, name: "Specijalizovana dizalica S-500", category: "Dizalice za specijalizovane namene", capacity: 2, image: kran, description: "Idealna za specijalizovane operacije i precizne radove." }
   ];
   
   onMounted(() => {
@@ -37,8 +34,13 @@
             </button>
         </div>
       <div v-if="product" class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img :src="product.image" :alt="product.name" class="w-full h-64 object-cover" />
-        <div class="p-6">
+  <div class="bg-white p-4 flex justify-center items-center">
+    <img
+      :src="product.image"
+      :alt="product.name"
+      class="max-h-96 w-auto object-contain"
+    />
+  </div>        <div class="p-6">
           <h1 class="text-2xl font-bold text-gray-800">{{ product.name }}</h1>
           <p class="text-gray-600 mt-2">Kategorija: {{ product.category }}</p>
           <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }} tona</p>
