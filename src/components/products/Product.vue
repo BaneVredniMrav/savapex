@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { products } from '@/constants/products'
-import ContactModal from '@/components/ContactModal.vue'
+import ContactModal from '@/components/contact/ContactModal.vue'
 
 const route = useRoute()
 const router = useRouter()
