@@ -16,7 +16,7 @@ import AnimatedText from "./AnimatedText.vue";
       <!-- Button with click animation -->
       <RouterLink
         to="/contact-us"
-        class="text-xl px-10 py-4 btn-primary"
+        class="text-xl btn-primary"
         aria-label="Contact-us"
       >
         Kontaktirajte nas
