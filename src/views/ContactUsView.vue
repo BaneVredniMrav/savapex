@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from "vue";
 import AnimatedText from "@/components/AnimatedText.vue";
 import ContactForm from "@/components/contact/ContactForm.vue";
 import ContactInformations from "@/components/contact/ContactInformations.vue";

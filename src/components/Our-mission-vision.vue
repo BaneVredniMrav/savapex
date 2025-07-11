@@ -4,13 +4,13 @@ import vision from '@/assets/img/vision.png';
 </script>
 
 <template>
-  <section class="cool-gradient min-h-screen flex flex-col items-center justify-center py-16 px-4">
+  <section class="cool-gradient flex flex-col items-center justify-center py-12 px-4">
     <!-- Title & Description -->
-    <div class="w-full flex flex-col items-center mb-16">
+    <div class="w-full flex flex-col items-center mb-8 sm:mb-12">
       <h2 class="text-white">
         Vođeni svrhom, usmereni ka budućnosti
       </h2>
-      <p class="max-w-2xl text-lg md:text-xl text-slate-200 text-center font-medium">
+      <p class="text-lg text-white text-center">
         Naša misija i vizija predstavljaju temelj našeg poslovanja i putokaz za budućnost.
       </p>
     </div>
