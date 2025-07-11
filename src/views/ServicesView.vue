@@ -13,21 +13,7 @@ import Galery from '@/components/References.vue';
         title="Usluge koje pružamo"
         subtitle="Kompletna usluga za vaš biznis"
     />
-<Services
-    :images="[kran1, kran2, kran3, kran4]"
-            :title="'Prodaja dizalica'"
-            :description="'Pomažemo vam da odaberete savršenu dizalicu za vašu industriju, uz stručno savetovanje i širok asortiman rešenja. Bez obzira na zahteve, imamo pravu opciju za vas.'"
-            :details-link="'/products'"
-            :slide-direction="'left'"
-            :button-name="'Pogledajte ponudu'"
-    /> 
-        <Services
-    :images="[kran1, kran2, kran3, kran4]"
-            :title="'Servis i održavanje'"
-            :description="'Redovno održavanje i pravovremeni servis produžavaju vek trajanja vaše dizalice i osiguravaju bezbedan rad. Oslonite se na nas za preventivnu i hitnu intervenciju.'"
-            :details-link="'/details'"
-            :slide-direction="'right'"
-            :button-name="'Kontaktirajte servis'"
-    /> 
+
+        <Services/> 
     <Galery />
 </template>

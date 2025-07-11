@@ -37,7 +37,7 @@ const closeModal = () => {
       <div class="p-6">
         <h1 class="text-2xl font-bold text-gray-800">{{ product.name }}</h1>
         <p class="text-gray-600 mt-2">Kategorija: {{ product.category }}</p>
-        <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }} tona</p>
+        <p class="text-gray-600 mt-2">Kapacitet: {{ product.capacity }}</p>
         <p class="mt-4 text-gray-700">{{ product.description }}</p>
         <button @click="openModal" class="mt-6 btn-primary">Zatraži ponudu</button>
       </div>
