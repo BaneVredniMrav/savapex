@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router';
 import { ref, computed, nextTick } from 'vue';
-import AnimatedText from './AnimatedText.vue';
+import AnimatedText from '@/components/AnimatedText.vue';
 import { references } from '@/constants/references';
 
 // Vue Router instance
