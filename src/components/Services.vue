@@ -63,7 +63,7 @@ onUnmounted(() => {
                     v-if="isMobile || slideDirection === 'left'"
                     :src="currentImage"
                     alt="Image"
-                    class="w-full md:w-1/2 h-64 md:h-full rounded-xl object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
+                    class="w-full md:w-1/2 h-64 md:h-full rounded-lg object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
                 />
 
                 <div class="w-full md:w-1/2 text-white text-center">
@@ -79,7 +79,7 @@ onUnmounted(() => {
                     v-if="!isMobile && slideDirection !== 'left'"
                     :src="currentImage"
                     alt="Image"
-                    class="w-full md:w-1/2 h-64 md:h-full rounded-xl object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
+                    class="w-full md:w-1/2 h-64 md:h-full rounded-lg object-cover shadow-sm transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
                 />
             </div>
         </div>

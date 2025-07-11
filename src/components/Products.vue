@@ -2,32 +2,20 @@
   import { ref, computed, onMounted, onUnmounted } from "vue";
   import { useRouter } from "vue-router";
   import AnimatedText from "@/components/AnimatedText.vue";
-  import kran from "@/assets/img/products/kran.jpeg";
+  import { products } from "@/constants/products";
 
   const router = useRouter();
 
-  // Kategorije proizvoda
-  const categories = ref([
-    "Kablovske dizalice",
-    "Lančane dizalice",
-    "Mobilne dizalice",
-    "Dizalice za specijalizovane namene",
-    "Dizalice za industrijske hale i postrojenja",
-  ]);
+const categories = computed(() => {
+  return [...new Set(productsList.value.map(p => p.category))].sort()
+})
 
-  // Opcije kapaciteta
-  const capacities = ref([1, 2, 5, 10, 20, 50]);
+const capacities = computed(() => {
+  return [...new Set(productsList.value.map(p => p.capacity))].sort((a, b) => a - b)
+})
 
-  // Lista proizvoda
-  const products = ref([
-    { id: 1, name: "Dizalica 5000", category: "Kablovske dizalice", capacity: 5, image: kran },
-    { id: 2, name: "Lančana dizalica X100", category: "Lančane dizalice", capacity: 10, image: kran },
-    { id: 3, name: "Mobilna dizalica Pro", category: "Mobilne dizalice", capacity: 20, image: kran },
-    { id: 4, name: "Industrijska hala 200T", category: "Dizalice za industrijske hale i postrojenja", capacity: 50, image: kran },
-    { id: 5, name: "Specijalizovana dizalica S-500", category: "Dizalice za specijalizovane namene", capacity: 2, image: kran },
-  ]);
+  const productsList = ref(products);
 
-  // Selektovani filteri
   const selectedCategory = ref("");
   const selectedCapacity = ref("");
   const openDropdown = ref(null); // Prati koji dropdown je otvoren
@@ -52,9 +40,8 @@
     openDropdown.value = null;
   };
 
-  // Filtrirani proizvodi
   const filteredProducts = computed(() => {
-    return products.value.filter((product) => {
+    return productsList.value.filter((product) => {
       return (
         (selectedCategory.value === "" || product.category === selectedCategory.value) &&
         (selectedCapacity.value === "" || product.capacity === parseInt(selectedCapacity.value))

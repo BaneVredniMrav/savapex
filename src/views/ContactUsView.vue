@@ -15,8 +15,8 @@ const mapLink = computed(
   title="Kontaktirajte nas"
   subtitle="Tu smo da odgovorimo na sva vaša pitanja"
   /> 
-  <section class="bg-gray-100 py-12 px-6 md:px-12 lg:px-24 border-b border-brandRose">
-    <div class="max-w-6xl mx-auto bg-slate-600 p-8 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
+  <section class="bg-gray-100 py-8 px-4 lg:px-24 border-b border-brandRose">
+    <div class="max-w-4xl mx-auto bg-slate-600 p-4 sm:p-8 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
         <h3 class="text-2xl font-semibold text-brandOrange mb-4">Podaci o firmi</h3>
         <p class="text-white mt-2 mb-2"><strong>Naziv:</strong> Savapex d.o.o.</p>

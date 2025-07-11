@@ -1,5 +1,8 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute()
 
 const formData = ref({
   name: "",
@@ -7,6 +10,10 @@ const formData = ref({
   subject: "",
   message: "",
 });
+
+if (route.query.subject) {
+  formData.value.subject = String(route.query.subject)
+}
 
 const errors = ref({
   name: "",
@@ -82,8 +89,8 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <section class="bg-gray-100 py-16 px-6 md:px-12 lg:px-24">
-    <div class="max-w-6xl mx-auto bg-slate-600 p-8 p-8 rounded-xl shadow-lg text-white">
+  <section class="bg-gray-100 py-8 px-4 lg:px-24">
+    <div class="max-w-4xl mx-auto bg-slate-600 p-4 sm:p-8 rounded-lg shadow-lg text-white">
       <div class="w-full flex flex-col items-center justify-center mb-8 text-center px-4 animate-fade-in-up">
         <!-- Ikonica -->
         <div class="text-4xl mb-4">💬</div>
@@ -141,6 +148,8 @@ const handleSubmit = async () => {
             class="input"
             :class="{ 'border-red-500': errors.subject }"
             aria-label="Naslov"
+              :readonly="!!route.query.subject"
+
           />
           <p v-if="errors.subject" class="text-sm text-red-500 mt-1">
             {{ errors.subject }}
@@ -170,7 +179,7 @@ const handleSubmit = async () => {
         <button
           type="submit"
           :disabled="isSubmitting"
-          class="btn-primary mx-auto block"
+          class="btn-primary w-[50%] mx-auto block"
         >
           <span v-if="!isSubmitting">Pošalji</span>
           <span v-else class="animate-pulse">Slanje...</span>

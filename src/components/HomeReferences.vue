@@ -12,7 +12,7 @@ import { references } from "@/constants/references";
                 <li
                     v-for="(item, index) in references"
                     :key="index"
-                    class="flex flex-col md:flex-row md:items-center md:space-x-8 bg-white rounded-xl shadow hover:shadow-lg transition-shadow border-l-8 border-slate-800 p-6 w-full max-w-5xl"
+                    class="flex flex-col md:flex-row md:items-center md:space-x-8 bg-white rounded-lg shadow hover:shadow-lg transition-shadow border-l-8 border-slate-800 p-6 w-full max-w-5xl"
                 >
                     <span
                         class="flex-shrink-0 w-12 h-12 bg-slate-800 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-slate-200"

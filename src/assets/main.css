@@ -35,7 +35,7 @@
     @apply active:scale-95;
   }
   .input {
-    @apply w-full p-3 border border-slate-300 rounded-xl bg-white text-slate-800 placeholder-slate-400;
+    @apply w-full p-3 border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400;
     @apply shadow-sm transition-all duration-200 ease-in-out;
     @apply hover:border-brandOrange hover:ring-1 hover:ring-brandOrange;
     @apply focus:border-brandOrange focus:ring-2 focus:ring-brandOrange;
