@@ -8,7 +8,6 @@ import WhyChooseUs from '@/components/services/WhyChooseUs.vue';
 <template>
     <AnimatedText
         title="Usluge koje pružamo"
-        subtitle="SAVAPEX nudi kompletna rešenja za industrijsku dizalnu tehniku – od ideje do realizacije."
     />
     <ServicesGrid />
     <WhyChooseUs />

@@ -1,10 +1,10 @@
 <template>
-  <section class="bg-slate-50 py-24 px-6 md:px-12 lg:px-20">
+  <section class="bg-slate-50 py-12 px-6 md:px-12 lg:px-20">
     <div class="max-w-7xl mx-auto text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-800">
+      <h2>
         Zašto izabrati baš nas?
       </h2>
-      <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
+      <p>
         Više od <strong>20 godina iskustva</strong>, stotine uspešnih projekata i tim koji garantuje vrhunski kvalitet i sigurnost u industrijskoj montaži i proizvodnji.
       </p>
     </div>

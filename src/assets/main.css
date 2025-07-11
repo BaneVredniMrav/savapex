@@ -22,6 +22,10 @@
     @apply text-sm md:text-base font-medium tracking-wide mb-1 text-center;
   }
 
+  p {
+    @apply text-base md:text-lg max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
+  }
+
   .btn-primary {
     @apply inline-block relative bg-slate-800 font-semibold px-8 py-2 rounded-lg text-white border border-brandOrange shadow-lg ;
     @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent;
