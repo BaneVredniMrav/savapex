@@ -1,6 +1,6 @@
 <script setup>
 import AnimatedText from '@/components/AnimatedText.vue';
-import References from '@/components/References.vue';
+import References from '@/components/references/References.vue';
 </script>
 
 <template>

@@ -1,10 +1,8 @@
 <script setup>
 import { useHead } from '@vueuse/head'
 
-
+import ServicesView from '@/views/ServicesView.vue';
 import Hero from "@/components/Hero.vue";
-import Products from "@/components/Products.vue";
-import ServicesView from "./ServicesView.vue";
 import Partners from "@/components/Partners.vue";
 import MissionVision from "@/components/Our-mission-vision.vue";
 import HomeReferences from "@/components/HomeReferences.vue";
@@ -31,7 +29,7 @@ useHead({
 <template>
   <Hero />
   <MissionVision />
-  <!-- <ServicesView /> -->
+  <ServicesView />
   <HomeReferences />
   <Partners />
 </template>

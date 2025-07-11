@@ -6,7 +6,7 @@ const routes = [
   name: 'Home',
   component: () => import('@/views/HomeView.vue'),
   meta: {
-    title: 'Savapex | Industrijske dizalice, kranske staze i rešenja po meri',
+    title: 'Savapex | Početna',
     description: 'Dobrodošli na zvanični sajt kompanije Savapex – lidera u proizvodnji i ugradnji industrijskih dizalica, kranskih sistema i transportnih rešenja za industriju.'
   }
 },
@@ -15,7 +15,7 @@ const routes = [
   name: 'AboutUs',
   component: () => import('@/views/AboutUsView.vue'),
   meta: {
-    title: 'O nama | Savapex - Lider u industrijskim dizalicama',
+    title: 'Savapex | O nama',
     description: 'Saznajte više o kompaniji Savapex – našem iskustvu, misiji, viziji i zašto smo sinonim za kvalitetna i pouzdana industrijska rešenja.'
   }
 },
@@ -24,17 +24,17 @@ const routes = [
   name: 'Products',
   component: () => import('@/views/ProductsView.vue'),
   meta: {
-    title: 'Proizvodi | Industrijske dizalice i oprema - Savapex',
+    title: 'Savapex | Proizvodi',
     description: 'Pregledajte širok asortiman Savapex proizvoda – mosne dizalice, portalne dizalice, kranske staze, upravljački sistemi i još mnogo toga.'
   }
 },
 {
   path: '/product/:id',
   name: 'Product',
-  component: () => import('@/components/Product.vue'),
+  component: () => import('@/components/products/Product.vue'),
   props: true,
   meta: {
-    title: 'Detalji proizvoda | Savapex industrijska oprema',
+    title: 'Savapex | Proizvod',
     description: 'Detaljan prikaz karakteristika i tehničkih specifikacija proizvoda iz Savapex ponude industrijskih dizalica i opreme.'
   }
 },
@@ -43,7 +43,7 @@ const routes = [
   name: 'Services',
   component: () => import('@/views/ServicesView.vue'),
   meta: {
-    title: 'Usluge | Montaža, servis i tehnička podrška - Savapex',
+    title: 'Savapex | Usluge',
     description: 'Saznajte više o uslugama koje nudi Savapex: montaža dizalica, tehnička podrška, servis, modernizacija sistema i projektovanje rešenja po meri.'
   }
 },
@@ -52,7 +52,7 @@ const routes = [
   name: 'References',
   component: () => import('@/views/ReferencesView.vue'),
   meta: {
-    title: 'Reference | Naši uspešni projekti - Savapex',
+    title: 'Savapex | Reference',
     description: 'Pogledajte uspešne realizacije Savapex projekata u različitim industrijskim sektorima – pouzdan partner širom regiona.'
   }
 },
@@ -61,14 +61,14 @@ const routes = [
   name: 'ContactUs',
   component: () => import('@/views/ContactUsView.vue'),
   meta: {
-    title: 'Kontakt | Savapex - Pošaljite upit ili zatražite ponudu',
+    title: 'Savapex | Kontakt',
     description: 'Kontaktirajte Savapex za informacije, konsultacije i zahteve za ponudu. Naš tim vam stoji na raspolaganju za sva pitanja.'
   }
 },
 {
   path: '/references-gallery/:id',
   name: 'ReferencesGallery',
-  component: () => import('@/components/ReferencesGallery.vue'),
+  component: () => import('@/components/references/ReferencesGallery.vue'),
   props: true,
   meta: {
     title: 'Galerija radova | Savapex reference po kategorijama',
@@ -78,7 +78,7 @@ const routes = [
 ,
   {
     path: '/politika-privatnosti',
-    component: () => import('@/components/PrivacyPolicy.vue'),
+    component: () => import('@/components/privacy/PrivacyPolicy.vue'),
     meta: {
       title: 'Politika privatnosti | Savapex',
       description: 'Saznajte kako Savapex prikuplja, koristi i štiti vaše lične podatke u skladu sa važećim zakonima o zaštiti privatnosti.'
@@ -96,6 +96,11 @@ const router = createRouter({
     }
   },
   routes
+});
+
+router.afterEach((to) => {
+  const defaultTitle = 'Savapex';
+  document.title = to.meta.title || defaultTitle;
 });
 
 export default router;

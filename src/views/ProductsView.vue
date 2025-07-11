@@ -1,6 +1,6 @@
 <script setup>
 import AnimatedText from '@/components/AnimatedText.vue';
-import Products from '@/components/Products.vue';
+import Products from '@/components/products/Products.vue';
 </script>
 
 <template>

@@ -15,10 +15,10 @@ const partners = [
   { name: 'Partner 1', logo: teleradio },
   { name: 'Partner 3', logo: akappsteman },
   { name: 'Partner 2', logo: valjaonicaBakra },
-  { name: 'Partner 1', logo: uniprometCacak },
-  { name: 'Partner 3', logo: utva },
   { name: 'Partner 2', logo: tankMont },
+  { name: 'Partner 1', logo: uniprometCacak },
   { name: 'Partner 1', logo: gama },
+  { name: 'Partner 3', logo: utva },
   { name: 'Partner 3', logo: impol },
   { name: 'Partner 2', logo: schwing }
 ];

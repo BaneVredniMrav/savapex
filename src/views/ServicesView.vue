@@ -1,6 +1,8 @@
 <script setup>
 import AnimatedText from '@/components/AnimatedText.vue';
-import Services from '@/components/Services.vue';
+import QuestionOrProject from '@/components/services/QuestionOrProject.vue';
+import ServicesGrid from '@/components/services/ServicesGrid.vue';
+import WhyChooseUs from '@/components/services/WhyChooseUs.vue';
 </script>
 
 <template>
@@ -8,5 +10,7 @@ import Services from '@/components/Services.vue';
         title="Usluge koje pružamo"
         subtitle="SAVAPEX nudi kompletna rešenja za industrijsku dizalnu tehniku – od ideje do realizacije."
     />
-    <Services />
+    <ServicesGrid />
+    <WhyChooseUs />
+    <QuestionOrProject />
 </template>
