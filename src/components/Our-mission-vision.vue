@@ -4,74 +4,81 @@ import vision from '@/assets/img/vision.png';
 </script>
 
 <template>
-  <section class="cool-gradient flex flex-col items-center justify-center py-12 px-4">
-    <!-- Title & Description -->
-    <div class="w-full flex flex-col items-center mb-8 sm:mb-12">
-      <h2 class="text-white">
+  <section class="bg-slate-700 py-24 px-6 md:px-12">
+    <!-- Title Section -->
+    <div class="text-center mb-20 max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 animate-fade-in">
         Vođeni svrhom, usmereni ka budućnosti
       </h2>
-      <p class="text-lg text-white text-center">
-        Naša misija i vizija predstavljaju temelj našeg poslovanja i putokaz za budućnost.
+      <p class="text-lg md:text-xl text-slate-300 animate-fade-in delay-150">
+        Naša misija i vizija oblikuju naš identitet i usmeravaju nas ka inovacijama i poverenju.
       </p>
     </div>
 
     <!-- Cards Grid -->
-    <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 flex-grow">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 max-w-6xl mx-auto">
       <!-- Mission Card -->
       <div
-        class="group bg-white/90 rounded-3xl p-10 flex flex-col items-center text-center shadow-2xl border border-slate-200 hover:scale-105 hover:shadow-3xl transition-all duration-300 md:-translate-y-6 h-full"
+      class="bg-white/5 border border-brandRose backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up"
       >
-        <div class="bg-gradient-to-tr from-sky-400 to-slate-700 rounded-full p-3 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-          <img :src="mission" alt="Mission icon" class="w-20 h-20 object-contain" loading="lazy" />
-        </div>
-        <h3 class="text-2xl font-bold text-slate-800 mb-2 tracking-wide">Naša Misija</h3>
-        <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-slate-700 mb-4 rounded-full"></div>
-        <p class="text-slate-700 text-base leading-relaxed font-medium">
-          Naš cilj je da klijentima pružimo najefikasnije i najpouzdanije sisteme za dizanje i transport, uz potpunu podršku tokom celog životnog veka opreme.
-          Inovacije, izvrsnost i poverenje su vrednosti koje oblikuju našu kompaniju i odnose sa klijentima.
-        </p>
+      <img :src="mission" alt="Misija" class="w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-110" />
+      <h3 class="text-white">Naša Misija</h3>
+      <p class="text-slate-300">
+        Naš cilj je da klijentima pružimo najefikasnije i najpouzdanije sisteme za dizanje i transport, uz potpunu podršku tokom celog životnog veka opreme.
+        Inovacije, izvrsnost i poverenje su vrednosti koje oblikuju našu kompaniju.
+      </p>
       </div>
 
       <!-- Vision Card -->
       <div
-        class="group bg-white/90 rounded-3xl p-10 flex flex-col items-center text-center shadow-2xl border border-slate-200 hover:scale-105 hover:shadow-3xl transition-all duration-300 md:translate-y-6 h-full"
+      class=" border border-brandRose backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up delay-200"
       >
-        <div class="bg-gradient-to-tr from-yellow-400 to-slate-700 rounded-full p-3 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-          <img :src="vision" alt="Vision icon" class="w-20 h-20 object-contain" loading="lazy" />
-        </div>
-        <h3 class="text-2xl font-bold text-slate-800 mb-2 tracking-wide">Naša Vizija</h3>
-        <div class="w-16 h-1 bg-gradient-to-r from-yellow-400 to-slate-700 mb-4 rounded-full"></div>
-        <p class="text-slate-700 text-base leading-relaxed font-medium">
-          Težimo da postanemo vodeći regionalni partner u industriji dizalica i kranskih sistema, prepoznat po tehničkoj izvrsnosti, inovacijama i poverenju koje gradimo sa klijentima kroz transparentnost, kvalitet i stalno unapređenje industrijskog transporta.
-        </p>
+      <img :src="vision" alt="Vizija" class="w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-110" />
+      <h3 class="text-white">Naša Vizija</h3>
+      <p class="text-slate-300">
+        Težimo da postanemo vodeći regionalni partner u industriji dizalica i kranskih sistema, prepoznat po tehničkoj izvrsnosti, inovacijama i poverenju koje gradimo sa klijentima kroz transparentnost i kvalitet.
+      </p>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-@keyframes gradient-flow {
-  0% {
-    background-position: 0% 50%;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.cool-gradient {
-  background: linear-gradient(
-    45deg,
-    #94a3b8 0%,
-    #1e293b 25%,
-    #94a3b8 50%,
-    #1e293b 75%,
-    #94a3b8 100%
-  );
-  background-size: 300% 300%;
-  animation: gradient-flow 12s linear infinite;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-fade-in.delay-150 {
+  animation-delay: 0.15s;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
+.animate-slide-up.delay-200 {
+  animation-delay: 0.2s;
 }
 </style>
