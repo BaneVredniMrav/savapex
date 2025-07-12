@@ -1,11 +1,38 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import AnimatedText from "./AnimatedText.vue";
+import { RouterLink } from 'vue-router'
+import kran13 from '@/assets/img/krane13.jpg'
+import kran10 from '@/assets/img/kran10.png'
+import new1 from '@/assets/img/new/1.jpg'
 
+const images = [
+  kran13,
+  kran10,
+  new1
+]
+
+const currentIndex = ref(0)
+
+let intervalId = null
+
+onMounted(() => {
+  intervalId = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % images.length
+  }, 5000) // menja sliku na svakih 5 sekundi
+})
+
+onBeforeUnmount(() => {
+  clearInterval(intervalId)
+})
 </script>
 
 <template>
-<section class="hero h-[100vh] bg-fixed relative md:items-center">
-  <div class="max-w-4xl px-4 text-center relative z-10">
+  <section
+    class="hero h-[100vh] bg-fixed relative md:items-center transition-bg"
+    :style="{ backgroundImage: `url(${images[currentIndex]})` }"
+  >
+    <div class="max-w-4xl px-4 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
         title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"
@@ -23,14 +50,13 @@ import AnimatedText from "./AnimatedText.vue";
       </RouterLink>
     </div>
 
-    <!-- Optional: Add an overlay for better contrast with the background image -->
+    <!-- Overlay for better contrast -->
     <div class="absolute inset-0 bg-black bg-opacity-30"></div>
   </section>
 </template>
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/img/krane13.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,9 +65,10 @@ import AnimatedText from "./AnimatedText.vue";
   justify-content: center;
   min-height: 60vh;
   position: relative;
+  transition: background-image 1s ease-in-out;
 }
 
-/* Responsive adjustment for smaller screens */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .hero {
     background-position: top center; 
@@ -50,8 +77,8 @@ import AnimatedText from "./AnimatedText.vue";
   }
 
   .hero button {
-    width: 100%; /* Make button full-width on mobile */
-    padding: 16px; /* Add padding for better touch target */
+    width: 100%;
+    padding: 16px;
   }
 }
 </style>
