@@ -9,18 +9,22 @@ import tankMont from '@/assets/img/partners/tank-mont.png';
 import gama from '@/assets/img/partners/gama.png';
 import impol from '@/assets/img/partners/impol.png';
 import schwing from '@/assets/img/partners/schwing.jpg';
+import inobacka from '@/assets/img/partners/inobacka.png';
+import metaling from '@/assets/img/partners/metaling.png';
 
 const partners = [
-  { name: 'Partner 1', logo: konecranes },
-  { name: 'Partner 1', logo: teleradio },
-  { name: 'Partner 3', logo: akappsteman },
-  { name: 'Partner 2', logo: valjaonicaBakra },
-  { name: 'Partner 2', logo: tankMont },
-  { name: 'Partner 1', logo: uniprometCacak },
-  { name: 'Partner 1', logo: gama },
-  { name: 'Partner 3', logo: utva },
-  { name: 'Partner 3', logo: impol },
-  { name: 'Partner 2', logo: schwing }
+  { name: 'Konecranes', logo: konecranes },
+  { name: 'Teleradio', logo: teleradio },
+  { name: 'Akapp Steman', logo: akappsteman },
+  { name: 'Valjaonica Bakra', logo: valjaonicaBakra },
+  { name: 'Tank Mont', logo: tankMont },
+  { name: 'Unipromet Čačak', logo: uniprometCacak },
+  { name: 'Gama', logo: gama },
+  { name: 'Utva', logo: utva },
+  { name: 'Impol', logo: impol },
+  { name: 'Schwing', logo: schwing },
+  { name: 'Inobacka', logo: inobacka },
+  { name: 'Metaling', logo: metaling },
 ];
 </script>
 
