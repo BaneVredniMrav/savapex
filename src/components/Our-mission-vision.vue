@@ -19,7 +19,7 @@ import vision from '@/assets/img/vision.png';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 max-w-6xl mx-auto">
       <!-- Mission Card -->
       <div
-      class="bg-white/5 border border-brandRose backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up"
+      class="bg-white/5 border border-white backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up"
       >
       <img :src="mission" alt="Misija" class="w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-110" />
       <h3 class="text-white">Naša Misija</h3>
@@ -31,7 +31,7 @@ import vision from '@/assets/img/vision.png';
 
       <!-- Vision Card -->
       <div
-      class=" border border-brandRose backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up delay-200"
+      class=" border border-white backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up delay-200"
       >
       <img :src="vision" alt="Vizija" class="w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-110" />
       <h3 class="text-white">Naša Vizija</h3>
