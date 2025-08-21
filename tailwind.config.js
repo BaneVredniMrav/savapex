@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ['Work Sans', 'ui-sans-serif', 'system-ui'],  // body tekst
+        heading: ['Oswald', 'ui-sans-serif', 'system-ui'], // naslovi
       },
       gridTemplateColumns: {
         "70/30": "70% 28%",

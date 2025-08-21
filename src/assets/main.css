@@ -4,38 +4,38 @@
 
 @layer components {
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-center;
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-center font-heading;
   }
   h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-5 text-center;
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-5 text-center font-heading;
   }
   h3 {
-    @apply text-xl md:text-2xl font-semibold tracking-normal mb-4 text-center;
+    @apply text-xl md:text-2xl font-semibold tracking-normal mb-4 text-center font-heading;
   }
   h4 {
-    @apply text-lg md:text-xl font-semibold tracking-normal mb-3 text-center;
+    @apply text-lg md:text-xl font-semibold tracking-normal mb-3 text-center font-heading;
   }
   h5 {
-    @apply text-base md:text-lg font-medium tracking-wide mb-2 text-center;
+    @apply text-base md:text-lg font-medium tracking-wide mb-2 text-center font-heading;
   }
   h6 {
-    @apply text-sm md:text-base font-medium tracking-wide mb-1 text-center;
+    @apply text-sm md:text-base font-medium tracking-wide mb-1 text-center font-heading;
   }
 
   p {
-    @apply text-base md:text-lg max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
+    @apply font-sans text-base md:text-lg max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
   }
 
   .btn-primary {
-    @apply inline-block relative bg-slate-800 font-semibold px-8 py-2 rounded-lg text-white border border-brandOrange shadow-lg ;
-    @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent;
-    @apply active:bg-brandOrange active:text-slate-800 active:border-transparent active:shadow-xl active:scale-100 focus:outline-none;
+    @apply inline-block relative bg-slate-800 font-semibold px-8 py-2 rounded-lg text-white border border-brandOrange shadow-lg font-sans;
+    @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent font-sans;
+    @apply active:bg-brandOrange active:text-slate-800 active:border-transparent active:shadow-xl active:scale-100 focus:outline-none font-sans;
   }
 
     .link {
-    @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out;
-    @apply hover:text-brandOrange hover:underline underline-offset-4;
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2;
+    @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out  font-sans;
+    @apply hover:text-brandOrange hover:underline underline-offset-4  font-sans;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2  font-sans;
     @apply active:scale-95;
   }
   .input {
