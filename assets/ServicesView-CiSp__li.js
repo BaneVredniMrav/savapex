@@ -1,1 +1,0 @@
-import{A as a}from"./AnimatedText-D3LJ6AT6.js";import{S as r,W as s,_ as t}from"./QuestionOrProject-5r0un1D9.js";import{c as o,e,F as c,b as m}from"./index-Dnmtzl2l.js";const f={__name:"ServicesView",setup(i){return(n,_)=>(m(),o(c,null,[e(a,{title:"Usluge koje pružamo"}),e(r),e(s),e(t)],64))}};export{f as default};
