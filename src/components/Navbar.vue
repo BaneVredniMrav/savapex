@@ -47,17 +47,26 @@ onMounted(() => {
     <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
       <span class="mr-4">
         <a v-if="isMobile" :href="`tel:${phoneNumber}`" class="link">
-          <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+          <i class="pi pi-phone mr-1"></i> {{ phoneNumber }}
         </a>
         <button v-else @click="copyPhoneNumber" class="link focus:outline-none">
-          <i class="pi pi-phone mr-2"></i> {{ phoneNumber }}
+          <i class="pi pi-phone mr-1"></i> {{ phoneNumber }}
         </button>
       </span>
       <span>
         <a href="mailto:info@savapex.rs" class="link">
-          <i class="pi pi-envelope mr-2"></i> info@savapex.rs
+          <i class="pi pi-envelope mr-1"></i> info@savapex.rs
         </a>
       </span>
+                  <span class="ml-4">            <a
+        href="https://instagram.com/savapexdoo/"
+        target="_blank"
+        rel="noopener"
+        class="link"
+        aria-label="Instagram"
+      >
+        <i class="pi pi-instagram text-xl"></i>
+      </a></span>
     </div>
   </div>
 

@@ -20,16 +20,6 @@ import { RouterLink } from "vue-router";
           BaneVredniMrav
         </a>
       </p>
-
-      <a
-        href="https://instagram.com/savapexdoo/"
-        target="_blank"
-        rel="noopener"
-        class="inline-block mt-2 hover:text-brandOrange transition"
-        aria-label="Instagram"
-      >
-        <i class="pi pi-instagram text-xl"></i>
-      </a>
     </div>
   </footer>
 </template>
