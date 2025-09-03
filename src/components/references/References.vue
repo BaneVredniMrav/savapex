@@ -13,7 +13,7 @@ const navigateToGallery = (id) => {
 </script>
 
 <template>
-    <section class="bg-gray-100 py-10 px-4 text-center">
+    <section class="bg-gray-100 min-h-screen py-10  px-4 text-center">
         <div class="container max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div v-for="category in categories" :key="category.id" 
             class="relative rounded-lg shadow-lg overflow-hidden cursor-pointer group"
