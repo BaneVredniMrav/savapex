@@ -1,49 +1,34 @@
+<script setup>
+import { Truck, Award, Settings, Wrench, Building2, ShieldCheck } from 'lucide-vue-next'
+
+const features = [
+  { icon: Truck, title: 'Brza i tačna isporuka', description: 'Uvek poštujemo rokove, sa efikasnom logistikom i sigurnim transportom.' },
+  { icon: Award, title: 'Sertifikovan i obučen tim', description: 'Naši inženjeri i tehničari poseduju sve potrebne sertifikate i licencu.' },
+  { icon: Settings, title: 'Prilagođena rešenja', description: 'Svaki projekat je jedinstven – izrađujemo opremu po vašoj meri i potrebi.' },
+  { icon: Wrench, title: 'Servis i podrška', description: 'Nudimo brzu intervenciju, rezervne delove i redovno održavanje opreme.' },
+  { icon: Building2, title: 'Izrada kranskih staza', description: 'Projektovanje i montaža kranskih staza za sve tipove industrijskih dizalica.' },
+  { icon: ShieldCheck, title: 'Bezbednost na prvom mestu', description: 'Poštujemo sve domaće i EU standarde kako bi rad bio maksimalno bezbedan.' },
+]
+</script>
+
 <template>
-  <section class="bg-slate-50 py-12 px-6 md:px-12 lg:px-20">
-    <div class="max-w-7xl mx-auto text-center mb-16">
-      <h2>
-        Zašto izabrati baš nas?
-      </h2>
+  <section class="section-light">
+    <div class="container-wide text-center mb-8 sm:mb-10 md:mb-12">
+      <h2>Zašto izabrati baš nas?</h2>
       <p>
-        Više od <strong>20 godina iskustva</strong>, stotine uspešnih projekata i tim koji garantuje vrhunski kvalitet i sigurnost u industrijskoj montaži i proizvodnji.
+        Više od <strong>20 godina iskustva</strong>, stotine uspešnih projekata i tim koji garantuje vrhunski kvalitet.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-      <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow hover:shadow-lg transition group">
-        <div class="text-brandOrange text-4xl mb-4">🚚</div>
-        <h3 class="text-xl font-semibold group-hover:text-brandOrange transition">Brza i tačna isporuka</h3>
-        <p class="text-gray-600 text-sm">Uvek poštujemo rokove, sa efikasnom logistikom i sigurnim transportom.</p>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow hover:shadow-lg transition group">
-        <div class="text-brandOrange text-4xl mb-4">🧰</div>
-        <h3 class="text-xl font-semibold group-hover:text-brandOrange transition">Sertifikovan i obučen tim</h3>
-        <p class="text-gray-600 text-sm">Naši inženjeri i tehničari poseduju sve potrebne sertifikate i licencu.</p>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow hover:shadow-lg transition group">
-        <div class="text-brandOrange text-4xl mb-4">⚙️</div>
-        <h3 class="text-xl font-semibold group-hover:text-brandOrange transition">Prilagođena rešenja</h3>
-        <p class="text-gray-600 text-sm">Svaki projekat je jedinstven – izrađujemo opremu po vašoj meri i potrebi.</p>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow hover:shadow-lg transition group">
-        <div class="text-brandOrange text-4xl mb-4">🛠️</div>
-        <h3 class="text-xl font-semibold group-hover:text-brandOrange transition">Servis i podrška</h3>
-        <p class="text-gray-600 text-sm">Nudimo brzu intervenciju, rezervne delove i redovno održavanje opreme.</p>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow hover:shadow-lg transition group">
-        <div class="text-brandOrange text-4xl mb-4">🧱</div>
-        <h3 class="text-xl font-semibold group-hover:text-brandOrange transition">Izrada kranskih staza</h3>
-        <p class="text-gray-600 text-sm">Projektovanje i montaža kranskih staza za sve tipove industrijskih dizalica.</p>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow hover:shadow-lg transition group">
-        <div class="text-brandOrange text-4xl mb-4">🏗️</div>
-        <h3 class="text-xl font-semibold group-hover:text-brandOrange transition">Bezbednost na prvom mestu</h3>
-        <p class="text-gray-600 text-sm">Poštujemo sve domaće i EU standarde kako bi rad bio maksimalno bezbedan.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 container-wide">
+      <div v-for="feature in features" :key="feature.title" class="card group">
+        <div class="card-body">
+          <div class="icon-circle">
+            <component :is="feature.icon" class="w-6 h-6 sm:w-7 sm:h-7 text-brandOrange" />
+          </div>
+          <h4 class="card-title text-center group-hover:text-brandOrange transition">{{ feature.title }}</h4>
+          <p class="card-text text-center">{{ feature.description }}</p>
+        </div>
       </div>
     </div>
   </section>

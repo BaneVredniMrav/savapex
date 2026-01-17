@@ -6,10 +6,12 @@ import WhyChooseUs from '@/components/services/WhyChooseUs.vue';
 </script>
 
 <template>
-    <AnimatedText
-        title="Usluge koje pružamo"
-    />
-    <ServicesGrid />
-    <WhyChooseUs />
-    <QuestionOrProject />
+  <AnimatedText
+    title="Usluge koje pružamo"
+    subtitle="Kompletna rešenja za industrijsku dizalnu tehniku – od projektovanja do održavanja"
+  />
+  
+  <ServicesGrid />
+  <WhyChooseUs />
+  <QuestionOrProject />
 </template>

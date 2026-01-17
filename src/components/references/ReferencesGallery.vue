@@ -58,31 +58,31 @@ const goBack = () => {
         :title="selectedCategory.client"
         :subtitle="selectedCategory.description"
     />
-    <div class="max-w-6xl mx-auto p-6 ">
-        <!-- Back dugme -->
-        <div class="flex justify-end mb-4">
-            <button @click="goBack" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md hover:bg-brandOrange hover:text-slate-800 transition">
-                ← Nazad
-            </button>
-        </div>
+    <section class="section-light pb-16 min-h-[50vh]">
+        <div class="container-wide lg:max-w-6xl">
+            <!-- Back dugme -->
+            <div class="flex justify-end mb-6">
+                <button @click="goBack" class="btn-primary">← Nazad</button>
+            </div>
 
-        <div v-if="selectedCategory">
-            <!-- Galerija -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <img 
-                    v-for="(image, index) in selectedCategory.images" 
-                    :key="index" 
-                    :src="image" 
-                    :alt="selectedCategory.client" 
-                    class="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105"
-                    @click="openModal(index)"
-                />
+            <div v-if="selectedCategory">
+                <!-- Galerija -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <img 
+                        v-for="(image, index) in selectedCategory.images" 
+                        :key="index" 
+                        :src="image" 
+                        :alt="selectedCategory.client" 
+                        class="w-full h-64 object-cover rounded-2xl shadow-md cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                        @click="openModal(index)"
+                    />
+                </div>
+            </div>
+            <div v-else>
+                <p class="text-red-500 text-center text-xl mt-10">Kategorija nije pronađena!</p>
             </div>
         </div>
-        <div v-else>
-            <p class="text-red-500 text-center text-xl mt-10">Kategorija nije pronađena!</p>
-        </div>
-    </div>
+    </section>
 
     <!-- Modal za pregled slike -->
     <div v-if="isModalOpen" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">

@@ -91,59 +91,63 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-<div v-if="show" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-    <div class="bg-white text-black w-full max-w-2xl rounded-lg shadow-lg p-6 relative animate-fade-in-up mx-2 sm:mx-0">
-      <button @click="closeModal" class="absolute top-4 right-4 text-2xl font-bold text-gray-700 hover:text-brandOrange transition-colors">
+  <div v-if="show" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+    <div class="bg-white text-black w-full max-w-2xl rounded-2xl shadow-lg p-6 relative mx-2 sm:mx-0">
+      <button @click="closeModal" class="absolute top-4 right-4 text-2xl text-gray-700 hover:text-brandOrange transition-colors">
         ✕
       </button>
 
-      <h2 class="text-2xl font-bold mb-2 text-center">Zatraži ponudu</h2>
-      <p class="text-sm text-center mb-4 text-gray-500">Popunite formu i javićemo vam se što pre.</p>
+      <h3 class="mb-2">Zatraži ponudu</h3>
+      <p class="text-sm text-center mb-6 text-gray-500">Popunite formu i javićemo vam se što pre.</p>
 
       <form @submit.prevent="handleSubmit" class="space-y-4">
-        <input
-          v-model="formData.name"
-          type="text"
-          placeholder="Ime / Ime firme"
-          class="input w-full"
-          :class="{ 'border-red-500': errors.name }"
-        />
-        <p v-if="errors.name" class="text-sm text-red-500">{{ errors.name }}</p>
+        <div>
+          <input
+            v-model="formData.name"
+            type="text"
+            placeholder="Ime / Ime firme"
+            class="input"
+            :class="{ 'border-red-500': errors.name }"
+          />
+          <p v-if="errors.name" class="form-error">{{ errors.name }}</p>
+        </div>
 
-        <input
-          v-model="formData.email"
-          type="email"
-          placeholder="Email"
-          class="input w-full"
-          :class="{ 'border-red-500': errors.email }"
-        />
-        <p v-if="errors.email" class="text-sm text-red-500">{{ errors.email }}</p>
+        <div>
+          <input
+            v-model="formData.email"
+            type="email"
+            placeholder="Email"
+            class="input"
+            :class="{ 'border-red-500': errors.email }"
+          />
+          <p v-if="errors.email" class="form-error">{{ errors.email }}</p>
+        </div>
 
-        <input
-          v-model="formData.subject"
-          type="text"
-          placeholder="Naslov"
-          class="input w-full"
-          :readonly="!!subject"
-          :class="{ 'border-red-500': errors.subject }"
-        />
-        <p v-if="errors.subject" class="text-sm text-red-500">{{ errors.subject }}</p>
+        <div>
+          <input
+            v-model="formData.subject"
+            type="text"
+            placeholder="Naslov"
+            class="input"
+            :readonly="!!subject"
+            :class="{ 'border-red-500': errors.subject }"
+          />
+          <p v-if="errors.subject" class="form-error">{{ errors.subject }}</p>
+        </div>
 
-        <textarea
-          v-model="formData.message"
-          rows="4"
-          placeholder="Vaša poruka"
-          class="input w-full"
-          :class="{ 'border-red-500': errors.message }"
-        ></textarea>
-        <p v-if="errors.message" class="text-sm text-red-500">{{ errors.message }}</p>
+        <div>
+          <textarea
+            v-model="formData.message"
+            rows="4"
+            placeholder="Vaša poruka"
+            class="input"
+            :class="{ 'border-red-500': errors.message }"
+          ></textarea>
+          <p v-if="errors.message" class="form-error">{{ errors.message }}</p>
+        </div>
 
-        <p v-if="successMessage" class="text-green-600 text-center font-semibold">
-          {{ successMessage }}
-        </p>
-        <p v-if="errorMessage" class="text-red-600 text-center font-semibold">
-          {{ errorMessage }}
-        </p>
+        <p v-if="successMessage" class="form-success">{{ successMessage }}</p>
+        <p v-if="errorMessage" class="form-error text-center">{{ errorMessage }}</p>
 
         <button type="submit" :disabled="isSubmitting" class="btn-primary w-full">
           <span v-if="!isSubmitting">Pošalji</span>

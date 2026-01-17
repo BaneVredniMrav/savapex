@@ -10,7 +10,8 @@ import QuestionOrProject from "@/components/services/QuestionOrProject.vue";
 <template>
   <Hero />
   <MissionVision />
-    <ServicesGrid />
-    <WhyChooseUs />
-    <QuestionOrProject />  <Partners />
+  <ServicesGrid />
+  <WhyChooseUs />
+  <Partners />
+  <QuestionOrProject />
 </template>

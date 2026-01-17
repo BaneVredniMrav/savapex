@@ -32,7 +32,7 @@ onBeforeUnmount(() => {
     class="hero h-[100vh] bg-fixed relative md:items-center transition-bg"
     :style="{ backgroundImage: `url(${images[currentIndex]})` }"
   >
-    <div class="max-w-4xl px-4 text-center relative z-10">
+    <div class="container-narrow px-4 text-center relative z-10">
       <!-- Title with animation -->
       <AnimatedText 
         title="Visokokvalitetne industrijske dizalice za vašu efikasnost i sigurnost"
@@ -40,18 +40,14 @@ onBeforeUnmount(() => {
         text-color="white"
         background-color="gray"
       /> 
-      <!-- Button with click animation -->
-      <RouterLink
-        to="/contact-us"
-        class="text-xl btn-primary"
-        aria-label="Contact-us"
-      >
+      <!-- CTA Button -->
+      <RouterLink to="/contact-us" class="btn-primary" aria-label="Kontaktirajte nas">
         Kontaktirajte nas
       </RouterLink>
     </div>
 
     <!-- Overlay for better contrast -->
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
   </section>
 </template>
 

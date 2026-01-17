@@ -1,16 +1,16 @@
 <template>
-    <section class="container mx-auto px-4 py-16 text-neutral-900 max-w-3xl">
-        <h1 class="text-4xl font-extrabold mb-8 mt-16 tracking-tight">Politika privatnosti</h1>
-        <p class="mb-6 text-xs text-neutral-500">Poslednje ažuriranje: 10. jul 2025.</p>
+    <section class="section container-narrow text-neutral-900 pt-32">
+        <h1>Politika privatnosti</h1>
+        <p class="mb-8 text-sm text-neutral-500 text-center">Poslednje ažuriranje: 17. januar 2026.</p>
 
         <div class="space-y-8 text-base leading-relaxed">
-            <p>
-                <span class="font-semibold">SAVAPEX d.o.o.</span> poštuje vašu privatnost i obavezuje se da štiti lične podatke koje nam poveravate putem ove internet stranice. Ova politika privatnosti objašnjava kako prikupljamo, koristimo i čuvamo vaše podatke.
+            <p class="text-left max-w-none">
+                <strong>SAVAPEX d.o.o.</strong> poštuje vašu privatnost i obavezuje se da štiti lične podatke koje nam poveravate putem ove internet stranice. Ova politika privatnosti objašnjava kako prikupljamo, koristimo i čuvamo vaše podatke.
             </p>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">1. Koje podatke prikupljamo?</h2>
-                <ul class="list-disc pl-7 space-y-1 marker:text-primary-600">
+                <h4 class="text-left text-brandOrange">1. Koje podatke prikupljamo?</h4>
+                <ul class="list-styled pl-4">
                     <li>Ime i prezime</li>
                     <li>Email adresa</li>
                     <li>Broj telefona</li>
@@ -20,8 +20,8 @@
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">2. Kako koristimo vaše podatke?</h2>
-                <ul class="list-disc pl-7 space-y-1 marker:text-primary-600">
+                <h4 class="text-left text-brandOrange">2. Kako koristimo vaše podatke?</h4>
+                <ul class="list-styled pl-4">
                     <li>Odgovor na vaše upite i zahteve za ponudom</li>
                     <li>Komunikacija u vezi sa našim uslugama</li>
                     <li>Unutrašnja evidencija i poboljšanje korisničkog iskustva</li>
@@ -29,47 +29,47 @@
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">3. Da li delimo vaše podatke?</h2>
-                <p>
+                <h4 class="text-left text-brandOrange">3. Da li delimo vaše podatke?</h4>
+                <p class="text-left max-w-none">
                     Ne delimo, ne prodajemo i ne iznajmljujemo vaše podatke trećim stranama, osim ako smo zakonski obavezani.
                 </p>
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">4. Kolačići (Cookies)</h2>
-                <p>
+                <h4 class="text-left text-brandOrange">4. Kolačići (Cookies)</h4>
+                <p class="text-left max-w-none">
                     Naš sajt može koristiti kolačiće radi boljeg funkcionisanja i statistike poseta. Korišćenjem sajta pristajete na upotrebu kolačića. Možete ih isključiti u svom pregledaču.
                 </p>
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">5. Kako štitimo vaše podatke?</h2>
-                <p>
+                <h4 class="text-left text-brandOrange">5. Kako štitimo vaše podatke?</h4>
+                <p class="text-left max-w-none">
                     Koristimo tehničke i organizacione mere zaštite kako bismo sprečili neovlašćen pristup, zloupotrebu i gubitak podataka.
                 </p>
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">6. Vaša prava</h2>
-                <p>
+                <h4 class="text-left text-brandOrange">6. Vaša prava</h4>
+                <p class="text-left max-w-none">
                     U skladu sa zakonima o zaštiti podataka, imate pravo na pristup, ispravku, brisanje ili ograničenje obrade svojih podataka. Možete nas kontaktirati putem mejla:
-                    <a href="mailto:office@savapex.rs" class="text-primary-700 underline hover:text-primary-900 transition">office@savapex.rs</a>.
+                    <a href="mailto:info@savapex.rs" class="text-brandOrange underline hover:text-brandRose transition">info@savapex.rs</a>.
                 </p>
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">7. Kontakt</h2>
-                <address class="not-italic">
-                    <span class="font-semibold">SAVAPEX d.o.o.</span><br />
-                    Adresa: <span class="text-neutral-600">[unesite adresu firme]</span><br />
-                    Email: <a href="mailto:office@savapex.rs" class="text-primary-700 underline hover:text-primary-900 transition">office@savapex.rs</a><br />
-                    Telefon: <span class="text-neutral-600">[unesite broj telefona]</span>
+                <h4 class="text-left text-brandOrange">7. Kontakt</h4>
+                <address class="not-italic text-left">
+                    <strong>SAVAPEX d.o.o.</strong><br />
+                    Adresa: <span class="text-neutral-600">Kovačevac, Srbija</span><br />
+                    Email: <a href="mailto:info@savapex.rs" class="text-brandOrange underline hover:text-brandRose transition">info@savapex.rs</a><br />
+                    Telefon: <span class="text-neutral-600">+381 64 123 4567</span>
                 </address>
             </section>
 
             <section>
-                <h2 class="font-semibold text-lg mb-3 text-primary-700">8. Izmene politike</h2>
-                <p>
+                <h4 class="text-left text-brandOrange">8. Izmene politike</h4>
+                <p class="text-left max-w-none">
                     Ova politika može biti ažurirana bez prethodne najave. Svaka izmena će biti objavljena na ovoj stranici.
                 </p>
             </section>

@@ -4,40 +4,35 @@ import vision from '@/assets/img/vision.png';
 </script>
 
 <template>
-  <section class="bg-slate-700 py-24 px-6 md:px-12">
+  <section class="section-dark py-12 sm:py-16 md:py-24">
     <!-- Title Section -->
-    <div class="text-center mb-20 max-w-3xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 animate-fade-in">
+    <div class="text-center mb-8 sm:mb-12 md:mb-16 container-narrow px-4">
+      <h2 class="text-white mb-3 sm:mb-4 animate-fade-in">
         Vođeni svrhom, usmereni ka budućnosti
       </h2>
-      <p class="text-lg md:text-xl text-slate-300 animate-fade-in delay-150">
+      <p class="text-slate-300 animate-fade-in delay-150">
         Naša misija i vizija oblikuju naš identitet i usmeravaju nas ka inovacijama i poverenju.
       </p>
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-24 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-12 container-wide lg:max-w-5xl mx-auto px-4">
       <!-- Mission Card -->
-      <div
-      class="bg-white/5 border border-white backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up"
-      >
-      <img :src="mission" alt="Misija" class="w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-110" />
-      <h3 class="text-white">Naša Misija</h3>
-      <p class="text-slate-300">
-        Naš cilj je da klijentima pružimo najefikasnije i najpouzdanije sisteme za dizanje i transport, uz potpunu podršku tokom celog životnog veka opreme.
-        Inovacije, izvrsnost i poverenje su vrednosti koje oblikuju našu kompaniju.
-      </p>
+      <div class="card-glass animate-slide-up">
+        <img :src="mission" alt="Misija" class="w-14 h-14 sm:w-20 sm:h-20 mb-4 sm:mb-6" />
+        <h3 class="text-white">Naša Misija</h3>
+        <p class="text-slate-300">
+          Naš cilj je da klijentima pružimo najefikasnije i najpouzdanije sisteme za dizanje i transport, uz potpunu podršku tokom celog životnog veka opreme.
+        </p>
       </div>
 
       <!-- Vision Card -->
-      <div
-      class=" border border-white backdrop-blur-md rounded-2xl p-10 flex flex-col items-center text-center transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)] shadow-lg animate-slide-up delay-200"
-      >
-      <img :src="vision" alt="Vizija" class="w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-110" />
-      <h3 class="text-white">Naša Vizija</h3>
-      <p class="text-slate-300">
-        Težimo da postanemo vodeći regionalni partner u industriji dizalica i kranskih sistema, prepoznat po tehničkoj izvrsnosti, inovacijama i poverenju koje gradimo sa klijentima kroz transparentnost i kvalitet.
-      </p>
+      <div class="card-glass animate-slide-up delay-200">
+        <img :src="vision" alt="Vizija" class="w-14 h-14 sm:w-20 sm:h-20 mb-4 sm:mb-6" />
+        <h3 class="text-white">Naša Vizija</h3>
+        <p class="text-slate-300">
+          Težimo da postanemo vodeći regionalni partner u industriji dizalica i kranskih sistema, prepoznat po tehničkoj izvrsnosti i poverenju.
+        </p>
       </div>
     </div>
   </section>

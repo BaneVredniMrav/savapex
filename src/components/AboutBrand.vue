@@ -1,81 +1,54 @@
 <script setup>
-const testimonials = [
-  {
-    name: 'Ana Petrović',
-    text: 'Sjajna saradnja! Tim je izuzetno profesionalan i pouzdan.',
-  },
-  {
-    name: 'Marko Jovanović',
-    text: 'Kvalitet usluge je prevazišao naša očekivanja. Topla preporuka!',
-  },
-]
+import { RouterLink } from 'vue-router';
+import konecranes from '@/assets/img/partners/konecranes.png';
+import akappsteman from '@/assets/img/partners/akappsteman.png';
+import teleradio from '@/assets/img/partners/teleradio.png';
 
-const team = [
-  { name: 'Jelena Simić', role: 'CEO', image: '/team/jelena.jpg' },
-  { name: 'Ivan Kovač', role: 'CTO', image: '/team/ivan.jpg' },
-  { name: 'Milica Ristić', role: 'Marketing', image: '/team/milica.jpg' },
-]
+const partners = [
+  { name: 'Konecranes', logo: konecranes, description: 'Finska' },
+  { name: 'Teleradio', logo: teleradio, description: 'Italija' },
+  { name: 'Akapp Steman', logo: akappsteman, description: 'Holandija' },
+];
 </script>
 
 <template>
   <section class="bg-white text-gray-800">
-
-    <!-- Brand Story -->
-    <div class="max-w-4xl mx-auto text-center py-12">
-      <h2>Naša Priča</h2>
-      <p>
-        Naša firma je osnovana iz želje da promenimo industriju kroz inovacije i posvećenost korisnicima.
-        Sve je počelo sa malim timom i velikom idejom — danas gradimo rešenja koja prave razliku.
-      </p>
-    </div>
-
-    <!-- Mission and Values -->
-  
-
-    <!-- Team and Faces -->
-    <!-- <div
-      v-motion="{
-        initial: { opacity: 0, y: 50 },
-        enter: { opacity: 1, y: 0, transition: { delay: 0.8, duration: 0.8 } }
-      }"
-      class="text-center"
-    >
-      <h2 class="text-3xl font-bold mb-10">Upoznajte Naš Tim</h2>
-      <div class="flex flex-wrap justify-center gap-8">
-        <div v-for="member in team" :key="member.name" class="w-48 text-center">
-          <img :src="member.image" :alt="member.name" class="rounded-full w-32 h-32 mx-auto object-cover shadow-md" />
-          <h3 class="mt-4 font-semibold">{{ member.name }}</h3>
-          <p class="text-sm text-gray-500">{{ member.role }}</p>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Social Proof -->
-    <div class="bg-slate-700 py-12">
-      <h2 class="text-white mb-16">Šta Kažu Naši Klijenti</h2>
-    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto items-center justify-items-center">
-        <div v-for="t in testimonials" :key="t.name" class="bg-gray-100 p-6 rounded-xl shadow-sm">
-          <p>"{{ t.text }}"</p>
-          <p class="mt-4 font-semibold text-gray-900">{{ t.name }}</p>
+    <!-- Partners Section -->
+    <div class="section-light">
+      <div class="container-wide text-center">
+        <h2 class="mb-4">Naši partneri</h2>
+        <p class="mb-10">Sarađujemo sa vodećim svetskim proizvođačima opreme</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div 
+            v-for="partner in partners" 
+            :key="partner.name"
+            class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
+          >
+            <div class="h-20 flex items-center justify-center mb-4">
+              <img 
+                :src="partner.logo" 
+                :alt="partner.name"
+                class="max-h-16 w-auto object-contain"
+              />
+            </div>
+            <h4 class="text-gray-800 mb-1">{{ partner.name }}</h4>
+            <p class="text-gray-500 text-sm mb-0">{{ partner.description }}</p>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Call to Action -->
-    <div class="relative bg-slate-200 text-black py-12 px-6 md:px-12 lg:px-20 overflow-hidden">
-            <div class="absolute inset-0 opacity-10 bg-[url('@/assets/img/kran10.png')] bg-no-repeat bg-cover bg-contain pointer-events-none"></div>
-
-      <h2 >Spremni za saradnju?</h2>
-      <p class="mb-16">Kontaktirajte nas ili istražite naše proizvode.</p>
-      <div class="flex justify-center gap-4">
-        <RouterLink to="/contact-us" class="btn-primary">Kontakt</RouterLink>
-        <RouterLink to="/products" class="btn-primary">Pogledaj Proizvode</RouterLink>
+    <div class="section relative bg-slate-800 text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-5 bg-[url('@/assets/img/kran10.png')] bg-no-repeat bg-cover pointer-events-none"></div>
+      <div class="container-narrow text-center relative z-10">
+        <h2 class="text-white mb-4">Spremni za saradnju?</h2>
+        <p class="text-gray-300 mb-10">Kontaktirajte nas za besplatnu konsultaciju ili istražite našu ponudu.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <RouterLink to="/contact-us" class="btn-primary">Kontaktirajte nas</RouterLink>
+          <RouterLink to="/products" class="btn-outline-light">Pogledaj proizvode</RouterLink>
+        </div>
       </div>
     </div>
-
   </section>
 </template>
-
-<style scoped>
-/* dodatni stilovi po potrebi */
-</style>

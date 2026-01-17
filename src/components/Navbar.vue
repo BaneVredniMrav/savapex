@@ -6,7 +6,7 @@ import logo from "@/assets/img/footer-logo.png";
 const route = useRoute();
 const isMobileMenuOpen = ref(false);
 const showToaster = ref(false);
-const phoneNumber = "+381641234567";
+const phoneNumber = "+381 64 123 4567";
 const isMobile = ref(false);
 
 const navLinks = [
@@ -45,7 +45,7 @@ onMounted(() => {
   <!-- Top bar -->
   <div class="fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50">
     <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
-      <span class="mr-4">
+      <span class="mr-2 sm:mr-4">
         <a v-if="isMobile" :href="`tel:${phoneNumber}`" class="link">
           <i class="pi pi-phone mr-1"></i> {{ phoneNumber }}
         </a>

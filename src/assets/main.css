@@ -2,47 +2,224 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== BASE STYLES ===== */
+@layer base {
+  html {
+    @apply font-sans;
+  }
+  
+  body {
+    @apply font-sans text-gray-800 antialiased text-base md:text-lg;
+  }
+
+  /* Headings use Barlow Condensed - strong, industrial */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  /* Body text uses Barlow - clean, professional */
+  p, span, li, a, label, input, textarea, button {
+    @apply font-sans;
+  }
+
+  /* Lists */
+  ul, ol {
+    @apply font-sans text-base leading-relaxed;
+  }
+
+  /* Strong/Bold text */
+  strong, b {
+    @apply font-semibold;
+  }
+}
+
 @layer components {
+  /* ===== TYPOGRAPHY ===== */
+  /* Barlow Condensed - bold, industrial headings with tight tracking */
+  /* Mobile-first: smaller sizes for xs screens */
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-center font-heading;
+    @apply text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6 text-center uppercase;
   }
   h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-5 text-center font-heading;
+    @apply text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-3 md:mb-5 text-center uppercase;
   }
   h3 {
-    @apply text-xl md:text-2xl font-semibold tracking-normal mb-4 text-center font-heading;
+    @apply text-lg sm:text-xl md:text-3xl font-semibold tracking-tight mb-3 md:mb-4 text-center;
   }
   h4 {
-    @apply text-lg md:text-xl font-semibold tracking-normal mb-3 text-center font-heading;
+    @apply text-base sm:text-lg md:text-2xl font-semibold tracking-tight mb-2 md:mb-3 text-center;
   }
   h5 {
-    @apply text-base md:text-lg font-medium tracking-wide mb-2 text-center font-heading;
+    @apply text-base sm:text-lg md:text-xl font-medium tracking-normal mb-2 text-center;
   }
   h6 {
-    @apply text-sm md:text-base font-medium tracking-wide mb-1 text-center font-heading;
+    @apply text-sm sm:text-base md:text-lg font-medium tracking-normal mb-1 text-center;
   }
 
+  /* Barlow - clean, readable body text */
   p {
-    @apply font-sans text-base md:text-lg max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
+    @apply text-sm sm:text-base md:text-lg lg:text-xl max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
   }
 
+  /* ===== BUTTONS ===== */
   .btn-primary {
-    @apply inline-block relative bg-slate-800 font-semibold px-8 py-2 rounded-lg text-white border border-brandOrange shadow-lg font-sans;
-    @apply hover:bg-brandOrange hover:text-slate-800 hover:scale-105 hover:shadow-xl hover:border-transparent font-sans;
-    @apply active:bg-brandOrange active:text-slate-800 active:border-transparent active:shadow-xl active:scale-100 focus:outline-none font-sans;
+    @apply inline-block relative bg-slate-800 font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white border-2 border-brandOrange shadow-lg;
+    @apply uppercase tracking-wide text-xs sm:text-sm;
+    @apply hover:bg-brandOrange hover:text-slate-900 hover:scale-105 hover:shadow-xl hover:border-brandOrange;
+    @apply active:bg-brandOrange active:text-slate-900 active:border-brandOrange active:shadow-xl active:scale-100;
+    @apply focus:outline-none transition-all duration-200 ease-in-out;
   }
 
-    .link {
-    @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out  font-sans;
-    @apply hover:text-brandOrange hover:underline underline-offset-4  font-sans;
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2  font-sans;
+  .btn-secondary {
+    @apply inline-block relative bg-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-slate-800 border-2 border-slate-300 shadow-md;
+    @apply uppercase tracking-wide text-xs sm:text-sm;
+    @apply hover:border-brandOrange hover:text-brandOrange hover:shadow-lg;
+    @apply active:bg-gray-100 active:scale-95;
+    @apply focus:outline-none transition-all duration-200 ease-in-out;
+  }
+
+  /* Secondary button for dark backgrounds */
+  .btn-outline-light {
+    @apply inline-block relative bg-transparent font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white border-2 border-white shadow-md;
+    @apply uppercase tracking-wide text-xs sm:text-sm;
+    @apply hover:bg-white hover:text-slate-800 hover:shadow-lg;
+    @apply active:bg-gray-100 active:scale-95;
+    @apply focus:outline-none transition-all duration-200 ease-in-out;
+  }
+
+  /* ===== LINKS ===== */
+  .link {
+    @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out;
+    @apply hover:text-brandOrange hover:underline underline-offset-4;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2;
     @apply active:scale-95;
   }
+
+  /* ===== FORM INPUTS ===== */
   .input {
     @apply w-full p-3 border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400;
     @apply shadow-sm transition-all duration-200 ease-in-out;
     @apply hover:border-brandOrange hover:ring-1 hover:ring-brandOrange;
     @apply focus:border-brandOrange focus:ring-2 focus:ring-brandOrange;
     @apply focus:outline-none focus:bg-white;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    @apply bg-white border border-slate-200 rounded-2xl shadow-md overflow-hidden;
+    @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .card-body {
+    @apply p-4 sm:p-6;
+  }
+
+  .card-title {
+    @apply text-lg font-semibold text-gray-800 mb-2 text-left tracking-tight;
+  }
+
+  .card-text {
+    @apply text-gray-600 text-base leading-relaxed text-left;
+  }
+
+  /* ===== LISTS ===== */
+  .list-styled {
+    @apply list-disc list-inside space-y-2 text-gray-700;
+  }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    @apply py-8 sm:py-10 md:py-12 px-4 md:px-8 lg:px-16;
+  }
+
+  .section-dark {
+    @apply bg-slate-700 text-white py-8 sm:py-10 md:py-12 px-4 md:px-8 lg:px-16;
+  }
+
+  .section-light {
+    @apply bg-gray-100 py-8 sm:py-10 md:py-12 px-4 md:px-8 lg:px-16;
+  }
+
+  .section-white {
+    @apply bg-white py-8 sm:py-10 md:py-12 px-4 md:px-8 lg:px-16;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* ===== ICON BOX ===== */
+  .icon-box {
+    @apply text-brandOrange text-4xl mb-4;
+  }
+
+  .icon-circle {
+    @apply bg-brandOrange/10 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4;
+  }
+
+  .icon-circle-sm {
+    @apply bg-brandOrange/10 p-3 rounded-xl;
+  }
+
+  /* ===== BADGES ===== */
+  .badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold;
+  }
+
+  .badge-primary {
+    @apply bg-brandOrange text-white;
+  }
+
+  .badge-outline {
+    @apply bg-brandOrange/10 text-brandOrange border border-brandOrange/30;
+  }
+
+  /* ===== FEATURE CARD ===== */
+  .feature-card {
+    @apply bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Glass card for dark backgrounds */
+  .card-glass {
+    @apply bg-white/5 border border-white/20 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8;
+    @apply flex flex-col items-center text-center shadow-lg;
+    @apply transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_0_rgba(255,255,255,0.05)];
+  }
+
+  /* ===== PRODUCT CARD ===== */
+  .product-card {
+    @apply bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer;
+  }
+
+  .product-card-image {
+    @apply relative bg-gray-50 p-6 flex justify-center items-center h-56 overflow-hidden;
+  }
+
+  /* ===== BACK BUTTON ===== */
+  .btn-back {
+    @apply inline-flex items-center gap-2 bg-slate-700 text-white px-5 py-2 rounded-lg;
+    @apply hover:bg-brandOrange transition-all duration-300 shadow-md hover:shadow-lg font-medium;
+  }
+
+  /* ===== FORM MESSAGES ===== */
+  .form-error {
+    @apply text-sm text-red-500 mt-1 text-left;
+  }
+
+  .form-success {
+    @apply text-green-600 text-center font-semibold py-2;
+  }
+
+  /* ===== UTILITIES ===== */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

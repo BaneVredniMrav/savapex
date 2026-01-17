@@ -35,28 +35,28 @@ onMounted(() => {
 <template>
   <section
     ref="sectionRef"
-    class="bg-white py-12 px-6 md:px-12 lg:px-20 transition-all duration-1000 ease-in-out"
+    class="section-white transition-all duration-1000 ease-in-out"
   >
-      <div class="max-w-7xl mx-auto text-center mb-16">
-      <h2>
-        Šta nudimo?
-      </h2>
+    <div class="container-wide text-center mb-8 sm:mb-12 md:mb-16">
+      <h2>Šta nudimo?</h2>
       <p>
         SAVAPEX nudi kompletna rešenja za industrijsku dizalnu tehniku – od ideje do realizacije.
       </p>
     </div>
     <div
-      class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 transition-all duration-1000"
+      class="container-wide grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 transition-all duration-1000"
       :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
     >
       <div
         v-for="(service, index) in services"
         :key="index"
-        class="bg-white border border-slate-200 rounded-2xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        class="card text-center"
       >
-        <component :is="service.icon" class="w-12 h-12 mx-auto text-brandOrange mb-4" />
-        <h3 class="text-lg font-semibold mb-2">{{ service.title }}</h3>
-        <p class="text-gray-600 text-sm">{{ service.description }}</p>
+        <div class="card-body">
+          <component :is="service.icon" class="w-10 h-10 sm:w-12 sm:h-12 mx-auto text-brandOrange mb-3 sm:mb-4" />
+          <h4 class="card-title text-center">{{ service.title }}</h4>
+          <p class="card-text text-center">{{ service.description }}</p>
+        </div>
       </div>
     </div>
   </section>

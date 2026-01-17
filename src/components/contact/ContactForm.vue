@@ -89,102 +89,89 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <section class="bg-gray-100 py-8 px-4 lg:px-24">
-    <div class="max-w-4xl mx-auto bg-slate-600 p-4 sm:p-8 rounded-lg shadow-lg text-white">
-      <div class="w-full flex flex-col items-center justify-center mb-8 text-center px-4 animate-fade-in-up">
-        <!-- Ikonica -->
-        <div class="text-4xl mb-4">💬</div>
-        <!-- Naslov -->
-        <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
-          Imate dodatnih pitanja?
-        </h3>
-        <!-- Opis -->
-        <p class="text-lg md:text-xl max-w-2xl mb-6">
-          Naš tim je ovde da odgovori na sve vaše nedoumice. Slobodno nas kontaktirajte – biće nam zadovoljstvo da pomognemo.
-        </p>
-      </div>
-      <p
-        v-if="errorMessage"
-        class="text-red-600 text-center font-semibold mb-4"
-        aria-live="polite"
-      >
-        {{ errorMessage }}
+  <div class="bg-slate-700 p-6 sm:p-8 rounded-2xl shadow-lg text-white h-full flex flex-col">
+    <!-- Header -->
+    <div class="mb-6">
+      <h3 class="text-brandOrange text-left mb-2">Pošaljite nam poruku</h3>
+      <p class="text-gray-300 text-left text-base max-w-none mb-0">
+        Popunite formu ispod i javićemo vam se u najkraćem roku.
       </p>
-      <form @submit.prevent="handleSubmit" class="space-y-6">
-        <!-- Name -->
+    </div>
+
+    <!-- Error Message -->
+    <p v-if="errorMessage" class="bg-red-500/20 text-red-300 p-3 rounded-lg text-center mb-4" aria-live="polite">
+      {{ errorMessage }}
+    </p>
+
+    <!-- Form -->
+    <form @submit.prevent="handleSubmit" class="space-y-4 flex-1 flex flex-col">
+      <!-- Name & Email Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
+          <label class="text-sm text-gray-400 mb-1 block">Ime / Firma *</label>
           <input
             v-model="formData.name"
             type="text"
-            placeholder="Ime / Ime firme"
+            placeholder="Vaše ime ili naziv firme"
             class="input"
             :class="{ 'border-red-500': errors.name }"
-            aria-label="Ime"
           />
-          <p v-if="errors.name" class="text-sm text-red-500 mt-1">
-            {{ errors.name }}
-          </p>
+          <p v-if="errors.name" class="form-error">{{ errors.name }}</p>
         </div>
-        <!-- Email -->
         <div>
+          <label class="text-sm text-gray-400 mb-1 block">Email *</label>
           <input
             v-model="formData.email"
             type="email"
-            placeholder="Email"
+            placeholder="vas@email.com"
             class="input"
             :class="{ 'border-red-500': errors.email }"
-            aria-label="Email"
           />
-          <p v-if="errors.email" class="text-sm text-red-500 mt-1">
-            {{ errors.email }}
-          </p>
+          <p v-if="errors.email" class="form-error">{{ errors.email }}</p>
         </div>
-        <!-- Subject -->
-        <div>
-          <input
-            v-model="formData.subject"
-            type="text"
-            placeholder="Naslov"
-            class="input"
-            :class="{ 'border-red-500': errors.subject }"
-            aria-label="Naslov"
-              :readonly="!!route.query.subject"
+      </div>
 
-          />
-          <p v-if="errors.subject" class="text-sm text-red-500 mt-1">
-            {{ errors.subject }}
-          </p>
-        </div>
-        <!-- Message -->
-        <div>
-          <textarea
-            v-model="formData.message"
-            rows="4"
-            placeholder="Vaša poruka"
-            class="input"
-            :class="{ 'border-red-500': errors.message }"
-            aria-label="Poruka"
-          ></textarea>
-          <p v-if="errors.message" class="text-sm text-red-500 mt-1">
-            {{ errors.message }}
-          </p>
-        </div>
-              <p
-        v-if="successMessage"
-        class="text-green-600 text-center font-semibold mb-4"
-        aria-live="polite"
-      >
+      <!-- Subject -->
+      <div>
+        <label class="text-sm text-gray-400 mb-1 block">Naslov *</label>
+        <input
+          v-model="formData.subject"
+          type="text"
+          placeholder="O čemu se radi?"
+          class="input"
+          :class="{ 'border-red-500': errors.subject }"
+          :readonly="!!route.query.subject"
+        />
+        <p v-if="errors.subject" class="form-error">{{ errors.subject }}</p>
+      </div>
+
+      <!-- Message -->
+      <div class="flex-1 flex flex-col">
+        <label class="text-sm text-gray-400 mb-1 block">Poruka *</label>
+        <textarea
+          v-model="formData.message"
+          rows="5"
+          placeholder="Opišite vaš upit ili projekat..."
+          class="input flex-1 min-h-[120px]"
+          :class="{ 'border-red-500': errors.message }"
+        ></textarea>
+        <p v-if="errors.message" class="form-error">{{ errors.message }}</p>
+      </div>
+
+      <!-- Success Message -->
+      <p v-if="successMessage" class="bg-green-500/20 text-green-300 p-3 rounded-lg text-center" aria-live="polite">
         {{ successMessage }}
       </p>
-        <button
-          type="submit"
-          :disabled="isSubmitting"
-          class="btn-primary w-[50%] mx-auto block"
-        >
-          <span v-if="!isSubmitting">Pošalji</span>
-          <span v-else class="animate-pulse">Slanje...</span>
-        </button>
-      </form>
-    </div>
-  </section>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        :disabled="isSubmitting"
+        class="btn-primary w-full"
+      >
+        <span v-if="!isSubmitting">Pošalji poruku</span>
+        <span v-else class="animate-pulse">Slanje...</span>
+      </button>
+    </form>
+  </div>
 </template>

@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted, watchEffect } from "vue";
 
 const props = defineProps({
     title: { type: String, required: true },
-    subtitle: { type: String, required: true },
+    subtitle: { type: String, default: "" },
     textColor: { type: String, default: "#1e293b" },
     backgroundColor: { type: String, default: "" },
 });
@@ -51,11 +51,11 @@ watchEffect(() => {
 </script>
 
 <template>
-    <header class="max-w-5xl mx-auto text-center z-10 pt-32 px-4">
-        <div class="relative mb-6">
+    <header class="container-narrow text-center z-10 pt-28 sm:pt-32 md:pt-36 px-4">
+        <div class="relative mb-4 sm:mb-6">
             <h1
                 ref="titleRef"
-                class="relative text-3xl md:text-4xl lg:text-5xl font-bold"
+                class="relative"
                 :style="{ color: props.textColor }"
                 :class="{ 'text-focus-in': isTitleVisible }"
             >
@@ -69,10 +69,10 @@ watchEffect(() => {
                 </span>
             </h1>
         </div>
-        <div class="relative">
-            <h3
+        <div v-if="props.subtitle" class="relative">
+            <p
                 ref="subtitleRef"
-                class="mt-4 mb-8 relative"
+                class="mt-2 sm:mt-4 mb-6 sm:mb-8 relative"
                 :style="{ color: props.textColor }"
                 :class="{ 'text-focus-in': isSubtitleVisible }"
             >
@@ -84,7 +84,7 @@ watchEffect(() => {
                 <span class="relative z-10">
                     {{ props.subtitle }}
                 </span>
-            </h3>
+            </p>
         </div>
     </header>
 </template>
