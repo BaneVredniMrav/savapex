@@ -1,0 +1,6 @@
+# robots.txt for Savapex
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://banevrdnimrav.github.io/savapex/sitemap.xml
