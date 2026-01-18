@@ -43,35 +43,36 @@ onMounted(() => {
 
 <template>
   <!-- Top bar -->
-  <div class="fixed top-0 left-0 w-full bg-slate-700 text-sm py-2 z-50">
-    <div class="container mx-auto flex justify-end px-4 sm:px-6 lg:px-8">
-      <span class="mr-2 sm:mr-4">
-        <a v-if="isMobile" :href="`tel:${phoneNumber}`" class="link">
-          <i class="pi pi-phone mr-1"></i> {{ phoneNumber }}
-        </a>
-        <button v-else @click="copyPhoneNumber" class="link focus:outline-none">
-          <i class="pi pi-phone mr-1"></i> {{ phoneNumber }}
-        </button>
-      </span>
-      <span>
-        <a href="mailto:savapexdoo@gmail.com" class="link">
-          <i class="pi pi-envelope mr-1"></i> savapexdoo@gmail.com
-        </a>
-      </span>
-                  <span class="ml-4">            <a
+  <div class="fixed top-0 left-0 w-full bg-slate-700 py-1.5 min-[400px]:py-2 z-50">
+    <div class="container mx-auto flex justify-center sm:justify-end items-center gap-1.5 min-[360px]:gap-2 min-[400px]:gap-2.5 sm:gap-3 px-1 min-[360px]:px-2 min-[400px]:px-3 sm:px-4 lg:px-8">
+      <a v-if="isMobile" :href="`tel:${phoneNumber}`" class="link text-[12px] min-[360px]:text-[14px] min-[400px]:text-[16px] sm:text-sm md:text-base flex items-center">
+        <i class="pi pi-phone mr-0.5 min-[400px]:mr-1"></i>
+        <span class="whitespace-nowrap">{{ phoneNumber }}</span>
+      </a>
+      <button v-else @click="copyPhoneNumber" class="link text-[12px] min-[360px]:text-[14px] min-[400px]:text-[16px] sm:text-sm md:text-base flex items-center focus:outline-none">
+        <i class="pi pi-phone mr-0.5 min-[400px]:mr-1"></i>
+        <span class="whitespace-nowrap">{{ phoneNumber }}</span>
+      </button>
+      <span class="text-gray-500">|</span>
+      <a href="mailto:savapexdoo@gmail.com" class="link text-[12px] min-[360px]:text-[14px] min-[400px]:text-[16px] sm:text-sm md:text-base flex items-center">
+        <i class="pi pi-envelope mr-0.5 min-[400px]:mr-1"></i>
+        <span class="whitespace-nowrap">savapexdoo@gmail.com</span>
+      </a>
+      <span class="text-gray-500">|</span>
+      <a
         href="https://instagram.com/savapexdoo/"
         target="_blank"
         rel="noopener"
-        class="link"
+        class="link flex items-center"
         aria-label="Instagram"
       >
-        <i class="pi pi-instagram text-xl"></i>
-      </a></span>
+        <i class="pi pi-instagram text-sm min-[400px]:text-base sm:text-lg"></i>
+      </a>
     </div>
   </div>
 
   <!-- Navigation -->
-  <nav class="fixed top-8 left-0 w-full z-50 bg-slate-800 border-t border-b border-brandRose shadow-md">
+  <nav class="fixed top-[30px] min-[400px]:top-9 sm:top-10 left-0 w-full z-50 bg-slate-800 border-t border-b border-brandRose shadow-md">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->

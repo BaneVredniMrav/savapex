@@ -90,7 +90,7 @@
   /* ===== LINKS ===== */
   .link {
     @apply relative inline-block font-medium text-gray-300 transition-all duration-200 ease-in-out;
-    @apply hover:text-brandOrange hover:underline underline-offset-4;
+    @apply hover:text-brandOrange;
     @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brandOrange focus-visible:ring-offset-2;
     @apply active:scale-95;
   }
