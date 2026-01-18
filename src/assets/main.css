@@ -200,12 +200,6 @@
     @apply relative bg-gray-50 p-6 flex justify-center items-center h-56 overflow-hidden;
   }
 
-  /* ===== BACK BUTTON ===== */
-  .btn-back {
-    @apply inline-flex items-center gap-2 bg-slate-700 text-white px-5 py-2 rounded-lg;
-    @apply hover:bg-brandOrange transition-all duration-300 shadow-md hover:shadow-lg font-medium;
-  }
-
   /* ===== FORM MESSAGES ===== */
   .form-error {
     @apply text-sm text-red-500 mt-1 text-left;

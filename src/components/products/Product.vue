@@ -41,10 +41,8 @@ const goToProduct = (id) => {
     <!-- Back Button -->
     <div class="section-light py-4">
       <div class="container-wide flex justify-end">
-        <button @click="router.push('/products')" class="btn-back">
-          <ArrowLeft class="w-4 h-4" />
-          <span>Nazad na proizvode</span>
-        </button>
+        <button @click="router.push('/products')" class="btn-primary">← Nazad</button>
+        
       </div>
     </div>
 
