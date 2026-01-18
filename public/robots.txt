@@ -1,6 +1,26 @@
 # robots.txt for Savapex
+# https://banevrdnimrav.github.io/savapex/
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
 Sitemap: https://banevrdnimrav.github.io/savapex/sitemap.xml
