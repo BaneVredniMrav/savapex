@@ -6,7 +6,7 @@ import vueDevTools from "vite-plugin-vue-devtools";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/savapex/",
+  base: "/",
   plugins: [vue(), vueDevTools()],
   server: {
     port: 3000,

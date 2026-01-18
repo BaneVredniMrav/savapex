@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const BASE_URL = "https://banevrednimrav.github.io/savapex";
+const BASE_URL = "https://www.savapex.com";
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 const routes = [
