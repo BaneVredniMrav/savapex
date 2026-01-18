@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const BASE_URL = "https://banevrdnimrav.github.io/savapex";
+const BASE_URL = "https://banevrednimrav.github.io/savapex";
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 const routes = [
@@ -20,7 +20,7 @@ const routes = [
     component: () => import('@/views/AboutUsView.vue'),
     meta: {
       title: 'O nama | SAVAPEX - Iskustvo i pouzdanost',
-      description: 'Saznajte više o kompaniji Savapex - preko 30 godina iskustva u proizvodnji industrijskih dizalica. Naša misija, vizija i vrednosti.',
+      description: 'Saznajte više o kompaniji Savapex - preko 20 godina iskustva u proizvodnji industrijskih dizalica. Naša misija, vizija i vrednosti.',
       keywords: 'o nama Savapex, proizvodnja dizalica Srbija, iskustvo dizalice, industrijska oprema'
     }
   },
