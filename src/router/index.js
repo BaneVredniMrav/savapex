@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const BASE_URL = "https://banevrdnimrav.github.io/savapex";
-const DEFAULT_IMAGE = `${BASE_URL}/android-chrome-512x512.png`;
+const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 const routes = [
   {
@@ -9,8 +9,8 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/HomeView.vue'),
     meta: {
-      title: 'SAVAPEX | Industrijske dizalice i kranski sistemi',
-      description: 'Savapex d.o.o. - Vodeći proizvođač industrijskih dizalica u Srbiji. Mosne, portalne, konzolne dizalice, kranske staze i vitla. 30+ godina iskustva.',
+      title: 'SAVAPEX | Industrijske dizalice, mosne dizalice, portalne dizalice i kranski sistemi Srbija',
+      description: 'Savapex d.o.o. - Pouzdan partner za industrijske dizalice u Srbiji. Mosne, portalne, konzolne dizalice, kranske staze i vitla. 20+ godina iskustva.',
       keywords: 'industrijske dizalice, mosne dizalice, portalne dizalice, kranovi Srbija, Savapex'
     }
   },
@@ -113,7 +113,7 @@ const router = createRouter({
 // Update meta tags on route change for SEO
 router.afterEach((to) => {
   // Update document title
-  const defaultTitle = 'SAVAPEX | Industrijske dizalice i kranski sistemi';
+  const defaultTitle = 'SAVAPEX | Industrijske dizalice, mosne dizalice, portalne dizalice i kranski sistemi Srbija';
   document.title = to.meta.title || defaultTitle;
 
   // Update meta description
