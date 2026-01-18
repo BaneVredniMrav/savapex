@@ -3,7 +3,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter, RouterLink } from 'vue-router'
 import { products } from '@/constants/products'
 import ContactModal from '@/components/contact/ContactModal.vue'
-import { ArrowLeft, Weight, FileText, Phone } from 'lucide-vue-next'
+import { Weight, FileText, Phone } from 'lucide-vue-next'
 
 const route = useRoute()
 const router = useRouter()

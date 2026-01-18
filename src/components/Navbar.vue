@@ -6,7 +6,7 @@ import logo from "@/assets/img/footer-logo.png";
 const route = useRoute();
 const isMobileMenuOpen = ref(false);
 const showToaster = ref(false);
-const phoneNumber = "+381 64 123 4567";
+const phoneNumber = "+381 64 195 3211";
 const isMobile = ref(false);
 
 const navLinks = [
@@ -54,8 +54,8 @@ onMounted(() => {
         </button>
       </span>
       <span>
-        <a href="mailto:info@savapex.rs" class="link">
-          <i class="pi pi-envelope mr-1"></i> info@savapex.rs
+        <a href="mailto:savapexdoo@gmail.com" class="link">
+          <i class="pi pi-envelope mr-1"></i> savapexdoo@gmail.com
         </a>
       </span>
                   <span class="ml-4">            <a

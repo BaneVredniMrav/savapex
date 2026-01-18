@@ -71,7 +71,7 @@ const routes = [
     component: () => import('@/views/ContactUsView.vue'),
     meta: {
       title: 'Kontakt | SAVAPEX - Kontaktirajte nas',
-      description: 'Kontaktirajte Savapex za besplatne konsultacije i ponude. Telefon: +381 65 818 9651. Email: savapex@gmail.com. Stojimo vam na raspolaganju.',
+      description: 'Kontaktirajte Savapex za besplatne konsultacije i ponude. Telefon: +381 64 195 3211. Email: savapexdoo@gmail.com. Adresa: Toranjska 17, Kovačevac.',
       keywords: 'kontakt Savapex, telefon, email, adresa, ponuda dizalice'
     }
   },

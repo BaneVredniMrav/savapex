@@ -10,9 +10,9 @@ const mapLink = computed(
 
 const contactDetails = [
     { icon: Building2, label: 'Naziv', value: 'Savapex d.o.o.' },
-    { icon: MapPin, label: 'Adresa', value: 'Kovačevac, Srbija' },
-    { icon: Phone, label: 'Telefon', value: '+381 64 123 4567', href: 'tel:+381641234567' },
-    { icon: Mail, label: 'Email', value: 'info@savapex.rs', href: 'mailto:info@savapex.rs' },
+    { icon: MapPin, label: 'Adresa', value: 'Toranjska 17, 11409 Kovačevac' },
+    { icon: Phone, label: 'Telefon', value: '+381 64 195 3211', href: 'tel:+381641953211' },
+    { icon: Mail, label: 'Email', value: 'savapexdoo@gmail.com', href: 'mailto:savapexdoo@gmail.com' },
     { icon: Clock, label: 'Radno vreme', value: 'Pon - Pet: 08:00 - 16:00' },
 ];
 </script>

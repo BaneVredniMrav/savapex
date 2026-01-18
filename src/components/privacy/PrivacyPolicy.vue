@@ -53,7 +53,7 @@
                 <h4 class="text-left text-brandOrange">6. Vaša prava</h4>
                 <p class="text-left max-w-none">
                     U skladu sa zakonima o zaštiti podataka, imate pravo na pristup, ispravku, brisanje ili ograničenje obrade svojih podataka. Možete nas kontaktirati putem mejla:
-                    <a href="mailto:info@savapex.rs" class="text-brandOrange underline hover:text-brandRose transition">info@savapex.rs</a>.
+                    <a href="mailto:savapexdoo@gmail.com" class="text-brandOrange underline hover:text-brandRose transition">savapexdoo@gmail.com</a>.
                 </p>
             </section>
 
@@ -61,9 +61,9 @@
                 <h4 class="text-left text-brandOrange">7. Kontakt</h4>
                 <address class="not-italic text-left">
                     <strong>SAVAPEX d.o.o.</strong><br />
-                    Adresa: <span class="text-neutral-600">Kovačevac, Srbija</span><br />
-                    Email: <a href="mailto:info@savapex.rs" class="text-brandOrange underline hover:text-brandRose transition">info@savapex.rs</a><br />
-                    Telefon: <span class="text-neutral-600">+381 64 123 4567</span>
+                    Adresa: <span class="text-neutral-600">Toranjska 17, 11409 Kovačevac, Srbija</span><br />
+                    Email: <a href="mailto:savapexdoo@gmail.com" class="text-brandOrange underline hover:text-brandRose transition">savapexdoo@gmail.com</a><br />
+                    Telefon: <span class="text-neutral-600">+381 64 195 3211</span>
                 </address>
             </section>
 
