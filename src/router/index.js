@@ -9,7 +9,7 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/HomeView.vue'),
     meta: {
-      title: 'SAVAPEX | Industrijske dizalice, mosne dizalice, portalne dizalice i kranski sistemi Srbija',
+      title: 'SAVAPEX | Industrijske dizalice i kranski sistemi Srbija',
       description: 'Savapex d.o.o. - Pouzdan partner za industrijske dizalice u Srbiji. Mosne, portalne, konzolne dizalice, kranske staze i vitla. 20+ godina iskustva.',
       keywords: 'industrijske dizalice, mosne dizalice, portalne dizalice, kranovi Srbija, Savapex'
     }
@@ -113,7 +113,7 @@ const router = createRouter({
 // Update meta tags on route change for SEO
 router.afterEach((to) => {
   // Update document title
-  const defaultTitle = 'SAVAPEX | Industrijske dizalice, mosne dizalice, portalne dizalice i kranski sistemi Srbija';
+  const defaultTitle = 'SAVAPEX | Industrijske dizalice i kranski sistemi Srbija';
   document.title = to.meta.title || defaultTitle;
 
   // Update meta description
