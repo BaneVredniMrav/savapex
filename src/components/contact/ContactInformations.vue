@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 import { MapPin, Phone, Mail, Clock, Building2 } from 'lucide-vue-next';
 
-const latitude = 44.439385;
-const longitude = 20.735282;
+const latitude = 44.449100;
+const longitude = 20.744530;
 const mapLink = computed(
     () => `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`
 );
@@ -51,7 +51,7 @@ const contactDetails = [
         <div class="bg-slate-700 p-4 rounded-2xl shadow-lg flex-1 flex flex-col">
             <iframe
                 class="w-full flex-1 min-h-[250px] rounded-xl"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.632752454525!2d20.731731076908517!3d44.440694971075736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4750b74e70bb53d3%3A0x3ea6a576343ff0b8!2z0JrQvtCy0LDRh9C10LLQsNGG!5e0!3m2!1ssr!2srs!4v1740952376498!5m2!1ssr!2srs"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2848.5!2d20.744530!3d44.449100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDI2JzU2LjgiTiAyMMKwNDQnNDAuMyJF!5e0!3m2!1ssr!2srs"
                 allowfullscreen
                 loading="lazy"
             ></iframe>
