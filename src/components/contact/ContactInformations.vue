@@ -48,7 +48,7 @@ const contactDetails = [
         </div>
 
         <!-- Map Card -->
-        <div class="bg-slate-700 p-4 rounded-2xl shadow-lg flex-1 flex flex-col">
+        <div class="bg-slate-700 p-6 sm:p-8 rounded-2xl shadow-lg flex-1 flex flex-col">
             <iframe
                 class="w-full flex-1 min-h-[250px] rounded-xl"
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2848.5!2d20.744530!3d44.449100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDI2JzU2LjgiTiAyMMKwNDQnNDAuMyJF!5e0!3m2!1ssr!2srs"

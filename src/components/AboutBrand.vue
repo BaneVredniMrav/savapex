@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { Phone, FileText } from 'lucide-vue-next';
 import konecranes from '@/assets/img/partners/konecranes.png';
 import akappsteman from '@/assets/img/partners/akappsteman.png';
 import teleradio from '@/assets/img/partners/teleradio.png';
@@ -45,8 +46,14 @@ const partners = [
         <h2 class="text-white mb-4">Spremni za saradnju?</h2>
         <p class="text-gray-300 mb-10">Kontaktirajte nas za besplatnu konsultaciju ili istražite našu ponudu.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <RouterLink to="/contact-us" class="btn-primary">Kontaktirajte nas</RouterLink>
-          <RouterLink to="/products" class="btn-outline-light">Pogledaj proizvode</RouterLink>
+          <RouterLink to="/contact-us" class="btn-primary flex items-center justify-center gap-2">
+            <Phone class="w-5 h-5" />
+            Kontaktirajte nas
+          </RouterLink>
+          <RouterLink to="/products" class="btn-outline-light flex items-center justify-center gap-2">
+            <FileText class="w-5 h-5" />
+            Pogledaj proizvode
+          </RouterLink>
         </div>
       </div>
     </div>
