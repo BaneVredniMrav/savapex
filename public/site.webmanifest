@@ -1,0 +1,27 @@
+{
+  "name": "Savapex - Industrijske dizalice",
+  "short_name": "Savapex",
+  "description": "Vodeći proizvođač industrijskih dizalica u Srbiji. Mosne, portalne, konzolne dizalice i kranske staze.",
+  "start_url": "/savapex/",
+  "scope": "/savapex/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/savapex/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/savapex/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "industrial"],
+  "lang": "sr"
+}
