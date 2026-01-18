@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Homepage -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/</loc>
+    <loc>https://www.savapex.com/</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
   
   <!-- About Us -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/about-us</loc>
+    <loc>https://www.savapex.com/about-us</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -19,7 +19,7 @@
   
   <!-- Products List -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/products</loc>
+    <loc>https://www.savapex.com/products</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -27,37 +27,37 @@
   
   <!-- Individual Products -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/product/1</loc>
+    <loc>https://www.savapex.com/product/1</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/product/2</loc>
+    <loc>https://www.savapex.com/product/2</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/product/3</loc>
+    <loc>https://www.savapex.com/product/3</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/product/4</loc>
+    <loc>https://www.savapex.com/product/4</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/product/5</loc>
+    <loc>https://www.savapex.com/product/5</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/product/6</loc>
+    <loc>https://www.savapex.com/product/6</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -65,7 +65,7 @@
   
   <!-- Services -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/services</loc>
+    <loc>https://www.savapex.com/services</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -73,7 +73,7 @@
   
   <!-- References -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/references</loc>
+    <loc>https://www.savapex.com/references</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -81,7 +81,7 @@
   
   <!-- Contact -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/contact-us</loc>
+    <loc>https://www.savapex.com/contact-us</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -89,7 +89,7 @@
   
   <!-- Privacy Policy -->
   <url>
-    <loc>https://banevrednimrav.github.io/savapex/politika-privatnosti</loc>
+    <loc>https://www.savapex.com/politika-privatnosti</loc>
     <lastmod>2026-01-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
