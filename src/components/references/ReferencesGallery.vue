@@ -79,7 +79,7 @@ const goBack = () => {
                 </div>
             </div>
             <div v-else>
-                <p class="text-red-500 text-center text-xl mt-10">Kategorija nije pronađena!</p>
+                <p class="text-red-500 text-center text-lg mt-10">Kategorija nije pronađena!</p>
             </div>
         </div>
     </section>

@@ -51,7 +51,7 @@ const goToProduct = (id) => {
             <p class="card-text line-clamp-2 mb-4">
               {{ product.description }}
             </p>
-            <div class="flex items-center text-brandOrange font-semibold text-sm group-hover:gap-2 transition-all">
+            <div class="flex items-center text-brandOrange font-semibold text-sm sm:text-base group-hover:gap-2 transition-all">
               <span>Detaljnije</span>
               <ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
             </div>

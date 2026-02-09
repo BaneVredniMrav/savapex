@@ -98,7 +98,7 @@ const handleSubmit = async () => {
       </button>
 
       <h3 class="mb-2">Zatraži ponudu</h3>
-      <p class="text-sm text-center mb-6 text-gray-500">Popunite formu i javićemo vam se što pre.</p>
+      <p class="text-base text-center mb-6 text-gray-500">Popunite formu i javićemo vam se što pre.</p>
 
       <form @submit.prevent="handleSubmit" class="space-y-4">
         <div>

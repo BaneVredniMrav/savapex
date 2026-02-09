@@ -70,7 +70,7 @@ const goToProduct = (id) => {
                 <span>Nosivost: {{ product.capacity }}</span>
               </div>
               
-              <p class="card-text text-lg mb-8 max-w-none">
+              <p class="card-text mb-8 max-w-none">
                 {{ product.description }}
               </p>
               
@@ -100,21 +100,21 @@ const goToProduct = (id) => {
                 <Weight class="w-7 h-7 text-brandOrange" />
               </div>
               <h4 class="mb-2">Nosivost</h4>
-              <p class="card-text text-center text-lg mb-0">{{ product.capacity }}</p>
+              <p class="card-text text-center mb-0">{{ product.capacity }}</p>
             </div>
             <div class="feature-card">
               <div class="icon-circle">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-brandOrange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="m5 12 7-4 7 4"/><path d="M12 2v6"/></svg>
               </div>
               <h4 class="mb-2">Kvalitet</h4>
-              <p class="card-text text-center text-lg mb-0">EU standard</p>
+              <p class="card-text text-center mb-0">EU standard</p>
             </div>
             <div class="feature-card">
               <div class="icon-circle">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-brandOrange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
               <h4 class="mb-2">Garancija</h4>
-              <p class="card-text text-center text-lg mb-0">Servisna podrška</p>
+              <p class="card-text text-center mb-0">Servisna podrška</p>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@ const goToProduct = (id) => {
                 class="h-32 w-auto object-contain mx-auto mb-4"
               />
               <h4 class="group-hover:text-brandOrange transition-colors mb-1">{{ p.name }}</h4>
-              <p class="text-brandOrange font-semibold text-sm text-center mb-0">{{ p.capacity }}</p>
+              <p class="text-brandOrange font-semibold text-sm sm:text-base text-center mb-0">{{ p.capacity }}</p>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@ const goToProduct = (id) => {
 
     <!-- Not Found -->
     <div v-else class="section-light text-center py-20">
-      <p class="text-gray-500 text-xl">Proizvod nije pronađen.</p>
+      <p class="text-gray-500 text-lg">Proizvod nije pronađen.</p>
       <button @click="router.push('/products')" class="btn-primary mt-6">
         Pogledaj sve proizvode
       </button>
