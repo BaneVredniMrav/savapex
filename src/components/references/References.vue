@@ -18,7 +18,7 @@ const navigateToGallery = (id) => {
             <!-- Header galerije -->
             <div class="text-center mb-8 sm:mb-10 container-narrow mx-auto px-4">
                 <h2 class="text-slate-800 mb-2">
-                    Galerija radova
+                    Galerija
                 </h2>
                 <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
                     Pogledajte fotografije realizovanih projekata montaže dizalica i kranskih sistema.

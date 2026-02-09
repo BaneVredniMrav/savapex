@@ -1,7 +1,7 @@
 <script setup>
 import AnimatedText from '@/components/AnimatedText.vue';
-import References from '@/components/references/References.vue';
 import ReferencesList from '@/components/references/ReferencesList.vue';
+import Gallery from '@/components/references/Gallery.vue';
 </script>
 
 <template>
@@ -10,5 +10,5 @@ import ReferencesList from '@/components/references/ReferencesList.vue';
         subtitle="Garancija kvaliteta usluga koje pružamo je i referenc lista izradenih i isporučenih kranova."
     />
     <ReferencesList />
-    <References />
+    <Gallery />
 </template>

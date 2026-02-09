@@ -2,7 +2,7 @@
 const referentnaLista = [
   { broj: 1, firma: 'ČIP DOO', mesto: 'Prokuplje', opis: 'Jednogredna mosna dizalica na električni pogon nosivosti Q = 3,2 t i raspona L = 12 m.' },
   { broj: 2, firma: 'GAMA CONSULTING DOO', mesto: 'Prokuplje', opis: 'Jednogredna mosna dizalica na električni pogon nosivosti Q = 5 t i raspona L = 22 m.' },
-  { broj: 3, firma: 'MATIJAŠEVIĆ DOO', mesto: 'Sopić', opis: 'Jednogredna mosna dizalica na električni pogon nosivosti Q = 3,2 t i raspona L = 21,5 m.' },
+  { broj: 3, firma: 'MATIJAŠEVIĆ DOO', mesto: 'Šopić', opis: 'Jednogredna mosna dizalica na električni pogon nosivosti Q = 3,2 t i raspona L = 21,5 m.' },
   { broj: 4, firma: 'GAMA CONSULTING DOO', mesto: 'Prokuplje', opis: 'Jednogredna mosna dizalica na električni pogon nosivosti Q = 10 t i raspona L = 21 m.' },
   { broj: 5, firma: 'WACKER NEUSON DOO', mesto: 'Kragujevac', opis: 'Stubna dizalica na ručni pogon nosivosti Q = 1 t, dužine strele L = 4 m.' },
   { broj: 6, firma: 'VALJAONICA BAKRA DOO', mesto: 'Sevojno', opis: 'Fiksno električno užetno vitlo nosivosti Q = 3,2 t.' },
@@ -17,6 +17,7 @@ const referentnaLista = [
   { broj: 15, firma: 'LIGRAP LIVNICA DOO', mesto: 'Belosavci', opis: 'Napajanje dizalice dužine L = 40 m.' },
   { broj: 16, firma: 'SMURFIT KAPPA DOO', mesto: 'Beograd', opis: 'Kuka sa koturačom nosivosti Q = 30 t.' },
   { broj: 17, firma: 'SCHWING STETTER DOO', mesto: 'Smederevo', opis: 'Lančano električno vitlo nosivosti Q = 100 kg i Q = 500 kg.' },
+  { broj: 18, firma: 'TEIKOM DOO', mesto: 'Šimanovci', opis: 'Jednogreda mosna dizalica na električni pogon nosivosti Q=10t raspina L = 21m sa kranskom stazom 60m' },
 ];
 </script>
 
