@@ -53,18 +53,18 @@
     @apply text-base sm:text-lg md:text-xl font-medium tracking-normal mb-2 text-center;
   }
   h6 {
-    @apply text-sm sm:text-base md:text-lg font-medium tracking-normal mb-1 text-center;
+    @apply text-sm sm:text-base font-medium tracking-normal mb-1 text-center;
   }
 
-  /* Barlow - clean, readable body text */
+  /* Barlow - clean, readable body text (16px → 18px) */
   p {
-    @apply text-sm sm:text-base md:text-lg lg:text-xl max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
+    @apply text-base sm:text-lg max-w-xl md:max-w-2xl mx-auto leading-relaxed text-center;
   }
 
   /* ===== BUTTONS ===== */
   .btn-primary {
     @apply inline-block relative bg-slate-800 font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white border-2 border-brandOrange shadow-lg;
-    @apply uppercase tracking-wide text-xs sm:text-sm;
+    @apply uppercase tracking-wide text-sm;
     @apply hover:bg-brandOrange hover:text-slate-900 hover:scale-105 hover:shadow-xl hover:border-brandOrange;
     @apply active:bg-brandOrange active:text-slate-900 active:border-brandOrange active:shadow-xl active:scale-100;
     @apply focus:outline-none transition-all duration-200 ease-in-out;
@@ -72,7 +72,7 @@
 
   .btn-secondary {
     @apply inline-block relative bg-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-slate-800 border-2 border-slate-300 shadow-md;
-    @apply uppercase tracking-wide text-xs sm:text-sm;
+    @apply uppercase tracking-wide text-sm;
     @apply hover:border-brandOrange hover:text-brandOrange hover:shadow-lg;
     @apply active:bg-gray-100 active:scale-95;
     @apply focus:outline-none transition-all duration-200 ease-in-out;
@@ -81,7 +81,7 @@
   /* Secondary button for dark backgrounds */
   .btn-outline-light {
     @apply inline-block relative bg-transparent font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white border-2 border-white shadow-md;
-    @apply uppercase tracking-wide text-xs sm:text-sm;
+    @apply uppercase tracking-wide text-sm;
     @apply hover:bg-white hover:text-slate-800 hover:shadow-lg;
     @apply active:bg-gray-100 active:scale-95;
     @apply focus:outline-none transition-all duration-200 ease-in-out;
@@ -115,7 +115,7 @@
   }
 
   .card-title {
-    @apply text-lg font-semibold text-gray-800 mb-2 text-left tracking-tight;
+    @apply text-lg sm:text-xl font-semibold text-gray-800 mb-2 text-left tracking-tight;
   }
 
   .card-text {
@@ -124,7 +124,7 @@
 
   /* ===== LISTS ===== */
   .list-styled {
-    @apply list-disc list-inside space-y-2 text-gray-700;
+    @apply list-disc list-inside space-y-2 text-gray-700 text-base;
   }
 
   /* ===== SECTIONS ===== */

@@ -33,7 +33,7 @@ const partners = [
               />
             </div>
             <h4 class="text-gray-800 mb-1">{{ partner.name }}</h4>
-            <p class="text-gray-500 text-sm mb-0">{{ partner.description }}</p>
+            <p class="text-gray-500 text-sm sm:text-base mb-0">{{ partner.description }}</p>
           </div>
         </div>
       </div>

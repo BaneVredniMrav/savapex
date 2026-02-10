@@ -1,12 +1,14 @@
 <script setup>
 import AnimatedText from '@/components/AnimatedText.vue';
-import References from '@/components/references/References.vue';
+import ReferencesList from '@/components/references/ReferencesList.vue';
+import Gallery from '@/components/references/Gallery.vue';
 </script>
 
 <template>
     <AnimatedText
-        title="Ponosno predstavljamo reference ugrađenih dizalica"
-        subtitle="Proverena rešenja i zadovoljni klijenti širom Srbije"
+        title="Referenc lista"
+        subtitle="Garancija kvaliteta usluga koje pružamo je i referenc lista izradenih i isporučenih kranova."
     />
-    <References />
+    <ReferencesList />
+    <Gallery />
 </template>

@@ -30,7 +30,7 @@ const partners = [
             />
           </div>
           <h4 class="mb-1">{{ partner.name }}</h4>
-          <p class="text-gray-500 text-xs sm:text-sm mb-0">{{ partner.country }}</p>
+          <p class="text-gray-500 text-sm sm:text-base mb-0">{{ partner.country }}</p>
         </div>
       </div>
     </div>

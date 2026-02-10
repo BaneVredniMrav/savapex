@@ -66,7 +66,7 @@ const stats = [
             class="text-white px-4 py-3 md:px-8"
           >
             <p class="text-3xl md:text-5xl font-bold mb-1">{{ stat.value }}</p>
-            <p class="text-xs md:text-base opacity-90 mb-0">{{ stat.label }}</p>
+            <p class="text-sm sm:text-base opacity-90 mb-0">{{ stat.label }}</p>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@ const stats = [
               <component :is="adv.icon" class="w-7 h-7 text-brandOrange" />
             </div>
             <h4 class="text-white mb-2">{{ adv.title }}</h4>
-            <p class="text-gray-300 text-sm mb-0">{{ adv.text }}</p>
+            <p class="text-gray-300 text-sm sm:text-base mb-0">{{ adv.text }}</p>
           </div>
         </div>
       </div>

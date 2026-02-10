@@ -14,7 +14,18 @@ const navigateToGallery = (id) => {
 
 <template>
     <section class="section-light pb-16">
-        <div class="container-wide grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="container-wide">
+            <!-- Header galerije -->
+            <div class="text-center mb-8 sm:mb-10 container-narrow mx-auto px-4">
+                <h2 class="text-slate-800 mb-2">
+                    Galerija
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
+                    Pogledajte fotografije realizovanih projekata montaže dizalica i kranskih sistema.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div 
                 v-for="category in categories" 
                 :key="category.id" 
@@ -31,10 +42,11 @@ const navigateToGallery = (id) => {
                 <!-- Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-4">
                     <h4 class="text-white text-left mb-1">{{ category.client }}</h4>
-                    <p class="text-gray-300 text-sm text-left line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-gray-300 text-sm sm:text-base text-left line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         {{ category.description }}
                     </p>
                 </div>
+            </div>
             </div>
         </div>
     </section>
