@@ -7,7 +7,7 @@ import teleradio from '@/assets/img/partners/teleradio.png';
 
 const partners = [
   { name: 'Konecranes', logo: konecranes, description: 'Finska' },
-  { name: 'Teleradio', logo: teleradio, description: 'Italija' },
+  { name: 'Teleradio', logo: teleradio, description: 'Švedska' },
   { name: 'Akapp Steman', logo: akappsteman, description: 'Holandija' },
 ];
 </script>
